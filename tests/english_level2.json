@@ -1,0 +1,185 @@
+{
+  "title": "Англійська мова – Рівень 2",
+  "questions": [
+    {
+      "id": 1,
+      "type": "open_text",
+      "text": "Please be quiet! I ________ (try) to concentrate.",
+      "correct": "am trying"
+    },
+    {
+      "id": 2,
+      "type": "open_text",
+      "text": "Look! It ________ (snow).",
+      "correct": "is snowing"
+    },
+    {
+      "id": 3,
+      "type": "open_text",
+      "text": "Why ________ you ________ (look) at me like that?",
+      "correct": "are ... looking"
+    },
+    {
+      "id": 4,
+      "type": "open_text",
+      "text": "How many cigarettes ________ you ________ (smoke) a day?",
+      "correct": "do ... smoke"
+    },
+    {
+      "id": 5,
+      "type": "open_text",
+      "text": "What ________ the word 'deceive' ________ (mean)?",
+      "correct": "does ... mean"
+    },
+    {
+      "id": 6,
+      "type": "open_text",
+      "text": "The swimming bath ________ (open) at 9 and ________ (close) at 5.",
+      "correct": "opens ... closes"
+    },
+    {
+      "id": 7,
+      "type": "open_text",
+      "text": "The plural of a mouse is ________.",
+      "correct": "mice"
+    },
+    {
+      "id": 8,
+      "type": "open_text",
+      "text": "What ________ your father ________ (do)?",
+      "correct": "does ... do"
+    },
+    {
+      "id": 9,
+      "type": "open_text",
+      "text": "The kettle ________ (boil)! Can you turn it off?",
+      "correct": "is boiling"
+    },
+    {
+      "id": 10,
+      "type": "open_text",
+      "text": "Yesterday Tom ________ (wake) up at 8!",
+      "correct": "woke"
+    },
+    {
+      "id": 11,
+      "type": "open_text",
+      "text": "Yesterday Tom ________ (have) a sandwich for lunch.",
+      "correct": "had"
+    },
+    {
+      "id": 12,
+      "type": "open_text",
+      "text": "Tom's father ________ (teach) him to drive when he was 16.",
+      "correct": "taught"
+    },
+    {
+      "id": 13,
+      "type": "open_text",
+      "text": "Ann ________ (spend) a lot of money yesterday.",
+      "correct": "spent"
+    },
+    {
+      "id": 14,
+      "type": "open_text",
+      "text": "At 9 o'clock yesterday Ann ________ (have) breakfast.",
+      "correct": "was having"
+    },
+    {
+      "id": 15,
+      "type": "open_text",
+      "text": "I ________ (fall) asleep when I was watching TV.",
+      "correct": "fell"
+    },
+    {
+      "id": 16,
+      "type": "open_text",
+      "text": "Last night I was reading in bed when suddenly I ________ (hear) a scream.",
+      "correct": "heard"
+    },
+    {
+      "id": 17,
+      "type": "open_text",
+      "text": "George fell off the ladder when he ________ (paint) the ceiling.",
+      "correct": "was painting"
+    },
+    {
+      "id": 18,
+      "type": "open_text",
+      "text": "Tom is ________ (good) at English than Gregory.",
+      "correct": "better"
+    },
+    {
+      "id": 19,
+      "type": "open_text",
+      "text": "English is ________ (easy) than German.",
+      "correct": "easier"
+    },
+    {
+      "id": 20,
+      "type": "open_text",
+      "text": "Yesterday we ________ (have) enough time to visit all the museums.",
+      "correct": "did not have"
+    },
+    {
+      "id": 21,
+      "type": "open_text",
+      "text": "I ________ (write) a letter at the moment.",
+      "correct": "am writing"
+    },
+    {
+      "id": 22,
+      "type": "open_text",
+      "text": "See what you have ________ (do).",
+      "correct": "done"
+    },
+    {
+      "id": 23,
+      "type": "open_text",
+      "text": "Why ________ you ________ (cry) at me?",
+      "correct": "are ... crying"
+    },
+    {
+      "id": 24,
+      "type": "open_text",
+      "text": "You should have ________ (follow) me.",
+      "correct": "followed"
+    },
+    {
+      "id": 25,
+      "type": "open_text",
+      "text": "If I ________ (have) enough time I would go to the party.",
+      "correct": "had"
+    },
+    {
+      "id": 26,
+      "type": "open_text",
+      "text": "If I had been the President at that time it ________ (happen).",
+      "correct": "wouldn't have happened"
+    },
+    {
+      "id": 27,
+      "type": "open_text",
+      "text": "The plural of the word retina is ________.",
+      "correct": "retinae"
+    },
+    {
+      "id": 28,
+      "type": "open_text",
+      "text": "The water ________ (boil)! Can you turn it off?",
+      "correct": "is boiling"
+    },
+    {
+      "id": 29,
+      "type": "open_text",
+      "text": "Last night I was reading in bed when suddenly I ________ (see) my neighbour.",
+      "correct": "saw"
+    },
+    {
+      "id": 30,
+      "type": "open_text",
+      "text": "This document should have ________ (write) yesterday!",
+      "correct": "been written"
+    }
+  ]
+}

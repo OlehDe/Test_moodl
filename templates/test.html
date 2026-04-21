@@ -45,16 +45,16 @@
 
                         {% set qtype = q.type|default('single_choice') %}
                         {% if qtype == 'single_choice' %}
-                            {% for opt_idx, opt in enumerate(q.options) %}
+                            {% for opt in q.options %}
                             <label>
-                                <input type="radio" name="q{{ q.id }}" value="{{ opt_idx }}" class="question-input">
+                                <input type="radio" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
                                 {{ opt }}
                             </label>
                             {% endfor %}
                         {% elif qtype == 'multiple_choice' %}
-                            {% for opt_idx, opt in enumerate(q.options) %}
+                            {% for opt in q.options %}
                             <label>
-                                <input type="checkbox" name="q{{ q.id }}" value="{{ opt_idx }}" class="question-input">
+                                <input type="checkbox" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
                                 {{ opt }}
                             </label>
                             {% endfor %}
@@ -86,16 +86,15 @@
                 document.querySelectorAll('.question-block').forEach(block => {
                     const qid = block.dataset.qid;
                     const qtype = block.dataset.qtype;
-                    const inputName = qtype === 'multiple_choice' ? `q${qid}` : `q${qid}`;
                     let isAnswered = false;
                     if (qtype === 'single_choice') {
-                        const radio = block.querySelector(`input[name="${inputName}"]:checked`);
+                        const radio = block.querySelector(`input[name="q${qid}"]:checked`);
                         isAnswered = radio !== null;
                     } else if (qtype === 'multiple_choice') {
-                        const checkboxes = block.querySelectorAll(`input[name="${inputName}"]:checked`);
+                        const checkboxes = block.querySelectorAll(`input[name="q${qid}"]:checked`);
                         isAnswered = checkboxes.length > 0;
                     } else if (qtype === 'open_text') {
-                        const textInput = block.querySelector(`input[name="${inputName}"]`);
+                        const textInput = block.querySelector(`input[name="q${qid}"]`);
                         isAnswered = textInput && textInput.value.trim() !== '';
                     }
                     if (isAnswered) answered.add(qid);
@@ -146,15 +145,9 @@
                             resultSpan.style.color = '#1e7e34';
                         } else {
                             let correctStr = '';
-                            if (qtype === 'single_choice') {
-                                const options = block.querySelectorAll('label');
-                                const correctIdx = data.correct_answer;
-                                correctStr = options[correctIdx]?.innerText.trim() || '';
-                            } else if (qtype === 'multiple_choice') {
-                                const options = block.querySelectorAll('label');
-                                const correctIndices = data.correct_answer;
-                                correctStr = correctIndices.map(idx => options[idx]?.innerText.trim()).join(', ');
-                            } else if (qtype === 'open_text') {
+                            if (Array.isArray(data.correct_answer)) {
+                                correctStr = data.correct_answer.join(', ');
+                            } else {
                                 correctStr = data.correct_answer;
                             }
                             resultSpan.innerHTML = `❌ Неправильно. Правильна відповідь: ${correctStr}`;

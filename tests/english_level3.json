@@ -1,0 +1,777 @@
+{
+  "title": "Англійська мова – Рівень 3",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single_choice",
+      "text": "beat around the bush",
+      "options": [
+        "avoid something",
+        "very easy",
+        "favourite student",
+        "be very happy"
+      ],
+      "correct": "avoid something"
+    },
+    {
+      "id": 2,
+      "type": "single_choice",
+      "text": "a piece of cake",
+      "options": [
+        "avoid something",
+        "very easy",
+        "favourite student",
+        "be very happy"
+      ],
+      "correct": "very easy"
+    },
+    {
+      "id": 3,
+      "type": "single_choice",
+      "text": "teacher's pet",
+      "options": [
+        "avoid something",
+        "very easy",
+        "favourite student",
+        "be very happy"
+      ],
+      "correct": "favourite student"
+    },
+    {
+      "id": 4,
+      "type": "single_choice",
+      "text": "be on heaven 9",
+      "options": [
+        "avoid something",
+        "very easy",
+        "favourite student",
+        "be very happy"
+      ],
+      "correct": "be very happy"
+    },
+    {
+      "id": 5,
+      "type": "single_choice",
+      "text": "rely",
+      "options": ["on", "to", "for", "in"],
+      "correct": "on"
+    },
+    {
+      "id": 6,
+      "type": "single_choice",
+      "text": "belong",
+      "options": ["on", "to", "for", "in"],
+      "correct": "to"
+    },
+    {
+      "id": 7,
+      "type": "single_choice",
+      "text": "apply",
+      "options": ["on", "to", "for", "in"],
+      "correct": "for"
+    },
+    {
+      "id": 8,
+      "type": "single_choice",
+      "text": "believe",
+      "options": ["on", "to", "for", "in"],
+      "correct": "in"
+    },
+    {
+      "id": 9,
+      "type": "single_choice",
+      "text": "complain",
+      "options": ["to", "of", "on", "with"],
+      "correct": "to"
+    },
+    {
+      "id": 10,
+      "type": "single_choice",
+      "text": "consist",
+      "options": ["to", "of", "on", "with"],
+      "correct": "of"
+    },
+    {
+      "id": 11,
+      "type": "single_choice",
+      "text": "concentrate",
+      "options": ["to", "of", "on", "with"],
+      "correct": "on"
+    },
+    {
+      "id": 12,
+      "type": "single_choice",
+      "text": "collide",
+      "options": ["to", "of", "on", "with"],
+      "correct": "with"
+    },
+    {
+      "id": 13,
+      "type": "single_choice",
+      "text": "sorry",
+      "options": ["about", "for", "in", "on"],
+      "correct": "about"
+    },
+    {
+      "id": 14,
+      "type": "single_choice",
+      "text": "famous",
+      "options": ["about", "for", "in", "on"],
+      "correct": "for"
+    },
+    {
+      "id": 15,
+      "type": "single_choice",
+      "text": "interested",
+      "options": ["about", "for", "in", "on"],
+      "correct": "in"
+    },
+    {
+      "id": 16,
+      "type": "single_choice",
+      "text": "keen",
+      "options": ["about", "for", "in", "on"],
+      "correct": "on"
+    },
+    {
+      "id": 17,
+      "type": "single_choice",
+      "text": "similar",
+      "options": ["to", "with", "of", "from"],
+      "correct": "to"
+    },
+    {
+      "id": 18,
+      "type": "single_choice",
+      "text": "crowded",
+      "options": ["to", "with", "of", "from"],
+      "correct": "with"
+    },
+    {
+      "id": 19,
+      "type": "single_choice",
+      "text": "tired",
+      "options": ["to", "with", "of", "from"],
+      "correct": "of"
+    },
+    {
+      "id": 20,
+      "type": "single_choice",
+      "text": "different",
+      "options": ["to", "with", "of", "from"],
+      "correct": "from"
+    },
+    {
+      "id": 21,
+      "type": "single_choice",
+      "text": "nice",
+      "options": ["to", "about", "with", "of"],
+      "correct": "to"
+    },
+    {
+      "id": 22,
+      "type": "single_choice",
+      "text": "angry",
+      "options": ["to", "about", "with", "of"],
+      "correct": "about"
+    },
+    {
+      "id": 23,
+      "type": "single_choice",
+      "text": "pleased",
+      "options": ["to", "about", "with", "of"],
+      "correct": "with"
+    },
+    {
+      "id": 24,
+      "type": "single_choice",
+      "text": "jealous",
+      "options": ["to", "about", "with", "of"],
+      "correct": "of"
+    },
+    {
+      "id": 25,
+      "type": "single_choice",
+      "text": "aware",
+      "options": ["of", "to", "for", "with"],
+      "correct": "of"
+    },
+    {
+      "id": 26,
+      "type": "single_choice",
+      "text": "married",
+      "options": ["of", "to", "for", "with"],
+      "correct": "to"
+    },
+    {
+      "id": 27,
+      "type": "single_choice",
+      "text": "reason",
+      "options": ["of", "to", "for", "with"],
+      "correct": "for"
+    },
+    {
+      "id": 28,
+      "type": "single_choice",
+      "text": "contact",
+      "options": ["of", "to", "for", "with"],
+      "correct": "with"
+    },
+    {
+      "id": 29,
+      "type": "single_choice",
+      "text": "attitude",
+      "options": ["to", "of", "for", "in"],
+      "correct": "to"
+    },
+    {
+      "id": 30,
+      "type": "single_choice",
+      "text": "advantage",
+      "options": ["to", "of", "for", "in"],
+      "correct": "of"
+    },
+    {
+      "id": 31,
+      "type": "single_choice",
+      "text": "cheque",
+      "options": ["to", "of", "for", "in"],
+      "correct": "for"
+    },
+    {
+      "id": 32,
+      "type": "single_choice",
+      "text": "rise",
+      "options": ["to", "of", "for", "in"],
+      "correct": "in"
+    },
+    {
+      "id": 33,
+      "type": "single_choice",
+      "text": "grateful",
+      "options": ["for", "of", "with", "by"],
+      "correct": "for"
+    },
+    {
+      "id": 34,
+      "type": "single_choice",
+      "text": "fearful",
+      "options": ["for", "of", "with", "by"],
+      "correct": "of"
+    },
+    {
+      "id": 35,
+      "type": "single_choice",
+      "text": "exhausted",
+      "options": ["for", "of", "with", "by"],
+      "correct": "with"
+    },
+    {
+      "id": 36,
+      "type": "single_choice",
+      "text": "alarmed",
+      "options": ["for", "of", "with", "by"],
+      "correct": "by"
+    },
+    {
+      "id": 37,
+      "type": "single_choice",
+      "text": "make",
+      "options": ["money", "good", "go", "fun"],
+      "correct": "money"
+    },
+    {
+      "id": 38,
+      "type": "single_choice",
+      "text": "do",
+      "options": ["money", "good", "go", "fun"],
+      "correct": "good"
+    },
+    {
+      "id": 39,
+      "type": "single_choice",
+      "text": "let somebody",
+      "options": ["money", "good", "go", "fun"],
+      "correct": "go"
+    },
+    {
+      "id": 40,
+      "type": "single_choice",
+      "text": "have",
+      "options": ["money", "good", "go", "fun"],
+      "correct": "fun"
+    },
+    {
+      "id": 41,
+      "type": "single_choice",
+      "text": "polite",
+      "options": ["to", "by", "of", "for"],
+      "correct": "to"
+    },
+    {
+      "id": 42,
+      "type": "single_choice",
+      "text": "reduced",
+      "options": ["to", "by", "of", "for"],
+      "correct": "by"
+    },
+    {
+      "id": 43,
+      "type": "single_choice",
+      "text": "sick",
+      "options": ["to", "by", "of", "for"],
+      "correct": "of"
+    },
+    {
+      "id": 44,
+      "type": "single_choice",
+      "text": "renowned",
+      "options": ["to", "by", "of", "for"],
+      "correct": "for"
+    },
+    {
+      "id": 45,
+      "type": "single_choice",
+      "text": "short",
+      "options": ["of", "in", "for", "to"],
+      "correct": "of"
+    },
+    {
+      "id": 46,
+      "type": "single_choice",
+      "text": "rich",
+      "options": ["of", "in", "for", "to"],
+      "correct": "in"
+    },
+    {
+      "id": 47,
+      "type": "single_choice",
+      "text": "responsible",
+      "options": ["of", "in", "for", "to"],
+      "correct": "for"
+    },
+    {
+      "id": 48,
+      "type": "single_choice",
+      "text": "peculiar",
+      "options": ["of", "in", "for", "to"],
+      "correct": "to"
+    },
+    {
+      "id": 49,
+      "type": "single_choice",
+      "text": "notorious",
+      "options": ["for", "with", "to", "at"],
+      "correct": "for"
+    },
+    {
+      "id": 50,
+      "type": "single_choice",
+      "text": "overwhelmed",
+      "options": ["for", "with", "to", "at"],
+      "correct": "with"
+    },
+    {
+      "id": 51,
+      "type": "single_choice",
+      "text": "sensitive",
+      "options": ["for", "with", "to", "at"],
+      "correct": "to"
+    },
+    {
+      "id": 52,
+      "type": "single_choice",
+      "text": "quick",
+      "options": ["for", "with", "to", "at"],
+      "correct": "at"
+    },
+    {
+      "id": 53,
+      "type": "single_choice",
+      "text": "included",
+      "options": ["in", "about", "of", "for"],
+      "correct": "in"
+    },
+    {
+      "id": 54,
+      "type": "single_choice",
+      "text": "worried",
+      "options": ["in", "about", "of", "for"],
+      "correct": "about"
+    },
+    {
+      "id": 55,
+      "type": "single_choice",
+      "text": "tired",
+      "options": ["in", "about", "of", "for"],
+      "correct": "of"
+    },
+    {
+      "id": 56,
+      "type": "single_choice",
+      "text": "useful",
+      "options": ["in", "about", "of", "for"],
+      "correct": "for"
+    },
+    {
+      "id": 57,
+      "type": "single_choice",
+      "text": "typical",
+      "options": ["of", "to", "by", "about"],
+      "correct": "of"
+    },
+    {
+      "id": 58,
+      "type": "single_choice",
+      "text": "useful",
+      "options": ["of", "to", "by", "about"],
+      "correct": "to"
+    },
+    {
+      "id": 59,
+      "type": "single_choice",
+      "text": "terrified",
+      "options": ["of", "to", "by", "about"],
+      "correct": "by"
+    },
+    {
+      "id": 60,
+      "type": "single_choice",
+      "text": "upset",
+      "options": ["of", "to", "by", "about"],
+      "correct": "about"
+    },
+    {
+      "id": 61,
+      "type": "single_choice",
+      "text": "profitable",
+      "options": ["to", "for", "of", "with"],
+      "correct": "to"
+    },
+    {
+      "id": 62,
+      "type": "single_choice",
+      "text": "pressed",
+      "options": ["to", "for", "of", "with"],
+      "correct": "for"
+    },
+    {
+      "id": 63,
+      "type": "single_choice",
+      "text": "uncertain",
+      "options": ["to", "for", "of", "with"],
+      "correct": "of"
+    },
+    {
+      "id": 64,
+      "type": "single_choice",
+      "text": "used",
+      "options": ["to do", "for", "of", "with"],
+      "correct": "to do"
+    },
+    {
+      "id": 65,
+      "type": "single_choice",
+      "text": "thankful",
+      "options": ["for", "about", "by", "of"],
+      "correct": "for"
+    },
+    {
+      "id": 66,
+      "type": "single_choice",
+      "text": "upset",
+      "options": ["for", "about", "by", "of"],
+      "correct": "about"
+    },
+    {
+      "id": 67,
+      "type": "single_choice",
+      "text": "thrilled",
+      "options": ["for", "about", "by", "of"],
+      "correct": "by"
+    },
+    {
+      "id": 68,
+      "type": "single_choice",
+      "text": "worthy",
+      "options": ["for", "about", "by", "of"],
+      "correct": "of"
+    },
+    {
+      "id": 69,
+      "type": "single_choice",
+      "text": "superior",
+      "options": ["to", "in", "of", "with"],
+      "correct": "to"
+    },
+    {
+      "id": 70,
+      "type": "single_choice",
+      "text": "prompt",
+      "options": ["to", "in", "of", "with"],
+      "correct": "in"
+    },
+    {
+      "id": 71,
+      "type": "single_choice",
+      "text": "scared",
+      "options": ["to", "in", "of", "with"],
+      "correct": "of"
+    },
+    {
+      "id": 72,
+      "type": "single_choice",
+      "text": "pale",
+      "options": ["to", "in", "of", "with"],
+      "correct": "with"
+    },
+    {
+      "id": 73,
+      "type": "single_choice",
+      "text": "relevant",
+      "options": ["to", "with", "from", "in"],
+      "correct": "to"
+    },
+    {
+      "id": 74,
+      "type": "single_choice",
+      "text": "satisfied",
+      "options": ["to", "with", "from", "in"],
+      "correct": "with"
+    },
+    {
+      "id": 75,
+      "type": "single_choice",
+      "text": "made",
+      "options": ["to", "with", "from", "in"],
+      "correct": "from"
+    },
+    {
+      "id": 76,
+      "type": "single_choice",
+      "text": "involved",
+      "options": ["to", "with", "from", "in"],
+      "correct": "in"
+    },
+    {
+      "id": 77,
+      "type": "single_choice",
+      "text": "If he had eaten everything",
+      "options": [
+        "he would have been ill",
+        "he will be ill",
+        "he would be ill",
+        "I would eat this"
+      ],
+      "correct": "he would have been ill"
+    },
+    {
+      "id": 78,
+      "type": "single_choice",
+      "text": "If he eats everything",
+      "options": [
+        "he would have been ill",
+        "he will be ill",
+        "he would be ill",
+        "I would eat this"
+      ],
+      "correct": "he will be ill"
+    },
+    {
+      "id": 79,
+      "type": "single_choice",
+      "text": "If he ate everything",
+      "options": [
+        "he would have been ill",
+        "he will be ill",
+        "he would be ill",
+        "I would eat this"
+      ],
+      "correct": "he would be ill"
+    },
+    {
+      "id": 80,
+      "type": "single_choice",
+      "text": "If I were you",
+      "options": [
+        "he would have been ill",
+        "he will be ill",
+        "he would be ill",
+        "I would eat this"
+      ],
+      "correct": "I would eat this"
+    },
+    {
+      "id": 81,
+      "type": "single_choice",
+      "text": "can",
+      "options": ["ability", "obligation", "prohibition", "advice"],
+      "correct": "ability"
+    },
+    {
+      "id": 82,
+      "type": "single_choice",
+      "text": "must",
+      "options": ["ability", "obligation", "prohibition", "advice"],
+      "correct": "obligation"
+    },
+    {
+      "id": 83,
+      "type": "single_choice",
+      "text": "must not",
+      "options": ["ability", "obligation", "prohibition", "advice"],
+      "correct": "prohibition"
+    },
+    {
+      "id": 84,
+      "type": "single_choice",
+      "text": "should",
+      "options": ["ability", "obligation", "prohibition", "advice"],
+      "correct": "advice"
+    },
+    {
+      "id": 85,
+      "type": "single_choice",
+      "text": "carry out",
+      "options": [
+        "виконувати",
+        "створювати",
+        "перебирати контроль",
+        "відхиляти"
+      ],
+      "correct": "виконувати"
+    },
+    {
+      "id": 86,
+      "type": "single_choice",
+      "text": "set up",
+      "options": [
+        "виконувати",
+        "створювати",
+        "перебирати контроль",
+        "відхиляти"
+      ],
+      "correct": "створювати"
+    },
+    {
+      "id": 87,
+      "type": "single_choice",
+      "text": "take over",
+      "options": [
+        "виконувати",
+        "створювати",
+        "перебирати контроль",
+        "відхиляти"
+      ],
+      "correct": "перебирати контроль"
+    },
+    {
+      "id": 88,
+      "type": "single_choice",
+      "text": "turn down",
+      "options": [
+        "виконувати",
+        "створювати",
+        "перебирати контроль",
+        "відхиляти"
+      ],
+      "correct": "відхиляти"
+    },
+    {
+      "id": 89,
+      "type": "single_choice",
+      "text": "bring up",
+      "options": [
+        "піднімати питання",
+        "вивчати",
+        "мати справу",
+        "знаходити рішення"
+      ],
+      "correct": "піднімати питання"
+    },
+    {
+      "id": 90,
+      "type": "single_choice",
+      "text": "look into",
+      "options": [
+        "піднімати питання",
+        "вивчати",
+        "мати справу",
+        "знаходити рішення"
+      ],
+      "correct": "вивчати"
+    },
+    {
+      "id": 91,
+      "type": "single_choice",
+      "text": "deal with",
+      "options": [
+        "піднімати питання",
+        "вивчати",
+        "мати справу",
+        "знаходити рішення"
+      ],
+      "correct": "мати справу"
+    },
+    {
+      "id": 92,
+      "type": "single_choice",
+      "text": "work out",
+      "options": [
+        "піднімати питання",
+        "вивчати",
+        "мати справу",
+        "знаходити рішення"
+      ],
+      "correct": "знаходити рішення"
+    },
+    {
+      "id": 93,
+      "type": "single_choice",
+      "text": "figure out",
+      "options": [
+        "зрозуміти",
+        "запропонувати ідею",
+        "робити подальші дії",
+        "вирішити проблему"
+      ],
+      "correct": "зрозуміти"
+    },
+    {
+      "id": 94,
+      "type": "single_choice",
+      "text": "come up with",
+      "options": [
+        "зрозуміти",
+        "запропонувати ідею",
+        "робити подальші дії",
+        "вирішити проблему"
+      ],
+      "correct": "запропонувати ідею"
+    },
+    {
+      "id": 95,
+      "type": "single_choice",
+      "text": "follow up",
+      "options": [
+        "зрозуміти",
+        "запропонувати ідею",
+        "робити подальші дії",
+        "вирішити проблему"
+      ],
+      "correct": "робити подальші дії"
+    },
+    {
+      "id": 96,
+      "type": "single_choice",
+      "text": "sort out",
+      "options": [
+        "зрозуміти",
+        "запропонувати ідею",
+        "робити подальші дії",
+        "вирішити проблему"
+      ],
+      "correct": "вирішити проблему"
+    }
+  ]
+}
