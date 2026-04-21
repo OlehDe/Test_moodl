@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат – {{ test.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <div class="navbar-links">
+                <a href="{{ url_for('index') }}">На головну</a>
+            </div>
+        </nav>
+
+        <div class="card">
+            <h1>{{ test.title }} – Результат</h1>
+
+            <div class="result-summary">
+                <strong>Ваш бал:</strong> {{ score }} з {{ total }} ({{ (score/total*100)|round(1) }}%)
+                {% if score == total %}
+                    🎉 Чудово!
+                {% elif score >= total/2 %}
+                    👍 Добре.
+                {% else %}
+                    📚 Спробуйте ще раз.
+                {% endif %}
+            </div>
+
+            <h2>Детальний розбір</h2>
+            {% for q in test.questions %}
+                <div class="question-review">
+                    <p><strong>Питання {{ loop.index }}:</strong> {{ q.text }}</p>
+
+                    {% set user_opt = user_answers.get(q.id|string) %}
+                    <p>
+                        <span>Ваша відповідь:</span>
+                        {% if user_opt is not none %}
+                            <span class="{% if user_opt == q.correct %}correct-answer{% else %}incorrect-answer{% endif %}">
+                                {{ q.options[user_opt] }}
+                            </span>
+                            {% if user_opt == q.correct %}
+                                <span style="color: #1e7e34; margin-left: 8px;">✓</span>
+                            {% else %}
+                                <span style="color: #c12a2a; margin-left: 8px;">✗</span>
+                            {% endif %}
+                        {% else %}
+                            <em style="color: #6c757d;">(не обрано)</em>
+                        {% endif %}
+                    </p>
+                    <p>
+                        <span>Правильна відповідь:</span>
+                        <span class="correct-answer">{{ q.options[q.correct] }}</span>
+                    </p>
+                </div>
+            {% endfor %}
+
+            <div style="margin-top: 30px;">
+                <a href="{{ url_for('index') }}" class="btn">Повернутися до списку тестів</a>
+                <a href="{{ url_for('take_test', filename=session.get('current_test', 'math_test.json')) }}" class="btn btn-secondary" style="margin-left: 15px;">Пройти ще раз</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

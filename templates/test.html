@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ test.title }} – Проходження тесту</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <div class="navbar-links">
+                <a href="{{ url_for('index') }}">Перервати спробу</a>
+            </div>
+        </nav>
+
+        <div class="card">
+            <div class="test-header">
+                <div class="test-title-section">
+                    <h1 class="test-title">{{ test.title }}</h1>
+                    <span class="question-counter">
+                        Всього питань: {{ test.questions|length }}
+                    </span>
+                </div>
+                <button type="submit" form="test-form" class="btn">Завершити спробу</button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Прогрес відповідей</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}">
+                {% for i, q in enumerate(test.questions) %}
+                <div class="question-block" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
+                    <fieldset>
+                        <legend>Питання {{ i+1 }}</legend>
+                        <p class="question-text">{{ q.text }}</p>
+
+                        {% set qtype = q.type|default('single_choice') %}
+                        {% if qtype == 'single_choice' %}
+                            {% for opt_idx, opt in enumerate(q.options) %}
+                            <label>
+                                <input type="radio" name="q{{ q.id }}" value="{{ opt_idx }}" class="question-input">
+                                {{ opt }}
+                            </label>
+                            {% endfor %}
+                        {% elif qtype == 'multiple_choice' %}
+                            {% for opt_idx, opt in enumerate(q.options) %}
+                            <label>
+                                <input type="checkbox" name="q{{ q.id }}" value="{{ opt_idx }}" class="question-input">
+                                {{ opt }}
+                            </label>
+                            {% endfor %}
+                        {% elif qtype == 'open_text' %}
+                            <input type="text" name="q{{ q.id }}" class="question-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                        {% endif %}
+
+                        <div style="margin-top: 15px;">
+                            <button type="button" class="btn-secondary check-btn" data-qid="{{ q.id }}" data-test="{{ session.get('current_test', '') }}">Перевірити</button>
+                            <span class="check-result" id="result-{{ q.id }}" style="margin-left: 15px; font-weight: 600;"></span>
+                        </div>
+                    </fieldset>
+                </div>
+                {% endfor %}
+                <input type="hidden" name="test_filename" value="{{ session.get('current_test', '') }}">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const inputs = document.querySelectorAll('.question-input');
+            const totalQuestions = {{ test.questions|length }};
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+
+            function updateProgress() {
+                const answered = new Set();
+                document.querySelectorAll('.question-block').forEach(block => {
+                    const qid = block.dataset.qid;
+                    const qtype = block.dataset.qtype;
+                    const inputName = qtype === 'multiple_choice' ? `q${qid}` : `q${qid}`;
+                    let isAnswered = false;
+                    if (qtype === 'single_choice') {
+                        const radio = block.querySelector(`input[name="${inputName}"]:checked`);
+                        isAnswered = radio !== null;
+                    } else if (qtype === 'multiple_choice') {
+                        const checkboxes = block.querySelectorAll(`input[name="${inputName}"]:checked`);
+                        isAnswered = checkboxes.length > 0;
+                    } else if (qtype === 'open_text') {
+                        const textInput = block.querySelector(`input[name="${inputName}"]`);
+                        isAnswered = textInput && textInput.value.trim() !== '';
+                    }
+                    if (isAnswered) answered.add(qid);
+                });
+                const percent = totalQuestions > 0 ? (answered.size / totalQuestions) * 100 : 0;
+                progressBar.style.width = percent + '%';
+                progressPercent.textContent = Math.round(percent) + '%';
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener('change', updateProgress);
+                if (input.type === 'text') {
+                    input.addEventListener('input', updateProgress);
+                }
+            });
+            updateProgress();
+
+            // Обробка кнопок "Перевірити"
+            document.querySelectorAll('.check-btn').forEach(btn => {
+                btn.addEventListener('click', async function(e) {
+                    e.preventDefault();
+                    const qid = this.dataset.qid;
+                    const testFile = this.dataset.test;
+                    const block = document.querySelector(`.question-block[data-qid="${qid}"]`);
+                    const qtype = block.dataset.qtype;
+                    const resultSpan = document.getElementById(`result-${qid}`);
+
+                    const formData = new FormData();
+                    if (qtype === 'single_choice') {
+                        const selected = block.querySelector(`input[name="q${qid}"]:checked`);
+                        if (selected) formData.append('answer', selected.value);
+                    } else if (qtype === 'multiple_choice') {
+                        const checkboxes = block.querySelectorAll(`input[name="q${qid}"]:checked`);
+                        checkboxes.forEach(cb => formData.append('answer', cb.value));
+                    } else if (qtype === 'open_text') {
+                        const textInput = block.querySelector(`input[name="q${qid}"]`);
+                        if (textInput) formData.append('answer', textInput.value);
+                    }
+
+                    try {
+                        const response = await fetch(`/check_answer/${testFile}/${qid}`, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const data = await response.json();
+                        if (data.correct) {
+                            resultSpan.innerHTML = '✅ Правильно!';
+                            resultSpan.style.color = '#1e7e34';
+                        } else {
+                            let correctStr = '';
+                            if (qtype === 'single_choice') {
+                                const options = block.querySelectorAll('label');
+                                const correctIdx = data.correct_answer;
+                                correctStr = options[correctIdx]?.innerText.trim() || '';
+                            } else if (qtype === 'multiple_choice') {
+                                const options = block.querySelectorAll('label');
+                                const correctIndices = data.correct_answer;
+                                correctStr = correctIndices.map(idx => options[idx]?.innerText.trim()).join(', ');
+                            } else if (qtype === 'open_text') {
+                                correctStr = data.correct_answer;
+                            }
+                            resultSpan.innerHTML = `❌ Неправильно. Правильна відповідь: ${correctStr}`;
+                            resultSpan.style.color = '#c12a2a';
+                        }
+                    } catch (err) {
+                        resultSpan.innerHTML = 'Помилка перевірки';
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

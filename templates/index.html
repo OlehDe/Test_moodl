@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування – Moodle Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Навігаційна панель (як у Moodle) -->
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <div class="navbar-links">
+                <a href="{{ url_for('index') }}">Мої курси</a>
+                <span style="color: #adb5bd;">|</span>
+                <a href="#">Допомога</a>
+            </div>
+        </nav>
+
+        <div class="card">
+            <h1>Доступні тести</h1>
+            <ul class="test-list">
+                {% for test in tests %}
+                    <li>
+                        <a href="{{ url_for('take_test', filename=test.filename) }}">
+                            {{ test.title }}
+                            <span style="float: right; font-size: 0.9rem; color: #6c757d;">→</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li>Немає доступних тестів. Додайте JSON-файли у папку tests/</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

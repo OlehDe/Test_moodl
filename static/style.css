@@ -1,0 +1,286 @@
+/* --- MOODLE-INSPIRED STYLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f5f7fa;
+    color: #1d2b3f;
+    line-height: 1.5;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контейнер-обмежувач, як у Moodle */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+/* Картка — основний блок контенту */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1d2b3f;
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #1177d1;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Посилання та кнопки */
+a, .btn-link {
+    color: #1177d1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #0b5fa5;
+    text-decoration: underline;
+}
+
+/* Кнопки в стилі Moodle */
+.btn, button {
+    display: inline-block;
+    background-color: #1177d1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #0e6ab5;
+}
+.btn:hover, button:hover {
+    background-color: #0e6ab5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    text-decoration: none;
+    color: white;
+}
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #5a6268;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Список тестів на головній */
+.test-list {
+    list-style: none;
+}
+.test-list li {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 12px;
+}
+.test-list li a {
+    font-size: 1.2rem;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #1177d1;
+    transition: background 0.2s;
+}
+.test-list li a:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+}
+
+/* Стилі для тесту (питання) */
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.test-title-section {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+.test-title {
+    margin: 0;
+    border-bottom: none;
+}
+.question-counter {
+    font-size: 1.1rem;
+    color: #5a6268;
+    background: #e9ecef;
+    padding: 4px 12px;
+    border-radius: 30px;
+}
+
+/* Прогрес-бар Moodle */
+.progress-container {
+    margin: 20px 0;
+}
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #5a6268;
+    margin-bottom: 5px;
+}
+.progress-bar-bg {
+    background-color: #e9ecef;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #1177d1;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+/* Поле з питанням */
+fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    background-color: #fafbfc;
+}
+legend {
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: #1177d1;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 30px;
+    width: auto;
+    margin-left: -10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Варіанти відповідей */
+label {
+    display: block;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+label:hover {
+    background-color: #f1f3f5;
+    border-color: #adb5bd;
+}
+input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #1177d1;
+    transform: scale(1.2);
+    vertical-align: middle;
+}
+
+/* Результат: стиль картки результату */
+.result-summary {
+    background: #e9f2fa;
+    border-left: 6px solid #1177d1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+.question-review {
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+.question-review:last-child {
+    border-bottom: none;
+}
+.correct-answer {
+    color: #1e7e34;
+    font-weight: 600;
+}
+.incorrect-answer {
+    color: #c12a2a;
+    font-weight: 600;
+}
+.user-answer-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 30px;
+    background: #f8d7da;
+    color: #721c24;
+    margin-right: 8px;
+}
+.correct-badge {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Навігаційна панель (верхня) */
+.navbar {
+    background: #1d2b3f;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+}
+.navbar-brand:hover {
+    color: #dee2e6;
+}
+.navbar-links a {
+    color: #dee2e6;
+    margin-left: 20px;
+}
+.navbar-links a:hover {
+    color: white;
+}
+
+/* Адаптивність */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    .card { padding: 15px; }
+    legend { font-size: 1rem; }
+}
