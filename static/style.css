@@ -18,7 +18,6 @@ body {
     flex-direction: column;
 }
 
-/* Контейнер-обмежувач, як у Moodle */
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -26,7 +25,6 @@ body {
     flex: 1;
 }
 
-/* Картка — основний блок контенту */
 .card {
     background: #ffffff;
     border-radius: 8px;
@@ -36,7 +34,6 @@ body {
     border: 1px solid #e9ecef;
 }
 
-/* Заголовки */
 h1, h2, h3 {
     font-weight: 600;
     margin-bottom: 20px;
@@ -55,7 +52,6 @@ h2 {
     margin-top: 10px;
 }
 
-/* Посилання та кнопки */
 a, .btn-link {
     color: #1177d1;
     text-decoration: none;
@@ -67,7 +63,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Кнопки в стилі Moodle */
 .btn, button {
     display: inline-block;
     background-color: #1177d1;
@@ -97,7 +92,6 @@ a:hover {
     background-color: #5a6268;
 }
 
-/* Список тестів на головній */
 .test-list {
     list-style: none;
 }
@@ -120,7 +114,6 @@ a:hover {
     text-decoration: none;
 }
 
-/* Стилі для тесту (питання) */
 .test-header {
     display: flex;
     justify-content: space-between;
@@ -146,7 +139,6 @@ a:hover {
     border-radius: 30px;
 }
 
-/* Прогрес-бар Moodle */
 .progress-container {
     margin: 20px 0;
 }
@@ -171,7 +163,6 @@ a:hover {
     transition: width 0.3s;
 }
 
-/* Поле з питанням */
 fieldset {
     border: 1px solid #dee2e6;
     border-radius: 6px;
@@ -191,7 +182,6 @@ legend {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Варіанти відповідей */
 label {
     display: block;
     padding: 10px 12px;
@@ -213,7 +203,6 @@ input[type="radio"] {
     vertical-align: middle;
 }
 
-/* Результат: стиль картки результату */
 .result-summary {
     background: #e9f2fa;
     border-left: 6px solid #1177d1;
@@ -250,7 +239,6 @@ input[type="radio"] {
     color: #155724;
 }
 
-/* Навігаційна панель (верхня) */
 .navbar {
     background: #1d2b3f;
     color: white;
@@ -278,9 +266,150 @@ input[type="radio"] {
     color: white;
 }
 
-/* Адаптивність */
-@media (max-width: 600px) {
-    body { padding: 10px; }
-    .card { padding: 15px; }
-    legend { font-size: 1rem; }
+/* --- Стилі для бічної панелі (сітка 5×) --- */
+.test-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+.test-content {
+    flex: 1;
+    min-width: 0;
+}
+.question-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 15px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+.question-sidebar.hidden {
+    display: none;
+}
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.sidebar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    padding: 0 5px;
+    box-shadow: none;
+}
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+.sidebar-list li {
+    margin: 0;
+}
+.sidebar-list li a {
+    display: block;
+    padding: 10px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #1d2b3f;
+    border: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.sidebar-list li.answered a {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+.sidebar-list li.answered a::after {
+    content: " ✓";
+    font-size: 0.8rem;
+}
+.sidebar-list li a:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+.sidebar-list li.answered a:hover {
+    background-color: #c3e6cb;
+}
+
+/* Мобільна кнопка */
+.sidebar-toggle-btn {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 20px;
+    z-index: 1000;
+    background: #1177d1;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .test-wrapper {
+        flex-direction: column;
+    }
+    .question-sidebar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 280px;
+        z-index: 1100;
+        transform: translateX(100%);
+        border-radius: 0;
+        max-height: none;
+    }
+    .question-sidebar.visible {
+        transform: translateX(0);
+    }
+    .sidebar-toggle-btn {
+        display: block;
+    }
+}
+@media (max-width: 400px) {
+    .question-sidebar {
+        width: 100%;
+    }
+}
+
+/* Стилі для matching */
+.matching-container table {
+    width: 100%;
+}
+.matching-container td {
+    padding: 8px 5px;
+}
+.match-select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    min-width: 150px;
+}
+.check-result {
+    margin-left: 15px;
+    font-weight: 600;
 }

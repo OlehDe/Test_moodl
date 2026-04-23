@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ test.title }} – Проходження тесту</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        .question-block { margin-bottom: 2rem; border: 1px solid #ddd; padding: 1rem; border-radius: 8px; }
-        .check-result { margin-left: 1rem; font-weight: bold; }
-        .correct { color: green; }
-        .incorrect { color: red; }
-        .match-select { min-width: 150px; }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -22,132 +15,143 @@
             </div>
         </nav>
 
-        <div class="card">
-            <div class="test-header">
-                <h1>{{ test.title }}</h1>
-                <button type="submit" form="test-form" class="btn">Завершити спробу</button>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span>Прогрес відповідей</span>
-                    <span id="progress-percent">0%</span>
+        <div class="test-wrapper">
+            <div class="test-content card">
+                <div class="test-header">
+                    <h1>{{ test.title }}</h1>
+                    <button type="submit" form="test-form" class="btn">Завершити спробу</button>
                 </div>
-                <div class="progress-bar-bg">
-                    <div id="progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Прогрес відповідей (правильні)</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
                 </div>
-            </div>
 
-            <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}">
-                {% for i, q in enumerate(test.questions) %}
-                <div class="question-block" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
-                    <fieldset>
-                        <legend>Питання {{ i+1 }}</legend>
-                        <p class="question-text">{{ q.text }}</p>
+                <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}">
+                    {% for i, q in enumerate(test.questions) %}
+                    <div class="question-block" id="question-{{ q.id }}" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
+                        <fieldset>
+                            <legend>Питання {{ i+1 }}</legend>
+                            <p class="question-text">{{ q.text }}</p>
 
-                        {% set qtype = q.type|default('single_choice') %}
-                        {% if qtype == 'single_choice' %}
-                            {% for opt in q.options %}
-                            <label>
-                                <input type="radio" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
-                                {{ opt }}
-                            </label><br>
-                            {% endfor %}
-                        {% elif qtype == 'multiple_choice' %}
-                            {% for opt in q.options %}
-                            <label>
-                                <input type="checkbox" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
-                                {{ opt }}
-                            </label><br>
-                            {% endfor %}
-                        {% elif qtype == 'open_text' %}
-                            <input type="text" name="q{{ q.id }}" class="question-input" style="width: 100%; padding: 8px;">
-                        {% elif qtype == 'matching' %}
-                            <div class="matching-container">
-                                <table style="width: 100%;">
-                                    {% for pair in q.pairs %}
-                                    <tr>
-                                        <td style="width: 40%;"><strong>{{ pair.left }}</strong></td>
-                                        <td>
-                                            <select name="q{{ q.id }}_{{ loop.index0 }}" class="match-select question-input">
-                                                <option value="">-- оберіть --</option>
-                                                {% set rights = q.pairs | map(attribute='right') | list %}
-                                                {% for right_item in rights %}
-                                                <option value="{{ right_item }}">{{ right_item }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </table>
+                            {% set qtype = q.type|default('single_choice') %}
+                            {% if qtype == 'single_choice' %}
+                                {% for opt in q.options %}
+                                <label>
+                                    <input type="radio" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
+                                    {{ opt }}
+                                </label>
+                                {% endfor %}
+                            {% elif qtype == 'multiple_choice' %}
+                                {% for opt in q.options %}
+                                <label>
+                                    <input type="checkbox" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
+                                    {{ opt }}
+                                </label>
+                                {% endfor %}
+                            {% elif qtype == 'open_text' %}
+                                <input type="text" name="q{{ q.id }}" class="question-input" style="width: 100%; padding: 8px;">
+                            {% elif qtype == 'matching' %}
+                                <div class="matching-container">
+                                    <table>
+                                        {% for pair in q.pairs %}
+                                        <tr>
+                                            <td style="width: 40%;"><strong>{{ pair.left }}</strong></td>
+                                            <td>
+                                                <select name="q{{ q.id }}_{{ loop.index0 }}" class="match-select question-input">
+                                                    <option value="">-- оберіть --</option>
+                                                    {% set rights = q.pairs | map(attribute='right') | list %}
+                                                    {% for right_item in rights %}
+                                                    <option value="{{ right_item }}">{{ right_item }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% endif %}
+
+                            <div style="margin-top: 15px;">
+                                <button type="button" class="btn-secondary check-btn" data-qid="{{ q.id }}" data-test="{{ session.get('current_test', '') }}" data-qtype="{{ qtype }}">Перевірити</button>
+                                <span class="check-result" id="result-{{ q.id }}"></span>
                             </div>
-                        {% endif %}
+                        </fieldset>
+                    </div>
+                    {% endfor %}
+                    <input type="hidden" name="test_filename" value="{{ session.get('current_test', '') }}">
+                </form>
+            </div>
 
-                        <div style="margin-top: 15px;">
-                            <button type="button" class="btn-secondary check-btn" data-qid="{{ q.id }}" data-test="{{ session.get('current_test', '') }}" data-qtype="{{ qtype }}">Перевірити</button>
-                            <span class="check-result" id="result-{{ q.id }}"></span>
-                        </div>
-                    </fieldset>
+            <!-- Бічна панель навігації (сітка 5×) -->
+            <aside id="question-sidebar" class="question-sidebar">
+                <div class="sidebar-header">
+                    <span>Питання</span>
+                    <button id="close-sidebar-btn" title="Закрити">×</button>
                 </div>
-                {% endfor %}
-                <input type="hidden" name="test_filename" value="{{ session.get('current_test', '') }}">
-            </form>
+                <ul class="sidebar-list" id="question-nav-list">
+                    {% for q in test.questions %}
+                    <li data-qid="{{ q.id }}">
+                        <a href="#question-{{ q.id }}" title="Перейти до питання {{ loop.index }}">{{ loop.index }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+
+            <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" title="Показати список питань">☰</button>
         </div>
     </div>
 
     <script>
         (function() {
-            // Оновлення прогресу
-            function updateProgress() {
-                const total = {{ test.questions|length }};
-                let answered = 0;
-                document.querySelectorAll('.question-block').forEach(block => {
-                    const qid = block.dataset.qid;
-                    const qtype = block.dataset.qtype;
-                    let isAnswered = false;
-                    if (qtype === 'single_choice') {
-                        isAnswered = block.querySelector(`input[name="q${qid}"]:checked`) !== null;
-                    } else if (qtype === 'multiple_choice') {
-                        isAnswered = block.querySelectorAll(`input[name="q${qid}"]:checked`).length > 0;
-                    } else if (qtype === 'open_text') {
-                        const inp = block.querySelector(`input[name="q${qid}"]`);
-                        isAnswered = inp && inp.value.trim() !== '';
-                    } else if (qtype === 'matching') {
-                        const selects = block.querySelectorAll('.match-select');
-                        isAnswered = selects.length > 0 && Array.from(selects).every(sel => sel.value !== '');
+            // Множина ID питань, на які дано правильну відповідь
+            let correctSet = new Set();
+
+            const totalQuestions = {{ test.questions|length }};
+            const sidebar = document.getElementById('question-sidebar');
+            const sidebarList = document.getElementById('question-nav-list');
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+            const closeBtn = document.getElementById('close-sidebar-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+
+            // Функція оновлення прогресу та бічної панелі
+            function updateProgressAndSidebar() {
+                const correctCount = correctSet.size;
+                const percent = totalQuestions ? Math.round((correctCount / totalQuestions) * 100) : 0;
+                progressBar.style.width = percent + '%';
+                progressPercent.innerText = percent + '%';
+
+                document.querySelectorAll('#question-nav-list li').forEach(li => {
+                    const qid = li.getAttribute('data-qid');
+                    if (correctSet.has(qid)) {
+                        li.classList.add('answered');
+                    } else {
+                        li.classList.remove('answered');
                     }
-                    if (isAnswered) answered++;
                 });
-                const percent = total ? Math.round((answered / total) * 100) : 0;
-                document.getElementById('progress-bar').style.width = percent + '%';
-                document.getElementById('progress-percent').innerText = percent + '%';
             }
 
-            // Відстеження змін
-            document.querySelectorAll('.question-input').forEach(el => {
-                el.addEventListener('change', updateProgress);
-                if (el.tagName === 'INPUT' && el.type === 'text') el.addEventListener('input', updateProgress);
-            });
-            updateProgress();
-
-            // Заборона дублювання у matching
-            document.querySelectorAll('.matching-container').forEach(container => {
-                const selects = container.querySelectorAll('.match-select');
-                const updateOptions = () => {
-                    const selected = new Set(Array.from(selects).map(s => s.value).filter(v => v));
-                    selects.forEach(sel => {
-                        Array.from(sel.options).forEach(opt => {
-                            if (opt.value && opt.value !== sel.value && selected.has(opt.value)) {
-                                opt.disabled = true;
-                            } else {
-                                opt.disabled = false;
-                            }
-                        });
-                    });
-                };
-                selects.forEach(sel => sel.addEventListener('change', updateOptions));
-                updateOptions();
-            });
+            // Перевірка, чи взагалі обрана/введена відповідь
+            function hasUserAnswer(block, qtype, qid) {
+                if (qtype === 'single_choice') {
+                    return block.querySelector(`input[name="q${qid}"]:checked`) !== null;
+                } else if (qtype === 'multiple_choice') {
+                    return block.querySelectorAll(`input[name="q${qid}"]:checked`).length > 0;
+                } else if (qtype === 'open_text') {
+                    const inp = block.querySelector(`input[name="q${qid}"]`);
+                    return inp && inp.value.trim() !== '';
+                } else if (qtype === 'matching') {
+                    const selects = block.querySelectorAll('.match-select');
+                    return selects.length > 0 && Array.from(selects).every(sel => sel.value !== '');
+                }
+                return false;
+            }
 
             // Обробка кнопок "Перевірити"
             document.querySelectorAll('.check-btn').forEach(btn => {
@@ -157,6 +161,13 @@
                     const qtype = this.dataset.qtype;
                     const block = document.querySelector(`.question-block[data-qid="${qid}"]`);
                     const resultSpan = document.getElementById(`result-${qid}`);
+
+                    // Перевірка наявності відповіді
+                    if (!hasUserAnswer(block, qtype, qid)) {
+                        resultSpan.innerHTML = '⚠️ Будь ласка, дайте відповідь перед перевіркою.';
+                        resultSpan.style.color = 'orange';
+                        return;
+                    }
 
                     let url = `/check_answer/${encodeURIComponent(testFile)}/${qid}`;
                     let options = { method: 'POST' };
@@ -184,14 +195,25 @@
                     try {
                         const response = await fetch(url, options);
                         const data = await response.json();
+
                         if (data.correct) {
                             resultSpan.innerHTML = '✅ Правильно!';
                             resultSpan.style.color = 'green';
+                            // Додаємо до correctSet, якщо ще не додано
+                            if (!correctSet.has(qid)) {
+                                correctSet.add(qid);
+                                updateProgressAndSidebar();
+                            }
                         } else {
                             let correctAnswer = data.correct_answer;
                             if (Array.isArray(correctAnswer)) correctAnswer = correctAnswer.join(', ');
                             resultSpan.innerHTML = `❌ Неправильно. Правильна відповідь: ${correctAnswer}`;
                             resultSpan.style.color = 'red';
+                            // Якщо відповідь неправильна, але раніше це питання було правильним — видаляємо з correctSet
+                            if (correctSet.has(qid)) {
+                                correctSet.delete(qid);
+                                updateProgressAndSidebar();
+                            }
                         }
                     } catch (err) {
                         resultSpan.innerHTML = 'Помилка перевірки';
@@ -199,6 +221,72 @@
                     }
                 });
             });
+
+            // ---- Мобільна бічна панель (залишаємо без змін) ----
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            function openSidebar() {
+                sidebar.classList.add('visible');
+                toggleBtn.style.display = 'none';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('visible');
+                if (isMobile()) toggleBtn.style.display = 'block';
+            }
+            toggleBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebar);
+
+            sidebarList.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                if (isMobile()) setTimeout(closeSidebar, 100);
+            });
+
+            window.addEventListener('resize', () => {
+                if (!isMobile()) {
+                    sidebar.classList.add('visible');
+                    toggleBtn.style.display = 'none';
+                } else {
+                    sidebar.classList.remove('visible');
+                    toggleBtn.style.display = 'block';
+                }
+            });
+            if (isMobile()) {
+                sidebar.classList.remove('visible');
+                toggleBtn.style.display = 'block';
+            } else {
+                sidebar.classList.add('visible');
+                toggleBtn.style.display = 'none';
+            }
+
+            // ---- Заборона дублювання у matching (унікальні значення) ----
+            document.querySelectorAll('.matching-container').forEach(container => {
+                const selects = container.querySelectorAll('.match-select');
+                const updateOptions = () => {
+                    const selected = new Set(Array.from(selects).map(s => s.value).filter(v => v));
+                    selects.forEach(sel => {
+                        Array.from(sel.options).forEach(opt => {
+                            if (opt.value && opt.value !== sel.value && selected.has(opt.value)) {
+                                opt.disabled = true;
+                            } else {
+                                opt.disabled = false;
+                            }
+                        });
+                    });
+                };
+                selects.forEach(sel => sel.addEventListener('change', updateOptions));
+                updateOptions();
+            });
+
+            // Початкове оновлення (0 правильних)
+            updateProgressAndSidebar();
         })();
     </script>
 </body>
