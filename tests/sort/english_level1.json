@@ -1018,7 +1018,7 @@
     {
       "id": 87,
       "type": "single_choice",
-      "text": "We left the concert hall three hours _______. ________",
+      "text": "We left the concert hall three hours _______.",
       "options": [
         "past",
         "ago",
