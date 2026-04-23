@@ -23,13 +23,13 @@
             <ul class="test-list">
                 {% for test in tests %}
                     <li>
-                        <a href="{{ url_for('take_test', filename=test.filename) }}">
+                        <a href="{{ url_for('take_test', filename=test.path) }}">
                             {{ test.title }}
                             <span style="float: right; font-size: 0.9rem; color: #6c757d;">→</span>
                         </a>
                     </li>
                 {% else %}
-                    <li>Немає доступних тестів. Додайте JSON-файли у папку tests/</li>
+                    <li>Немає доступних тестів. Додайте JSON-файли у папки tests/ або sort/</li>
                 {% endfor %}
             </ul>
         </div>

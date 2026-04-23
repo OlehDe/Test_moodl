@@ -17,25 +17,25 @@
       "id": 3,
       "type": "open_text",
       "text": "Why ________ you ________ (look) at me like that?",
-      "correct": "are ... looking"
+      "correct": "are looking"
     },
     {
       "id": 4,
       "type": "open_text",
       "text": "How many cigarettes ________ you ________ (smoke) a day?",
-      "correct": "do ... smoke"
+      "correct": "do smoke"
     },
     {
       "id": 5,
       "type": "open_text",
       "text": "What ________ the word 'deceive' ________ (mean)?",
-      "correct": "does ... mean"
+      "correct": "does mean"
     },
     {
       "id": 6,
       "type": "open_text",
       "text": "The swimming bath ________ (open) at 9 and ________ (close) at 5.",
-      "correct": "opens ... closes"
+      "correct": "opens closes"
     },
     {
       "id": 7,
@@ -47,7 +47,7 @@
       "id": 8,
       "type": "open_text",
       "text": "What ________ your father ________ (do)?",
-      "correct": "does ... do"
+      "correct": "does do"
     },
     {
       "id": 9,
@@ -137,7 +137,7 @@
       "id": 23,
       "type": "open_text",
       "text": "Why ________ you ________ (cry) at me?",
-      "correct": "are ... crying"
+      "correct": "are crying"
     },
     {
       "id": 24,

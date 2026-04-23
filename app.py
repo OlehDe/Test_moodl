@@ -7,67 +7,69 @@ from flask import Flask, render_template, request, session, redirect, url_for, j
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
-TESTS_DIR = 'tests'
+# Папки, в яких шукаємо тести
+TEST_DIRS = ['tests', 'sort']
 
-def load_test(filename):
-    """Завантажує оригінальний JSON тесту."""
-    path = os.path.join(TESTS_DIR, filename)
-    with open(path, 'r', encoding='utf-8') as f:
+def get_all_test_files():
+    """Рекурсивно знаходить усі JSON-файли у дозволених папках."""
+    tests = []
+    for folder in TEST_DIRS:
+        if not os.path.isdir(folder):
+            continue
+        pattern = os.path.join(folder, '**', '*.json')
+        for filepath in glob(pattern, recursive=True):
+            # Перевіряємо, чи файл дійсно всередині дозволеної папки (захист від Directory Traversal)
+            real_path = os.path.abspath(filepath)
+            if not any(os.path.abspath(f).startswith(os.path.dirname(real_path)) for f in TEST_DIRS):
+                # Спрощена перевірка: чи шлях починається з однієї з дозволених папок
+                if not any(real_path.startswith(os.path.abspath(d)) for d in TEST_DIRS):
+                    continue
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    title = data.get('title', os.path.basename(filepath))
+            except Exception:
+                title = os.path.basename(filepath)
+            # Зберігаємо відносний шлях (відносно кореня проєкту) для використання в маршрутах
+            rel_path = os.path.relpath(filepath)
+            tests.append({'path': rel_path, 'title': title})
+    return tests
+
+def load_test(rel_path):
+    """Завантажує JSON за відносним шляхом."""
+    # Додаткова перевірка безпеки: шлях має починатися з однієї з дозволених папок
+    if not any(rel_path.startswith(folder + os.sep) or rel_path == folder for folder in TEST_DIRS):
+        raise ValueError("Недозволений шлях до тесту")
+    full_path = rel_path
+    with open(full_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-
 def prepare_test_for_display(test_data):
-    """
-    Створює глибоку копію тесту.
-    Якщо 'setting' == 'random', то перемішує порядок питань
-    і варіанти відповідей для типів single_choice / multiple_choice.
-    В іншому випадку порядок залишається незмінним.
-    """
+    """Перемішує питання/варіанти, якщо setting == 'random'."""
     import copy
     test_copy = copy.deepcopy(test_data)
-
-    # Перевіряємо, чи ввімкнено випадкове перемішування
     is_random = test_copy.get('setting') == 'random'
-
     if is_random:
-        # Перемішуємо порядок питань
         random.shuffle(test_copy['questions'])
-
-    # Обробляємо кожне питання
     for q in test_copy['questions']:
         qtype = q.get('type', 'single_choice')
-        # Перемішуємо варіанти лише для запитань із вибором і тільки якщо is_random = True
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
-
     return test_copy
-
-def get_available_tests():
-    tests = []
-    for filepath in glob(os.path.join(TESTS_DIR, '*.json')):
-        filename = os.path.basename(filepath)
-        try:
-            data = load_test(filename)
-            title = data.get('title', filename)
-        except:
-            title = filename
-        tests.append({'filename': filename, 'title': title})
-    return tests
 
 @app.route('/')
 def index():
-    tests = get_available_tests()
+    tests = get_all_test_files()
     return render_template('index.html', tests=tests)
 
-@app.route('/test/<filename>')
+@app.route('/test/<path:filename>')
 def take_test(filename):
     original_test = load_test(filename)
     session['current_test'] = filename
-    # Готуємо тест для відображення (перемішуємо опції)
     display_test = prepare_test_for_display(original_test)
     return render_template('test.html', test=display_test, enumerate=enumerate)
 
-@app.route('/submit/<filename>', methods=['POST'])
+@app.route('/submit/<path:filename>', methods=['POST'])
 def submit_test(filename):
     original_test = load_test(filename)
     user_answers = {}
@@ -102,7 +104,7 @@ def submit_test(filename):
                            score=score,
                            total=total)
 
-@app.route('/check_answer/<filename>/<int:question_id>', methods=['POST'])
+@app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])
 def check_answer(filename, question_id):
     original_test = load_test(filename)
     question = next((q for q in original_test['questions'] if q['id'] == question_id), None)
@@ -137,4 +139,4 @@ def check_answer(filename, question_id):
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
