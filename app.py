@@ -18,30 +18,30 @@ def get_all_test_files():
             continue
         pattern = os.path.join(folder, '**', '*.json')
         for filepath in glob(pattern, recursive=True):
-            # Перевіряємо, чи файл дійсно всередині дозволеної папки (захист від Directory Traversal)
-            real_path = os.path.abspath(filepath)
-            if not any(os.path.abspath(f).startswith(os.path.dirname(real_path)) for f in TEST_DIRS):
-                # Спрощена перевірка: чи шлях починається з однієї з дозволених папок
-                if not any(real_path.startswith(os.path.abspath(d)) for d in TEST_DIRS):
-                    continue
+            rel_path = os.path.relpath(filepath)  # відносний шлях (з системними розділювачами)
             try:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
-            except Exception:
+            except Exception as e:
+                print(f"Помилка завантаження {filepath}: {e}")
                 title = os.path.basename(filepath)
-            # Зберігаємо відносний шлях (відносно кореня проєкту) для використання в маршрутах
-            rel_path = os.path.relpath(filepath)
             tests.append({'path': rel_path, 'title': title})
     return tests
 
 def load_test(rel_path):
-    """Завантажує JSON за відносним шляхом."""
-    # Додаткова перевірка безпеки: шлях має починатися з однієї з дозволених папок
-    if not any(rel_path.startswith(folder + os.sep) or rel_path == folder for folder in TEST_DIRS):
-        raise ValueError("Недозволений шлях до тесту")
-    full_path = rel_path
-    with open(full_path, 'r', encoding='utf-8') as f:
+    """Завантажує JSON за відносним шляхом. Перевіряє безпеку через абсолютні шляхи."""
+    normalized_path = os.path.normpath(rel_path)          # нормалізуємо (замінює / на \ на Windows)
+    abs_path = os.path.abspath(normalized_path)
+    allowed = False
+    for folder in TEST_DIRS:
+        abs_folder = os.path.abspath(folder)
+        if abs_path.startswith(abs_folder):
+            allowed = True
+            break
+    if not allowed:
+        raise ValueError(f"Недозволений шлях до тесту: {rel_path}")
+    with open(normalized_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def prepare_test_for_display(test_data):
