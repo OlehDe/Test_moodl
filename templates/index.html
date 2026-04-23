@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестування – Moodle Style</title>
+    <title>Тестування – ExamTests</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <nav class="navbar">
-            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <span>📚</span> ExamTests
+            </a>
             <div class="navbar-links">
                 <a href="{{ url_for('index') }}">Мої курси</a>
-                <span style="color: #adb5bd;">|</span>
+                <span class="nav-separator">|</span>
                 <a href="#">Допомога</a>
             </div>
         </nav>
 
         <div class="card">
-            <h1>Доступні тести</h1>
-            <ul class="test-list">
+            <div class="page-header">
+                <h1>Доступні тести</h1>
+                <p class="subtitle">Оберіть тест, щоб розпочати проходження</p>
+            </div>
+            <ul class="test-grid">
                 {% for test in tests %}
                     <li>
-                        <a href="{{ url_for('take_test', filename=test.path) }}">
-                            {{ test.title }}
-                            <span style="float: right; font-size: 0.9rem; color: #6c757d;">→</span>
+                        <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
+                            <div class="test-icon">📝</div>
+                            <div class="test-info">
+                                <div class="test-title">{{ test.title }}</div>
+                                <div class="test-meta">{{ test.questions|length }} питань</div>
+                            </div>
+                            <span class="test-arrow">→</span>
                         </a>
                     </li>
                 {% else %}
-                    <li>Немає доступних тестів. Додайте JSON-файли у папки tests/ або sort/</li>
+                    <li class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-icon">📭</div>
+                        <p>Немає доступних тестів. Додайте JSON-файли у папки tests/ або sort/</p>
+                    </li>
                 {% endfor %}
             </ul>
         </div>

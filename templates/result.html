@@ -9,7 +9,9 @@
 <body>
     <div class="container">
         <nav class="navbar">
-            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <span>📚</span> ExamTests
+            </a>
             <div class="navbar-links">
                 <a href="{{ url_for('index') }}">На головну</a>
             </div>
@@ -18,52 +20,68 @@
         <div class="card">
             <h1>{{ test.title }} – Результат</h1>
 
-            <div class="result-summary">
-                <strong>Ваш бал:</strong> {{ score }} з {{ total }} ({{ (score/total*100)|round(1) }}%)
-                {% if score == total %} 🎉 Чудово!
-                {% elif score >= total/2 %} 👍 Добре.
-                {% else %} 📚 Спробуйте ще раз.
-                {% endif %}
+            <!-- Герой-секція -->
+            <div class="result-hero">
+                {% set percent = (score / total * 100)|round(1) %}
+                <div class="result-score-circle {% if score == total %}excellent{% elif score >= total/2 %}good{% else %}needs-work{% endif %}">
+                    {{ percent }}<span style="font-size: 1.2rem;">%</span>
+                </div>
+                <div class="result-message">
+                    {% if score == total %} 🎉 Чудово! {% elif score >= total/2 %} 👍 Добре. {% else %} 📚 Спробуйте ще раз. {% endif %}
+                </div>
+                <div class="result-percentage">Правильних відповідей: {{ score }} з {{ total }} ({{ percent }}%)</div>
             </div>
 
-            <h2>Детальний розбір</h2>
+            <h2>📋 Детальний розбір</h2>
             {% for q in test.questions %}
                 <div class="question-review">
-                    <p><strong>Питання {{ loop.index }}:</strong> {{ q.text }}</p>
-
                     {% set user_answer = user_answers.get(q.id|string) %}
-                    {% if q.type|default('single_choice') == 'matching' %}
-                        <table style="width: 100%; border-collapse: collapse;">
+                    {% set qtype = q.type|default('single_choice') %}
+                    {% if qtype == 'matching' %}
+                        <div class="review-header">
+                            <strong>Питання {{ loop.index }}:</strong> {{ q.text }}
+                            <span class="review-badge {% if user_answer and user_answer is mapping %}correct{% else %}incorrect{% endif %}">
+                                {% if user_answer and user_answer is mapping %}✅ Правильно{% else %}❌ Помилка{% endif %}
+                            </span>
+                        </div>
+                        <table class="matching-review-table">
                             <tr><th>Слово</th><th>Ваша відповідь</th><th>Правильно</th></tr>
                             {% for pair in q.pairs %}
                             <tr>
                                 <td>{{ pair.left }}</td>
-                                <td style="color: {% if user_answer and user_answer.get(pair.left) == pair.right %}#1e7e34{% else %}#c12a2a{% endif %};">
+                                <td class="{% if user_answer and user_answer.get(pair.left) == pair.right %}match-correct{% else %}match-incorrect{% endif %}">
                                     {{ user_answer.get(pair.left, '—') if user_answer else '—' }}
                                 </td>
-                                <td style="color: #1e7e34;">{{ pair.right }}</td>
+                                <td class="match-correct">{{ pair.right }}</td>
                             </tr>
                             {% endfor %}
                         </table>
                     {% else %}
+                        {% set is_correct = (qtype == 'multiple_choice' and user_answer|sort == q.correct|sort) or (qtype != 'multiple_choice' and user_answer == q.correct) %}
+                        <div class="review-header">
+                            <strong>Питання {{ loop.index }}:</strong> {{ q.text }}
+                            <span class="review-badge {% if user_answer is none %}unanswered{% elif is_correct %}correct{% else %}incorrect{% endif %}">
+                                {% if user_answer is none %}⚠️ Не відповіли{% elif is_correct %}✅ Правильно{% else %}❌ Помилка{% endif %}
+                            </span>
+                        </div>
                         <p>Ваша відповідь:
                             {% if user_answer is not none %}
-                                {% if q.type|default('single_choice') == 'multiple_choice' %}
-                                    <span class="{% if user_answer|sort == q.correct|sort %}correct-answer{% else %}incorrect-answer{% endif %}">
-                                        {{ user_answer|join(', ') if user_answer else '—' }}
+                                {% if qtype == 'multiple_choice' %}
+                                    <span class="{% if is_correct %}correct-answer-highlight{% else %}user-answer-highlight{% endif %}">
+                                        {{ user_answer|join(', ') }}
                                     </span>
                                 {% else %}
-                                    <span class="{% if user_answer == q.correct %}correct-answer{% else %}incorrect-answer{% endif %}">
-                                        {{ user_answer if user_answer else '—' }}
+                                    <span class="{% if is_correct %}correct-answer-highlight{% else %}user-answer-highlight{% endif %}">
+                                        {{ user_answer }}
                                     </span>
                                 {% endif %}
                             {% else %}
-                                <em>(не обрано)</em>
+                                <em style="color: #94A3B8;">(не обрано)</em>
                             {% endif %}
                         </p>
                         <p>Правильна відповідь:
-                            <span class="correct-answer">
-                                {% if q.type|default('single_choice') == 'multiple_choice' %}
+                            <span class="correct-answer-highlight">
+                                {% if qtype == 'multiple_choice' %}
                                     {{ q.correct|join(', ') }}
                                 {% else %}
                                     {{ q.correct }}
@@ -74,9 +92,9 @@
                 </div>
             {% endfor %}
 
-            <div style="margin-top: 30px;">
-                <a href="{{ url_for('index') }}" class="btn">Повернутися до списку тестів</a>
-                <a href="{{ url_for('take_test', filename=session.get('current_test', '')) }}" class="btn btn-secondary" style="margin-left: 15px;">Пройти ще раз</a>
+            <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="{{ url_for('index') }}" class="btn">🏠 Повернутися до списку тестів</a>
+                <a href="{{ url_for('take_test', filename=session.get('current_test', '')) }}" class="btn btn-secondary">🔄 Пройти ще раз</a>
             </div>
         </div>
     </div>

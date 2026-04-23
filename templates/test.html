@@ -9,7 +9,9 @@
 <body>
     <div class="container">
         <nav class="navbar">
-            <a href="{{ url_for('index') }}" class="navbar-brand">📚 ExamTests</a>
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <span>📚</span> ExamTests
+            </a>
             <div class="navbar-links">
                 <a href="{{ url_for('index') }}">Перервати спробу</a>
             </div>
@@ -18,13 +20,16 @@
         <div class="test-wrapper">
             <div class="test-content card">
                 <div class="test-header">
-                    <h1>{{ test.title }}</h1>
+                    <div class="test-title-section">
+                        <h1 class="test-title">{{ test.title }}</h1>
+                        <span class="question-counter-badge">Питань: {{ test.questions|length }}</span>
+                    </div>
                     <button type="submit" form="test-form" class="btn">Завершити спробу</button>
                 </div>
 
                 <div class="progress-container">
                     <div class="progress-label">
-                        <span>Прогрес відповідей (правильні)</span>
+                        <span>Прогрес правильних відповідей</span>
                         <span id="progress-percent">0%</span>
                     </div>
                     <div class="progress-bar-bg">
@@ -42,26 +47,26 @@
                             {% set qtype = q.type|default('single_choice') %}
                             {% if qtype == 'single_choice' %}
                                 {% for opt in q.options %}
-                                <label>
+                                <label class="option-label">
                                     <input type="radio" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
                                     {{ opt }}
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'multiple_choice' %}
                                 {% for opt in q.options %}
-                                <label>
+                                <label class="option-label">
                                     <input type="checkbox" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
                                     {{ opt }}
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'open_text' %}
-                                <input type="text" name="q{{ q.id }}" class="question-input" style="width: 100%; padding: 8px;">
+                                <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь...">
                             {% elif qtype == 'matching' %}
                                 <div class="matching-container">
                                     <table>
                                         {% for pair in q.pairs %}
                                         <tr>
-                                            <td style="width: 40%;"><strong>{{ pair.left }}</strong></td>
+                                            <td><strong>{{ pair.left }}</strong></td>
                                             <td>
                                                 <select name="q{{ q.id }}_{{ loop.index0 }}" class="match-select question-input">
                                                     <option value="">-- оберіть --</option>
@@ -77,8 +82,8 @@
                                 </div>
                             {% endif %}
 
-                            <div style="margin-top: 15px;">
-                                <button type="button" class="btn-secondary check-btn" data-qid="{{ q.id }}" data-test="{{ session.get('current_test', '') }}" data-qtype="{{ qtype }}">Перевірити</button>
+                            <div class="check-btn-wrapper">
+                                <button type="button" class="check-btn" data-qid="{{ q.id }}" data-test="{{ session.get('current_test', '') }}" data-qtype="{{ qtype }}">✓ Перевірити</button>
                                 <span class="check-result" id="result-{{ q.id }}"></span>
                             </div>
                         </fieldset>
@@ -88,10 +93,10 @@
                 </form>
             </div>
 
-            <!-- Бічна панель навігації (сітка 5×) -->
+            <!-- Бічна панель навігації -->
             <aside id="question-sidebar" class="question-sidebar">
                 <div class="sidebar-header">
-                    <span>Питання</span>
+                    <span>📍 Питання</span>
                     <button id="close-sidebar-btn" title="Закрити">×</button>
                 </div>
                 <ul class="sidebar-list" id="question-nav-list">
@@ -109,9 +114,7 @@
 
     <script>
         (function() {
-            // Множина ID питань, на які дано правильну відповідь
             let correctSet = new Set();
-
             const totalQuestions = {{ test.questions|length }};
             const sidebar = document.getElementById('question-sidebar');
             const sidebarList = document.getElementById('question-nav-list');
@@ -120,7 +123,6 @@
             const progressBar = document.getElementById('progress-bar');
             const progressPercent = document.getElementById('progress-percent');
 
-            // Функція оновлення прогресу та бічної панелі
             function updateProgressAndSidebar() {
                 const correctCount = correctSet.size;
                 const percent = totalQuestions ? Math.round((correctCount / totalQuestions) * 100) : 0;
@@ -137,7 +139,6 @@
                 });
             }
 
-            // Перевірка, чи взагалі обрана/введена відповідь
             function hasUserAnswer(block, qtype, qid) {
                 if (qtype === 'single_choice') {
                     return block.querySelector(`input[name="q${qid}"]:checked`) !== null;
@@ -153,7 +154,6 @@
                 return false;
             }
 
-            // Обробка кнопок "Перевірити"
             document.querySelectorAll('.check-btn').forEach(btn => {
                 btn.addEventListener('click', async function() {
                     const qid = this.dataset.qid;
@@ -162,10 +162,9 @@
                     const block = document.querySelector(`.question-block[data-qid="${qid}"]`);
                     const resultSpan = document.getElementById(`result-${qid}`);
 
-                    // Перевірка наявності відповіді
                     if (!hasUserAnswer(block, qtype, qid)) {
                         resultSpan.innerHTML = '⚠️ Будь ласка, дайте відповідь перед перевіркою.';
-                        resultSpan.style.color = 'orange';
+                        resultSpan.className = 'check-result warning';
                         return;
                     }
 
@@ -198,8 +197,7 @@
 
                         if (data.correct) {
                             resultSpan.innerHTML = '✅ Правильно!';
-                            resultSpan.style.color = 'green';
-                            // Додаємо до correctSet, якщо ще не додано
+                            resultSpan.className = 'check-result correct';
                             if (!correctSet.has(qid)) {
                                 correctSet.add(qid);
                                 updateProgressAndSidebar();
@@ -208,8 +206,7 @@
                             let correctAnswer = data.correct_answer;
                             if (Array.isArray(correctAnswer)) correctAnswer = correctAnswer.join(', ');
                             resultSpan.innerHTML = `❌ Неправильно. Правильна відповідь: ${correctAnswer}`;
-                            resultSpan.style.color = 'red';
-                            // Якщо відповідь неправильна, але раніше це питання було правильним — видаляємо з correctSet
+                            resultSpan.className = 'check-result incorrect';
                             if (correctSet.has(qid)) {
                                 correctSet.delete(qid);
                                 updateProgressAndSidebar();
@@ -217,22 +214,20 @@
                         }
                     } catch (err) {
                         resultSpan.innerHTML = 'Помилка перевірки';
-                        resultSpan.style.color = 'red';
+                        resultSpan.className = 'check-result warning';
                     }
                 });
             });
 
-            // ---- Мобільна бічна панель (залишаємо без змін) ----
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
+            // ---- Мобільна бічна панель ----
+            function isMobile() { return window.innerWidth <= 900; }
             function openSidebar() {
                 sidebar.classList.add('visible');
                 toggleBtn.style.display = 'none';
             }
             function closeSidebar() {
                 sidebar.classList.remove('visible');
-                if (isMobile()) toggleBtn.style.display = 'block';
+                if (isMobile()) toggleBtn.style.display = 'flex';
             }
             toggleBtn.addEventListener('click', openSidebar);
             closeBtn.addEventListener('click', closeSidebar);
@@ -255,18 +250,18 @@
                     toggleBtn.style.display = 'none';
                 } else {
                     sidebar.classList.remove('visible');
-                    toggleBtn.style.display = 'block';
+                    toggleBtn.style.display = 'flex';
                 }
             });
             if (isMobile()) {
                 sidebar.classList.remove('visible');
-                toggleBtn.style.display = 'block';
+                toggleBtn.style.display = 'flex';
             } else {
                 sidebar.classList.add('visible');
                 toggleBtn.style.display = 'none';
             }
 
-            // ---- Заборона дублювання у matching (унікальні значення) ----
+            // Заборона дублювання у matching
             document.querySelectorAll('.matching-container').forEach(container => {
                 const selects = container.querySelectorAll('.match-select');
                 const updateOptions = () => {
@@ -285,7 +280,6 @@
                 updateOptions();
             });
 
-            // Початкове оновлення (0 правильних)
             updateProgressAndSidebar();
         })();
     </script>
