@@ -94,7 +94,11 @@
 
             <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
                 <a href="{{ url_for('index') }}" class="btn">🏠 Повернутися до списку тестів</a>
-                <a href="{{ url_for('take_test', filename=session.get('current_test', '')) }}" class="btn btn-secondary">🔄 Пройти ще раз</a>
+                {% if filename %}
+                    <a href="{{ url_for('take_test', filename=filename) }}" class="btn btn-secondary">🔄 Пройти ще раз</a>
+                {% else %}
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">🏠 На головну</a>
+                {% endif %}
             </div>
         </div>
     </div>

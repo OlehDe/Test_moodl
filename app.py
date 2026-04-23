@@ -107,12 +107,14 @@ def submit_test(filename):
             if all_correct:
                 score += 1
 
+    current_test_filename = filename  # збережемо для кнопки "Пройти ще раз"
     session.pop('current_test', None)
     return render_template('result.html',
                            test=original_test,
                            user_answers=user_answers,
                            score=score,
-                           total=total)
+                           total=total,
+                           filename=current_test_filename)
 
 @app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])
 def check_answer(filename, question_id):
