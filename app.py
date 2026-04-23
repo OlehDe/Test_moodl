@@ -2,37 +2,33 @@ import json
 import os
 import random
 from glob import glob
-from flask import Flask, render_template, request, session, redirect, url_for, jsonify
+from flask import Flask, render_template, request, session, url_for, jsonify
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
-# Папки, в яких шукаємо тести
 TEST_DIRS = ['tests', 'sort']
 
 def get_all_test_files():
-    """Рекурсивно знаходить усі JSON-файли у дозволених папках."""
     tests = []
     for folder in TEST_DIRS:
         if not os.path.isdir(folder):
             continue
         pattern = os.path.join(folder, '**', '*.json')
         for filepath in glob(pattern, recursive=True):
-            rel_path = os.path.relpath(filepath)  # відносний шлях (з системними розділювачами)
+            rel_path = os.path.relpath(filepath)
             try:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
-            except Exception as e:
-                print(f"Помилка завантаження {filepath}: {e}")
+            except Exception:
                 title = os.path.basename(filepath)
             tests.append({'path': rel_path, 'title': title})
     return tests
 
 def load_test(rel_path):
-    """Завантажує JSON за відносним шляхом. Перевіряє безпеку через абсолютні шляхи."""
-    normalized_path = os.path.normpath(rel_path)          # нормалізуємо (замінює / на \ на Windows)
-    abs_path = os.path.abspath(normalized_path)
+    norm_path = os.path.normpath(rel_path)
+    abs_path = os.path.abspath(norm_path)
     allowed = False
     for folder in TEST_DIRS:
         abs_folder = os.path.abspath(folder)
@@ -40,12 +36,11 @@ def load_test(rel_path):
             allowed = True
             break
     if not allowed:
-        raise ValueError(f"Недозволений шлях до тесту: {rel_path}")
-    with open(normalized_path, 'r', encoding='utf-8') as f:
+        raise ValueError(f"Недозволений шлях: {rel_path}")
+    with open(norm_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def prepare_test_for_display(test_data):
-    """Перемішує питання/варіанти, якщо setting == 'random'."""
     import copy
     test_copy = copy.deepcopy(test_data)
     is_random = test_copy.get('setting') == 'random'
@@ -55,6 +50,8 @@ def prepare_test_for_display(test_data):
         qtype = q.get('type', 'single_choice')
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
+        if is_random and qtype == 'matching':
+            random.shuffle(q['pairs'])
     return test_copy
 
 @app.route('/')
@@ -79,22 +76,35 @@ def submit_test(filename):
     for question in original_test['questions']:
         qid = str(question['id'])
         qtype = question.get('type', 'single_choice')
-        correct_value = question['correct']
+        correct_value = question.get('correct', None)
 
         if qtype == 'single_choice':
-            selected_text = request.form.get(f'q{qid}')
-            user_answers[qid] = selected_text
-            if selected_text and selected_text.strip() == correct_value.strip():
+            selected = request.form.get(f'q{qid}')
+            user_answers[qid] = selected
+            if selected and correct_value and selected.strip() == correct_value.strip():
                 score += 1
         elif qtype == 'multiple_choice':
-            selected_texts = request.form.getlist(f'q{qid}')
-            user_answers[qid] = selected_texts
-            if set(s.strip() for s in selected_texts) == set(s.strip() for s in correct_value):
+            selected_list = request.form.getlist(f'q{qid}')
+            user_answers[qid] = selected_list
+            if correct_value and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
                 score += 1
         elif qtype == 'open_text':
-            answer_text = request.form.get(f'q{qid}', '').strip()
-            user_answers[qid] = answer_text
-            if answer_text.lower() == correct_value.strip().lower():
+            answer = request.form.get(f'q{qid}', '').strip()
+            user_answers[qid] = answer
+            if correct_value and answer.lower() == correct_value.strip().lower():
+                score += 1
+        elif qtype == 'matching':
+            pairs = question['pairs']
+            all_correct = True
+            user_pairs = {}
+            for i, pair in enumerate(pairs):
+                left_key = pair['left']
+                selected_right = request.form.get(f'q{qid}_{i}')
+                user_pairs[left_key] = selected_right
+                if selected_right != pair['right']:
+                    all_correct = False
+            user_answers[qid] = user_pairs
+            if all_correct:
                 score += 1
 
     session.pop('current_test', None)
@@ -112,30 +122,45 @@ def check_answer(filename, question_id):
         return jsonify({'error': 'Question not found'}), 404
 
     qtype = question.get('type', 'single_choice')
-    correct_value = question['correct']
+    correct_value = question.get('correct', None)
     is_correct = False
     user_answer = None
 
     if qtype == 'single_choice':
         selected = request.form.get('answer')
         user_answer = selected
-        if selected and selected.strip() == correct_value.strip():
+        if selected and correct_value and selected.strip() == correct_value.strip():
             is_correct = True
     elif qtype == 'multiple_choice':
         selected_list = request.form.getlist('answer')
         user_answer = selected_list
-        if set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
+        if correct_value and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
             is_correct = True
     elif qtype == 'open_text':
-        answer_text = request.form.get('answer', '').strip()
-        user_answer = answer_text
-        if answer_text.lower() == correct_value.strip().lower():
+        answer = request.form.get('answer', '').strip()
+        user_answer = answer
+        if correct_value and answer.lower() == correct_value.strip().lower():
             is_correct = True
+    elif qtype == 'matching':
+        data = request.get_json()
+        if not data or 'answers' not in data:
+            return jsonify({'error': 'Invalid data'}), 400
+        user_answers = data['answers']
+        pairs = question['pairs']
+        if len(user_answers) != len(pairs):
+            return jsonify({'error': 'Number of answers does not match pairs'}), 400
+        all_correct = True
+        for i, pair in enumerate(pairs):
+            if user_answers[i] != pair['right']:
+                all_correct = False
+                break
+        is_correct = all_correct
+        user_answer = user_answers
 
     return jsonify({
         'correct': is_correct,
         'user_answer': user_answer,
-        'correct_answer': correct_value
+        'correct_answer': correct_value if correct_value else ''
     })
 
 if __name__ == '__main__':

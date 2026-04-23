@@ -20,12 +20,9 @@
 
             <div class="result-summary">
                 <strong>Ваш бал:</strong> {{ score }} з {{ total }} ({{ (score/total*100)|round(1) }}%)
-                {% if score == total %}
-                    🎉 Чудово!
-                {% elif score >= total/2 %}
-                    👍 Добре.
-                {% else %}
-                    📚 Спробуйте ще раз.
+                {% if score == total %} 🎉 Чудово!
+                {% elif score >= total/2 %} 👍 Добре.
+                {% else %} 📚 Спробуйте ще раз.
                 {% endif %}
             </div>
 
@@ -34,32 +31,52 @@
                 <div class="question-review">
                     <p><strong>Питання {{ loop.index }}:</strong> {{ q.text }}</p>
 
-                    {% set user_opt = user_answers.get(q.id|string) %}
-                    <p>
-                        <span>Ваша відповідь:</span>
-                        {% if user_opt is not none %}
-                            <span class="{% if user_opt == q.correct %}correct-answer{% else %}incorrect-answer{% endif %}">
-                                {{ q.options[user_opt] }}
-                            </span>
-                            {% if user_opt == q.correct %}
-                                <span style="color: #1e7e34; margin-left: 8px;">✓</span>
+                    {% set user_answer = user_answers.get(q.id|string) %}
+                    {% if q.type|default('single_choice') == 'matching' %}
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr><th>Слово</th><th>Ваша відповідь</th><th>Правильно</th></tr>
+                            {% for pair in q.pairs %}
+                            <tr>
+                                <td>{{ pair.left }}</td>
+                                <td style="color: {% if user_answer and user_answer.get(pair.left) == pair.right %}#1e7e34{% else %}#c12a2a{% endif %};">
+                                    {{ user_answer.get(pair.left, '—') if user_answer else '—' }}
+                                </td>
+                                <td style="color: #1e7e34;">{{ pair.right }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <p>Ваша відповідь:
+                            {% if user_answer is not none %}
+                                {% if q.type|default('single_choice') == 'multiple_choice' %}
+                                    <span class="{% if user_answer|sort == q.correct|sort %}correct-answer{% else %}incorrect-answer{% endif %}">
+                                        {{ user_answer|join(', ') if user_answer else '—' }}
+                                    </span>
+                                {% else %}
+                                    <span class="{% if user_answer == q.correct %}correct-answer{% else %}incorrect-answer{% endif %}">
+                                        {{ user_answer if user_answer else '—' }}
+                                    </span>
+                                {% endif %}
                             {% else %}
-                                <span style="color: #c12a2a; margin-left: 8px;">✗</span>
+                                <em>(не обрано)</em>
                             {% endif %}
-                        {% else %}
-                            <em style="color: #6c757d;">(не обрано)</em>
-                        {% endif %}
-                    </p>
-                    <p>
-                        <span>Правильна відповідь:</span>
-                        <span class="correct-answer">{{ q.options[q.correct] }}</span>
-                    </p>
+                        </p>
+                        <p>Правильна відповідь:
+                            <span class="correct-answer">
+                                {% if q.type|default('single_choice') == 'multiple_choice' %}
+                                    {{ q.correct|join(', ') }}
+                                {% else %}
+                                    {{ q.correct }}
+                                {% endif %}
+                            </span>
+                        </p>
+                    {% endif %}
                 </div>
             {% endfor %}
 
             <div style="margin-top: 30px;">
                 <a href="{{ url_for('index') }}" class="btn">Повернутися до списку тестів</a>
-                <a href="{{ url_for('take_test', filename=session.get('current_test', 'math_test.json')) }}" class="btn btn-secondary" style="margin-left: 15px;">Пройти ще раз</a>
+                <a href="{{ url_for('take_test', filename=session.get('current_test', '')) }}" class="btn btn-secondary" style="margin-left: 15px;">Пройти ще раз</a>
             </div>
         </div>
     </div>
