@@ -21,10 +21,25 @@ def get_all_test_files():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
+                    is_random = data.get('setting') == 'random'
             except Exception:
                 title = os.path.basename(filepath)
-            tests.append({'path': rel_path, 'title': title})
+                is_random = False
+            tests.append({
+                'path': rel_path,
+                'title': title,
+                'is_random': is_random
+            })
     return tests
+
+@app.route('/')
+def index():
+    all_tests = get_all_test_files()
+    normal_tests = [t for t in all_tests if not t['is_random']]
+    random_tests = [t for t in all_tests if t['is_random']]
+    return render_template('index.html',
+                           normal_tests=normal_tests,
+                           random_tests=random_tests)
 
 def load_test(rel_path):
     norm_path = os.path.normpath(rel_path)
@@ -53,11 +68,6 @@ def prepare_test_for_display(test_data):
         if is_random and qtype == 'matching':
             random.shuffle(q['pairs'])
     return test_copy
-
-@app.route('/')
-def index():
-    tests = get_all_test_files()
-    return render_template('index.html', tests=tests)
 
 @app.route('/test/<path:filename>')
 def take_test(filename):
@@ -107,7 +117,7 @@ def submit_test(filename):
             if all_correct:
                 score += 1
 
-    current_test_filename = filename  # збережемо для кнопки "Пройти ще раз"
+    current_test_filename = filename
     session.pop('current_test', None)
     return render_template('result.html',
                            test=original_test,

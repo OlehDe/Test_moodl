@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тестування – ExamTests</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Додаткові стилі для вкладок */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-pill);
+            transition: all var(--transition);
+            box-shadow: none;
+        }
+        .tab-btn:hover {
+            background: var(--bg-warm);
+            color: var(--text);
+            transform: none;
+            box-shadow: none;
+        }
+        .tab-btn.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-secondary);
+        }
+        .empty-state .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -24,26 +72,82 @@
                 <h1>Доступні тести</h1>
                 <p class="subtitle">Оберіть тест, щоб розпочати проходження</p>
             </div>
-            <ul class="test-grid">
-                {% for test in tests %}
-                    <li>
-                        <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
-                            <div class="test-icon">📝</div>
-                            <div class="test-info">
-                                <div class="test-title">{{ test.title }}</div>
-                                <div class="test-meta">{{ test.questions|length }} питань</div>
-                            </div>
-                            <span class="test-arrow">→</span>
-                        </a>
-                    </li>
+
+            <!-- Вкладки -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="normal">📘 Звичайні тести</button>
+                <button class="tab-btn" data-tab="random">🎲 З перемішуванням питань</button>
+            </div>
+
+            <!-- Таб звичайних тестів -->
+            <div id="tab-normal" class="tab-content active">
+                {% if normal_tests %}
+                    <ul class="test-grid">
+                        {% for test in normal_tests %}
+                            <li>
+                                <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
+                                    <div class="test-icon">📝</div>
+                                    <div class="test-info">
+                                        <div class="test-title">{{ test.title }}</div>
+                                        <!-- Кількість питань буде підтягнута з JSON при завантаженні, але тут можна залишити без мета-інформації або додати заглушку -->
+                                        <div class="test-meta">Без перемішування</div>
+                                    </div>
+                                    <span class="test-arrow">→</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 {% else %}
-                    <li class="empty-state" style="grid-column: 1 / -1;">
+                    <div class="empty-state">
                         <div class="empty-icon">📭</div>
-                        <p>Немає доступних тестів. Додайте JSON-файли у папки tests/ або sort/</p>
-                    </li>
-                {% endfor %}
-            </ul>
+                        <p>Немає звичайних тестів.</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Таб рандомних тестів (перемішані питання) -->
+            <div id="tab-random" class="tab-content">
+                {% if random_tests %}
+                    <ul class="test-grid">
+                        {% for test in random_tests %}
+                            <li>
+                                <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
+                                    <div class="test-icon">🎲</div>
+                                    <div class="test-info">
+                                        <div class="test-title">{{ test.title }}</div>
+                                        <div class="test-meta">Питання перемішані</div>
+                                    </div>
+                                    <span class="test-arrow">→</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">🎲</div>
+                        <p>Немає тестів із перемішуванням.</p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
+
+    <script>
+        // Перемикання вкладок
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                // Активна кнопка
+                tabs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // Показати потрібний контент
+                contents.forEach(content => content.classList.remove('active'));
+                document.getElementById(`tab-${tabId}`).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
