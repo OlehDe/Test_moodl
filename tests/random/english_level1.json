@@ -1,0 +1,1902 @@
+{
+  "title": "Англійська мова – Рівень 1 РАНДОМ",
+  "setting": "random",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single_choice",
+      "text": "Where should I take your luggage?",
+      "options": [
+        "It's on the fifth floor",
+        "Just get it to the taxi",
+        "You shouldn't have taken it",
+        "Don't make a fuss"
+      ],
+      "correct": "Just get it to the taxi"
+    },
+    {
+      "id": 2,
+      "type": "single_choice",
+      "text": "You should really get more sleep at night",
+      "options": [
+        "I am very sorry but see you later",
+        "I don't think you are right",
+        "I am very sorry. Would you excuse me?",
+        "I know. I am not going to stay up again"
+      ],
+      "correct": "I know. I am not going to stay up again"
+    },
+    {
+      "id": 3,
+      "type": "single_choice",
+      "text": "My brother has told me he is getting married next week",
+      "options": [
+        "I will give you a ring",
+        "He could have told me earlier",
+        "You can say it again",
+        "I think you shouldn't have told me"
+      ],
+      "correct": "He could have told me earlier"
+    },
+    {
+      "id": 4,
+      "type": "single_choice",
+      "text": "To ride on a train",
+      "options": [
+        "to follow a train",
+        "to see the train off",
+        "to move the train",
+        "to catch the train"
+      ],
+      "correct": "to catch the train"
+    },
+    {
+      "id": 5,
+      "type": "single_choice",
+      "text": "Purchased for a little money",
+      "options": [
+        "cheaply",
+        "low-paid",
+        "small-paid",
+        "non-expensive"
+      ],
+      "correct": "cheaply"
+    },
+    {
+      "id": 6,
+      "type": "single_choice",
+      "text": "Customers are happier when the staff are _________.",
+      "options": [
+        "satisfactory",
+        "well-paid",
+        "busy",
+        "loyal"
+      ],
+      "correct": "loyal"
+    },
+    {
+      "id": 7,
+      "type": "single_choice",
+      "text": "To get off a ship",
+      "options": [
+        "disship",
+        "disembark",
+        "get out",
+        "dissolve"
+      ],
+      "correct": "disembark"
+    },
+    {
+      "id": 8,
+      "type": "single_choice",
+      "text": "A style of cooking from a certain place",
+      "options": [
+        "speciality",
+        "kitchen",
+        "cuisine",
+        "dish"
+      ],
+      "correct": "cuisine"
+    },
+    {
+      "id": 9,
+      "type": "single_choice",
+      "text": "Try to solve your problems _______ with the supervisor.",
+      "options": [
+        "avoiding",
+        "ignoring",
+        "directly",
+        "strictly"
+      ],
+      "correct": "directly"
+    },
+    {
+      "id": 10,
+      "type": "single_choice",
+      "text": "A card that says you are allowed to drive a car",
+      "options": [
+        "driver's license",
+        "driver's permission",
+        "driver's allowance",
+        "driver's passport"
+      ],
+      "correct": "driver's license"
+    },
+    {
+      "id": 11,
+      "type": "single_choice",
+      "text": "I doubt that it was ______ working so hard.",
+      "options": [
+        "worth",
+        "waste",
+        "need",
+        "rewarding"
+      ],
+      "correct": "worth"
+    },
+    {
+      "id": 12,
+      "type": "single_choice",
+      "text": "A lot of work _______ to be done.",
+      "options": [
+        "remains",
+        "remain",
+        "will remain",
+        "remained"
+      ],
+      "correct": "remains"
+    },
+    {
+      "id": 13,
+      "type": "single_choice",
+      "text": "Shannon dropped some books, so I picked ________ up for her.",
+      "options": [
+        "you",
+        "it",
+        "its",
+        "them"
+      ],
+      "correct": "them"
+    },
+    {
+      "id": 14,
+      "type": "single_choice",
+      "text": "Could you give me a hand?",
+      "options": [
+        "Yes, I suppose so",
+        "I think the first one is pretty good",
+        "Take the first on the right",
+        "Don't be so naive"
+      ],
+      "correct": "Yes, I suppose so"
+    },
+    {
+      "id": 15,
+      "type": "single_choice",
+      "text": "A store where you buy items and do not have to pay tax for them",
+      "options": [
+        "tax-free shop",
+        "duty-free shop",
+        "free-tax shop",
+        "duty-off shop"
+      ],
+      "correct": "duty-free shop"
+    },
+    {
+      "id": 16,
+      "type": "single_choice",
+      "text": "A measure of how much you pay for something",
+      "options": [
+        "tax",
+        "trade",
+        "rate",
+        "mortgage"
+      ],
+      "correct": "rate"
+    },
+    {
+      "id": 17,
+      "type": "single_choice",
+      "text": "A type of service in which customers order and receive food in their car",
+      "options": [
+        "drive-through",
+        "drive-in",
+        "drive-out",
+        "drive-off"
+      ],
+      "correct": "drive-through"
+    },
+    {
+      "id": 18,
+      "type": "single_choice",
+      "text": "To decide who the caller speaks to next",
+      "options": [
+        "to subordinate a call",
+        "to supervise a call",
+        "to direct a call",
+        "to research a call"
+      ],
+      "correct": "to direct a call"
+    },
+    {
+      "id": 19,
+      "type": "single_choice",
+      "text": "A person who works below you in an organization is a __________",
+      "options": [
+        "subordinate",
+        "superior",
+        "worker",
+        "office manager"
+      ],
+      "correct": "subordinate"
+    },
+    {
+      "id": 20,
+      "type": "single_choice",
+      "text": "A person who breaks the law",
+      "options": [
+        "deputy",
+        "judge",
+        "criminal",
+        "authorities"
+      ],
+      "correct": "criminal"
+    },
+    {
+      "id": 21,
+      "type": "single_choice",
+      "text": "Why didn't you say 'hello' to me yesterday?",
+      "options": [
+        "Sorry, I didn't mean to ignore you",
+        "You should be more careful",
+        "There is nothing to feel sorry about",
+        "You should have been more careful"
+      ],
+      "correct": "Sorry, I didn't mean to ignore you"
+    },
+    {
+      "id": 22,
+      "type": "single_choice",
+      "text": "Could you reserve a single room for me?",
+      "options": [
+        "There is nothing to be worry about",
+        "Is it necessary?",
+        "What do you mean?",
+        "Surely. How many nights?"
+      ],
+      "correct": "Surely. How many nights?"
+    },
+    {
+      "id": 23,
+      "type": "single_choice",
+      "text": "________ to London on the train yesterday?",
+      "options": [
+        "Did she go",
+        "Did she went",
+        "She go",
+        "She goes"
+      ],
+      "correct": "Did she go"
+    },
+    {
+      "id": 24,
+      "type": "single_choice",
+      "text": "Vira ________ Spanish, English and a bit of French.",
+      "options": [
+        "speaks",
+        "is speaking",
+        "speak",
+        "speaking"
+      ],
+      "correct": "speaks"
+    },
+    {
+      "id": 25,
+      "type": "single_choice",
+      "text": "Could you ________ Mr. Bell's number in the directory?",
+      "options": [
+        "hold on",
+        "look up",
+        "get through",
+        "pick up"
+      ],
+      "correct": "look up"
+    },
+    {
+      "id": 26,
+      "type": "single_choice",
+      "text": "The telephone is ringing. Why can't you _________ the receiver?",
+      "options": [
+        "get through",
+        "hold on",
+        "look up",
+        "pick up"
+      ],
+      "correct": "pick up"
+    },
+    {
+      "id": 27,
+      "type": "single_choice",
+      "text": "Could you _______ for a moment? I'll find out if Mr. Jackson is in.",
+      "options": [
+        "get out",
+        "hold on",
+        "look up",
+        "pick up"
+      ],
+      "correct": "hold on"
+    },
+    {
+      "id": 28,
+      "type": "single_choice",
+      "text": "You should never __________.",
+      "options": [
+        "give up",
+        "to follow his advice",
+        "to give up",
+        "given up"
+      ],
+      "correct": "give up"
+    },
+    {
+      "id": 29,
+      "type": "single_choice",
+      "text": "We don't __________ which airport this plane goes from.",
+      "options": [
+        "know",
+        "think",
+        "like",
+        "knowing"
+      ],
+      "correct": "know"
+    },
+    {
+      "id": 30,
+      "type": "single_choice",
+      "text": "I am awfully tired",
+      "options": [
+        "I wish you didn't work so much",
+        "I didn't ask you opinion",
+        "I am sorry it is not possible",
+        "was cleaning"
+      ],
+      "correct": "I wish you didn't work so much"
+    },
+    {
+      "id": 31,
+      "type": "single_choice",
+      "text": "Mike _________ to class on Monday",
+      "options": [
+        "should have come",
+        "came",
+        "not come",
+        "came not"
+      ],
+      "correct": "should have come"
+    },
+    {
+      "id": 32,
+      "type": "single_choice",
+      "text": "Mike _________ never been to Georgia.",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "has not"
+      ],
+      "correct": "has"
+    },
+    {
+      "id": 33,
+      "type": "single_choice",
+      "text": "The house was _______ in 1987.",
+      "options": [
+        "built",
+        "building",
+        "build",
+        "builded"
+      ],
+      "correct": "built"
+    },
+    {
+      "id": 34,
+      "type": "single_choice",
+      "text": "Could you possibly give me a lift to the station?",
+      "options": [
+        "Sorry, there is something wrong with my car",
+        "The lift doesn't work",
+        "You should never ask me again",
+        "The closer the station, the better for you"
+      ],
+      "correct": "Sorry, there is something wrong with my car"
+    },
+    {
+      "id": 35,
+      "type": "single_choice",
+      "text": "They want _________ milk.",
+      "options": [
+        "some",
+        "little",
+        "a few",
+        "many"
+      ],
+      "correct": "some"
+    },
+    {
+      "id": 36,
+      "type": "single_choice",
+      "text": "We get up _______ 8 o'clock.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "near"
+      ],
+      "correct": "at"
+    },
+    {
+      "id": 37,
+      "type": "single_choice",
+      "text": "_______ you believe in supernatural power?",
+      "options": [
+        "Do",
+        "Are",
+        "Does",
+        "Were"
+      ],
+      "correct": "Do"
+    },
+    {
+      "id": 38,
+      "type": "single_choice",
+      "text": "How ________ water is there in the kettle?",
+      "options": [
+        "much",
+        "many",
+        "little",
+        "a few"
+      ],
+      "correct": "much"
+    },
+    {
+      "id": 39,
+      "type": "single_choice",
+      "text": "Are you _________ student?",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "--"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": 40,
+      "type": "single_choice",
+      "text": "It was so silly of me to do that",
+      "options": [
+        "Forget it once and for all",
+        "I'll probably do that next week",
+        "Is it OK if I make a call",
+        "I do this very often"
+      ],
+      "correct": "Forget it once and for all"
+    },
+    {
+      "id": 41,
+      "type": "single_choice",
+      "text": "The river Nile _________ into the Mediterranean",
+      "options": [
+        "flows",
+        "is flowing",
+        "flowes",
+        "flowing"
+      ],
+      "correct": "flows"
+    },
+    {
+      "id": 42,
+      "type": "single_choice",
+      "text": "We ________ an interesting talk on stress-related illnesses at the conference last week.",
+      "options": [
+        "heard",
+        "had heard",
+        "having heard",
+        "has heard"
+      ],
+      "correct": "heard"
+    },
+    {
+      "id": 43,
+      "type": "single_choice",
+      "text": "________ your lifestyle __________ since you get a promotion?",
+      "options": [
+        "Has/changed",
+        "Have/changed",
+        "Has/change",
+        "Have/change"
+      ],
+      "correct": "Has/changed"
+    },
+    {
+      "id": 44,
+      "type": "single_choice",
+      "text": "Frank is suffering from exhaustion. He __________ away from the office all this week.",
+      "options": [
+        "have been",
+        "has been",
+        "had been",
+        "has being"
+      ],
+      "correct": "has been"
+    },
+    {
+      "id": 45,
+      "type": "single_choice",
+      "text": "I ___________ the deadline once again. My boss will be angry with me.",
+      "options": [
+        "have missed",
+        "had missed",
+        "having missed",
+        "missing"
+      ],
+      "correct": "have missed"
+    },
+    {
+      "id": 46,
+      "type": "single_choice",
+      "text": "Eliza ________ already a workaholic when she was a student.",
+      "options": [
+        "were",
+        "was",
+        "has been",
+        "being"
+      ],
+      "correct": "was"
+    },
+    {
+      "id": 47,
+      "type": "single_choice",
+      "text": "The bank is at the end ________ the road.",
+      "options": [
+        "of",
+        "on",
+        "at",
+        "in"
+      ],
+      "correct": "of"
+    },
+    {
+      "id": 48,
+      "type": "single_choice",
+      "text": "What is Sarah ____________ right now?",
+      "options": [
+        "doing",
+        "do",
+        "did",
+        "does"
+      ],
+      "correct": "doing"
+    },
+    {
+      "id": 49,
+      "type": "single_choice",
+      "text": "I suppose we could discuss that privately",
+      "options": [
+        "I don't mind. Let us go to my room",
+        "The thing is that I am very hungry",
+        "I'll check it if you want",
+        "I suggest you are wrong"
+      ],
+      "correct": "I don't mind. Let us go to my room"
+    },
+    {
+      "id": 50,
+      "type": "single_choice",
+      "text": "This is the __________ thing in my life.",
+      "options": [
+        "bad",
+        "worst",
+        "more bad",
+        "baddest"
+      ],
+      "correct": "worst"
+    },
+    {
+      "id": 51,
+      "type": "single_choice",
+      "text": "English is _________ than Japanese.",
+      "options": [
+        "easier",
+        "easiest",
+        "easy",
+        "more easy"
+      ],
+      "correct": "easier"
+    },
+    {
+      "id": 52,
+      "type": "single_choice",
+      "text": "I have known you ________ a long time.",
+      "options": [
+        "for",
+        "since",
+        "at",
+        "in"
+      ],
+      "correct": "for"
+    },
+    {
+      "id": 53,
+      "type": "single_choice",
+      "text": "Sarah ________ the dog for a walk every day.",
+      "options": [
+        "take",
+        "takes",
+        "taking",
+        "is taking"
+      ],
+      "correct": "takes"
+    },
+    {
+      "id": 54,
+      "type": "single_choice",
+      "text": "________ she live with her parents?",
+      "options": [
+        "does",
+        "have",
+        "why",
+        "has"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 55,
+      "type": "single_choice",
+      "text": "Your cold seems a lot _________ than mine",
+      "options": [
+        "worse",
+        "worst",
+        "bad",
+        "badder"
+      ],
+      "correct": "worse"
+    },
+    {
+      "id": 56,
+      "type": "single_choice",
+      "text": "__________ it rain in summer?",
+      "options": [
+        "does",
+        "do",
+        "has",
+        "have"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 57,
+      "type": "single_choice",
+      "text": "_________ very tired yesterday he decided not to go out",
+      "options": [
+        "Being",
+        "Was",
+        "Been",
+        "Having"
+      ],
+      "correct": "Being"
+    },
+    {
+      "id": 58,
+      "type": "single_choice",
+      "text": "Is she __________ now?",
+      "options": [
+        "working",
+        "work",
+        "worked",
+        "works"
+      ],
+      "correct": "working"
+    },
+    {
+      "id": 59,
+      "type": "single_choice",
+      "text": "There is a ___________ teachers at the school.",
+      "options": [
+        "short",
+        "shortage of",
+        "short of",
+        "shortage"
+      ],
+      "correct": "shortage of"
+    },
+    {
+      "id": 60,
+      "type": "single_choice",
+      "text": "The prices here are ___________ at a discount store.",
+      "options": [
+        "higher than those",
+        "higher then those",
+        "higher then",
+        "higher than this"
+      ],
+      "correct": "higher than those"
+    },
+    {
+      "id": 61,
+      "type": "open_text",
+      "text": "Make up a plural form of the noun 'goose'.",
+      "correct": "geese"
+    },
+    {
+      "id": 62,
+      "type": "open_text",
+      "text": "Make up a plural form of the noun 'retina'.",
+      "correct": "retinae"
+    },
+    {
+      "id": 63,
+      "type": "open_text",
+      "text": "Make up a plural form of the noun 'deer'.",
+      "correct": "deer"
+    },
+    {
+      "id": 64,
+      "type": "single_choice",
+      "text": "Flying is not only faster but also _________ than travelling by car.",
+      "options": [
+        "safer",
+        "safest",
+        "safe",
+        "safier"
+      ],
+      "correct": "safer"
+    },
+    {
+      "id": 65,
+      "type": "single_choice",
+      "text": "My sister and I _________ leaving.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "'m"
+      ],
+      "correct": "are"
+    },
+    {
+      "id": 66,
+      "type": "single_choice",
+      "text": "We _________ got three children.",
+      "options": [
+        "have",
+        "has",
+        "are",
+        "were"
+      ],
+      "correct": "have"
+    },
+    {
+      "id": 67,
+      "type": "single_choice",
+      "text": "Sarah ________ with her aunt this week.",
+      "options": [
+        "is staying",
+        "stays",
+        "stayed",
+        "are staying"
+      ],
+      "correct": "is staying"
+    },
+    {
+      "id": 68,
+      "type": "single_choice",
+      "text": "Cathy __________ to school when it started to rain.",
+      "options": [
+        "is walking",
+        "was walking",
+        "will be walking",
+        "walked"
+      ],
+      "correct": "was walking"
+    },
+    {
+      "id": 69,
+      "type": "single_choice",
+      "text": "She's at the bus station. She ___________ travel by bus.",
+      "options": [
+        "is going to",
+        "will be",
+        "is",
+        "shall"
+      ],
+      "correct": "is going to"
+    },
+    {
+      "id": 70,
+      "type": "single_choice",
+      "text": "What _________ Pam doing yesterday at three o'clock?",
+      "options": [
+        "was",
+        "were",
+        "is",
+        "will"
+      ],
+      "correct": "was"
+    },
+    {
+      "id": 71,
+      "type": "single_choice",
+      "text": "It rarely _________ in the desert.",
+      "options": [
+        "is raining",
+        "rain",
+        "rains",
+        "rained"
+      ],
+      "correct": "rains"
+    },
+    {
+      "id": 72,
+      "type": "single_choice",
+      "text": "He _________ dinner right now.",
+      "options": [
+        "is making",
+        "made",
+        "makes",
+        "make"
+      ],
+      "correct": "is making"
+    },
+    {
+      "id": 73,
+      "type": "single_choice",
+      "text": "Wool __________ from sheep.",
+      "options": [
+        "comes",
+        "come",
+        "is coming",
+        "came"
+      ],
+      "correct": "comes"
+    },
+    {
+      "id": 74,
+      "type": "single_choice",
+      "text": "They usually ________ out on Saturdays.",
+      "options": [
+        "eat",
+        "eating",
+        "are eating",
+        "were eating"
+      ],
+      "correct": "eat"
+    },
+    {
+      "id": 75,
+      "type": "single_choice",
+      "text": "The bus _______ at 5 o'clock",
+      "options": [
+        "is arrived",
+        "arrives",
+        "are arriving",
+        "arrive"
+      ],
+      "correct": "arrives"
+    },
+    {
+      "id": 76,
+      "type": "single_choice",
+      "text": "The film _______ in ten minutes.",
+      "options": [
+        "starts",
+        "is started",
+        "was starting",
+        "started"
+      ],
+      "correct": "starts"
+    },
+    {
+      "id": 77,
+      "type": "single_choice",
+      "text": "Fiona _________ at some photos.",
+      "options": [
+        "is looking",
+        "looks",
+        "looking",
+        "looked"
+      ],
+      "correct": "is looking"
+    },
+    {
+      "id": 78,
+      "type": "single_choice",
+      "text": "Look! The children _________ so much fun at the circus!",
+      "options": [
+        "are having",
+        "have",
+        "has",
+        "is having"
+      ],
+      "correct": "are having"
+    },
+    {
+      "id": 79,
+      "type": "single_choice",
+      "text": "This jacket __________ you perfectly",
+      "options": [
+        "is fitting",
+        "fits",
+        "fitted",
+        "was fitting"
+      ],
+      "correct": "fits"
+    },
+    {
+      "id": 80,
+      "type": "single_choice",
+      "text": "Ron ________ to become a pilot",
+      "options": [
+        "is wanting",
+        "wants",
+        "is wanted",
+        "was wanting"
+      ],
+      "correct": "wants"
+    },
+    {
+      "id": 81,
+      "type": "single_choice",
+      "text": "I ___________ the meaning of that word",
+      "options": [
+        "am not understanding",
+        "don't understand",
+        "didn't understood",
+        "doesn't understand"
+      ],
+      "correct": "don't understand"
+    },
+    {
+      "id": 82,
+      "type": "single_choice",
+      "text": "He _________ playing football.",
+      "options": [
+        "are loving",
+        "loves",
+        "were loved",
+        "love"
+      ],
+      "correct": "loves"
+    },
+    {
+      "id": 83,
+      "type": "single_choice",
+      "text": "The stars ________ at night.",
+      "options": [
+        "is shining",
+        "shines",
+        "shine",
+        "shone"
+      ],
+      "correct": "shine"
+    },
+    {
+      "id": 84,
+      "type": "single_choice",
+      "text": "Do you play basketball at weekends? Yes, I ________ do.",
+      "options": [
+        "never",
+        "often",
+        "already",
+        "yet"
+      ],
+      "correct": "often"
+    },
+    {
+      "id": 85,
+      "type": "single_choice",
+      "text": "_________ you go to the party yesterday?",
+      "options": [
+        "Does",
+        "Did",
+        "Do",
+        "Will"
+      ],
+      "correct": "Did"
+    },
+    {
+      "id": 86,
+      "type": "single_choice",
+      "text": "The next show ________ at 8:30 pm.",
+      "options": [
+        "starting",
+        "starts",
+        "start",
+        "started"
+      ],
+      "correct": "starts"
+    },
+    {
+      "id": 87,
+      "type": "single_choice",
+      "text": "We left the concert hall three hours _______.",
+      "options": [
+        "past",
+        "ago",
+        "now",
+        "since"
+      ],
+      "correct": "ago"
+    },
+    {
+      "id": 88,
+      "type": "single_choice",
+      "text": "George ________ a bath at the moment.",
+      "options": [
+        "is having",
+        "has had",
+        "have",
+        "had"
+      ],
+      "correct": "is having"
+    },
+    {
+      "id": 89,
+      "type": "single_choice",
+      "text": "I __________ of buying a new car.",
+      "options": [
+        "am thinking",
+        "thinks",
+        "thought",
+        "thinked"
+      ],
+      "correct": "am thinking"
+    },
+    {
+      "id": 90,
+      "type": "single_choice",
+      "text": "The Sun _________ in the east.",
+      "options": [
+        "rises",
+        "rose",
+        "rise",
+        "are rising"
+      ],
+      "correct": "rises"
+    },
+    {
+      "id": 91,
+      "type": "single_choice",
+      "text": "This apple pie _________ delicious",
+      "options": [
+        "tasting",
+        "tastes",
+        "are tasting",
+        "was tasted"
+      ],
+      "correct": "tastes"
+    },
+    {
+      "id": 92,
+      "type": "single_choice",
+      "text": "Do you listen to the radio? Yes, I _________ do.",
+      "options": [
+        "never",
+        "just",
+        "sometimes",
+        "ever"
+      ],
+      "correct": "sometimes"
+    },
+    {
+      "id": 93,
+      "type": "single_choice",
+      "text": "Tommy usually _________ his homework after lunch",
+      "options": [
+        "do",
+        "does",
+        "doing",
+        "was doing"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 94,
+      "type": "single_choice",
+      "text": "Did you _________ Madame Tussaud's while in London",
+      "options": [
+        "visiting",
+        "visits",
+        "visit",
+        "visited"
+      ],
+      "correct": "visit"
+    },
+    {
+      "id": 95,
+      "type": "single_choice",
+      "text": "This week we _________ extra English classes in the afternoons.",
+      "options": [
+        "are having",
+        "has",
+        "is having",
+        "were had"
+      ],
+      "correct": "are having"
+    },
+    {
+      "id": 96,
+      "type": "single_choice",
+      "text": "What ___________ next weekend?",
+      "options": [
+        "do you do",
+        "are you doing",
+        "did",
+        "were doing"
+      ],
+      "correct": "are you doing"
+    },
+    {
+      "id": 97,
+      "type": "single_choice",
+      "text": "What time ____________?",
+      "options": [
+        "does the film start",
+        "is the film starts",
+        "do the film start",
+        "does the film started"
+      ],
+      "correct": "does the film start"
+    },
+    {
+      "id": 98,
+      "type": "single_choice",
+      "text": "Our English teacher _________ our projects right now",
+      "options": [
+        "is marking",
+        "marked",
+        "mark",
+        "are marking"
+      ],
+      "correct": "is marking"
+    },
+    {
+      "id": 99,
+      "type": "single_choice",
+      "text": "What time ______________ work on weekdays?",
+      "options": [
+        "are you finishing",
+        "do you finish your",
+        "did you finishing",
+        "does you finish"
+      ],
+      "correct": "do you finish your"
+    },
+    {
+      "id": 100,
+      "type": "single_choice",
+      "text": "You can keep my phone if you like. I ___________ it any more.",
+      "options": [
+        "don't use",
+        "doesn't use",
+        "didn't use",
+        "am not using"
+      ],
+      "correct": "am not using"
+    },
+    {
+      "id": 101,
+      "type": "single_choice",
+      "text": "I __________ for my pencil. Have you seen it?",
+      "options": [
+        "looking",
+        "am looking",
+        "look",
+        "looked"
+      ],
+      "correct": "am looking"
+    },
+    {
+      "id": 102,
+      "type": "single_choice",
+      "text": "You should have __________ my advice!",
+      "options": [
+        "following",
+        "follows",
+        "follow",
+        "followed"
+      ],
+      "correct": "followed"
+    },
+    {
+      "id": 103,
+      "type": "single_choice",
+      "text": "Purchased for a big money",
+      "options": [
+        "costly",
+        "low-paid",
+        "small-paid",
+        "non-expensive"
+      ],
+      "correct": "costly"
+    },
+    {
+      "id": 104,
+      "type": "single_choice",
+      "text": "See you _______ Monday.",
+      "options": [
+        "in",
+        "at",
+        "by",
+        "on"
+      ],
+      "correct": "on"
+    },
+    {
+      "id": 105,
+      "type": "single_choice",
+      "text": "See you _______ 5 p.m.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "by"
+      ],
+      "correct": "at"
+    },
+    {
+      "id": 106,
+      "type": "single_choice",
+      "text": "See you ________ 15 minutes.",
+      "options": [
+        "at",
+        "on",
+        "in",
+        "after"
+      ],
+      "correct": "in"
+    },
+    {
+      "id": 107,
+      "type": "single_choice",
+      "text": "Laura was ........ with her daughter's decision to go to college.",
+      "options": [
+        "gratified",
+        "fulfilled",
+        "pleased",
+        "entertained"
+      ],
+      "correct": "pleased"
+    },
+    {
+      "id": 108,
+      "type": "single_choice",
+      "text": "A card that says you are allowed to drive a car",
+      "options": [
+        "driver's license",
+        "driver's permission",
+        "driver's allowance",
+        "driver's passport"
+      ],
+      "correct": "driver's license"
+    },
+    {
+      "id": 109,
+      "type": "single_choice",
+      "text": "I doubt that it was ______ working so hard.",
+      "options": [
+        "worth",
+        "waste",
+        "need",
+        "rewarding"
+      ],
+      "correct": "worth"
+    },
+    {
+      "id": 110,
+      "type": "single_choice",
+      "text": "A lot of work _______ to be done.",
+      "options": [
+        "remains",
+        "remain",
+        "will remain",
+        "remained"
+      ],
+      "correct": "remains"
+    },
+    {
+      "id": 111,
+      "type": "single_choice",
+      "text": "They let me use the computer game on ........ for 30 days",
+      "options": [
+        "example",
+        "model",
+        "sample",
+        "trial"
+      ],
+      "correct": "trial"
+    },
+    {
+      "id": 112,
+      "type": "single_choice",
+      "text": "My passport will expire in June so I need to ........ it as soon as possible.",
+      "options": [
+        "renew",
+        "refresh",
+        "recharge",
+        "review"
+      ],
+      "correct": "renew"
+    },
+    {
+      "id": 113,
+      "type": "single_choice",
+      "text": "The captain and ........ would like to welcome you on board Flight 567 to Melbourne.",
+      "options": [
+        "staff",
+        "crew",
+        "team",
+        "cast"
+      ],
+      "correct": "crew"
+    },
+    {
+      "id": 114,
+      "type": "single_choice",
+      "text": "A measure of how much you pay for something",
+      "options": [
+        "tax",
+        "trade",
+        "rate",
+        "mortgage"
+      ],
+      "correct": "rate"
+    },
+    {
+      "id": 115,
+      "type": "single_choice",
+      "text": "A type of service in which customers order and receive food in their car",
+      "options": [
+        "drive-through",
+        "drive-in",
+        "drive-out",
+        "drive-off"
+      ],
+      "correct": "drive-through"
+    },
+    {
+      "id": 116,
+      "type": "single_choice",
+      "text": "Harris has been ........ with smuggling antique goods into the country.",
+      "options": [
+        "arrested",
+        "sentenced",
+        "charged",
+        "accused"
+      ],
+      "correct": "charged"
+    },
+    {
+      "id": 117,
+      "type": "single_choice",
+      "text": "Jill has never _________ abroad",
+      "options": [
+        "been",
+        "was",
+        "be",
+        "were"
+      ],
+      "correct": "been"
+    },
+    {
+      "id": 118,
+      "type": "single_choice",
+      "text": "This play was _________ by W.Shakespeare",
+      "options": [
+        "wrote",
+        "write",
+        "written",
+        "writing"
+      ],
+      "correct": "written"
+    },
+    {
+      "id": 119,
+      "type": "single_choice",
+      "text": "The unemployment rate ........ by 20% last year.",
+      "options": [
+        "increased",
+        "enlarged",
+        "broadened",
+        "widened"
+      ],
+      "correct": "increased"
+    },
+    {
+      "id": 120,
+      "type": "single_choice",
+      "text": "Where ________ Joe live?",
+      "options": [
+        "is",
+        "are",
+        "do",
+        "does"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 121,
+      "type": "single_choice",
+      "text": "___________ to Manchester on the train yesterday?",
+      "options": [
+        "Did she go",
+        "Did she went",
+        "She go",
+        "She goes"
+      ],
+      "correct": "Did she go"
+    },
+    {
+      "id": 122,
+      "type": "single_choice",
+      "text": "William doesn't __________ Portuguese, English and a bit of French.",
+      "options": [
+        "speak",
+        "speaking",
+        "speaks",
+        "spoke"
+      ],
+      "correct": "speak"
+    },
+    {
+      "id": 123,
+      "type": "single_choice",
+      "text": "Could you _______ Jonathan's number in the directory?",
+      "options": [
+        "hold on",
+        "look up",
+        "get through",
+        "pick up"
+      ],
+      "correct": "look up"
+    },
+    {
+      "id": 124,
+      "type": "single_choice",
+      "text": "See what you have _______!",
+      "options": [
+        "did",
+        "does",
+        "do",
+        "done"
+      ],
+      "correct": "done"
+    },
+    {
+      "id": 125,
+      "type": "single_choice",
+      "text": "Could you _______ for a moment?",
+      "options": [
+        "get out",
+        "hold on",
+        "look up",
+        "pick up"
+      ],
+      "correct": "hold on"
+    },
+    {
+      "id": 126,
+      "type": "single_choice",
+      "text": "You should never __________.",
+      "options": [
+        "give up",
+        "to follow his advice",
+        "to give up",
+        "given up"
+      ],
+      "correct": "give up"
+    },
+    {
+      "id": 127,
+      "type": "single_choice",
+      "text": "We don't __________ whether it is ok to do so.",
+      "options": [
+        "know",
+        "think",
+        "like",
+        "knowing"
+      ],
+      "correct": "know"
+    },
+    {
+      "id": 128,
+      "type": "single_choice",
+      "text": "They have already _________ the exercise",
+      "options": [
+        "written",
+        "wrote",
+        "writing",
+        "writed"
+      ],
+      "correct": "written"
+    },
+    {
+      "id": 129,
+      "type": "single_choice",
+      "text": "Mike _________ in school for a long time",
+      "options": [
+        "has not been",
+        "was",
+        "were",
+        "be"
+      ],
+      "correct": "has not been"
+    },
+    {
+      "id": 130,
+      "type": "single_choice",
+      "text": "Mike _________ never been to Georgia.",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "has not"
+      ],
+      "correct": "has"
+    },
+    {
+      "id": 131,
+      "type": "single_choice",
+      "text": "The house was _______ in 1987.",
+      "options": [
+        "built",
+        "building",
+        "build",
+        "builded"
+      ],
+      "correct": "built"
+    },
+    {
+      "id": 132,
+      "type": "single_choice",
+      "text": "Could you please ________ me a favor?",
+      "options": [
+        "do",
+        "make",
+        "help",
+        "arrange"
+      ],
+      "correct": "do"
+    },
+    {
+      "id": 133,
+      "type": "single_choice",
+      "text": "He wants _________ sugar.",
+      "options": [
+        "some",
+        "little",
+        "a few",
+        "many"
+      ],
+      "correct": "some"
+    },
+    {
+      "id": 134,
+      "type": "single_choice",
+      "text": "We get up _______ 6 o'clock every day.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "near"
+      ],
+      "correct": "at"
+    },
+    {
+      "id": 135,
+      "type": "single_choice",
+      "text": "_______ he believe in the power of the law?",
+      "options": [
+        "Does",
+        "Are",
+        "Do",
+        "Were"
+      ],
+      "correct": "Does"
+    },
+    {
+      "id": 136,
+      "type": "single_choice",
+      "text": "How ________ water is there in the bottle?",
+      "options": [
+        "much",
+        "many",
+        "little",
+        "a few"
+      ],
+      "correct": "much"
+    },
+    {
+      "id": 137,
+      "type": "single_choice",
+      "text": "We have never __________ abroad",
+      "options": [
+        "been",
+        "be",
+        "were",
+        "was"
+      ],
+      "correct": "been"
+    },
+    {
+      "id": 138,
+      "type": "single_choice",
+      "text": "Britain is __________ island.",
+      "options": [
+        "an",
+        "the",
+        "a",
+        "--"
+      ],
+      "correct": "an"
+    },
+    {
+      "id": 139,
+      "type": "single_choice",
+      "text": "Do you think this river _________ into the Pacific?",
+      "options": [
+        "flows",
+        "is flowing",
+        "flowes",
+        "flowing"
+      ],
+      "correct": "flows"
+    },
+    {
+      "id": 140,
+      "type": "single_choice",
+      "text": "We (hear) an interesting talk on stress-related illnesses at the conference last week.",
+      "options": [
+        "heard",
+        "had heard",
+        "having heard",
+        "has heard"
+      ],
+      "correct": "heard"
+    },
+    {
+      "id": 141,
+      "type": "single_choice",
+      "text": "________ your lifestyle __________ since you get a promotion?",
+      "options": [
+        "Has/changed",
+        "Have/changed",
+        "Has/change",
+        "Have/change"
+      ],
+      "correct": "Has/changed"
+    },
+    {
+      "id": 142,
+      "type": "single_choice",
+      "text": "George is suffering from exhaustion. He __________ away from the office all this week.",
+      "options": [
+        "have been",
+        "has been",
+        "had been",
+        "has being"
+      ],
+      "correct": "has been"
+    },
+    {
+      "id": 143,
+      "type": "single_choice",
+      "text": "I ___________ the deadline once again.",
+      "options": [
+        "have missed",
+        "had missed",
+        "having missed",
+        "missing"
+      ],
+      "correct": "have missed"
+    },
+    {
+      "id": 144,
+      "type": "single_choice",
+      "text": "Eliza Kentwood has always _________ workaholic.",
+      "options": [
+        "was",
+        "been",
+        "has been",
+        "being"
+      ],
+      "correct": "been"
+    },
+    {
+      "id": 145,
+      "type": "single_choice",
+      "text": "The bank is at the end ________ the road.",
+      "options": [
+        "of",
+        "on",
+        "at",
+        "in"
+      ],
+      "correct": "of"
+    },
+    {
+      "id": 146,
+      "type": "single_choice",
+      "text": "What is Sarah ____________ right now?",
+      "options": [
+        "doing",
+        "do",
+        "did",
+        "does"
+      ],
+      "correct": "doing"
+    },
+    {
+      "id": 147,
+      "type": "single_choice",
+      "text": "Pam is _______ than Helen.",
+      "options": [
+        "taller",
+        "tall",
+        "more tall",
+        "talls"
+      ],
+      "correct": "taller"
+    },
+    {
+      "id": 148,
+      "type": "single_choice",
+      "text": "This is the __________ thing in my life.",
+      "options": [
+        "bad",
+        "worst",
+        "more bad",
+        "baddest"
+      ],
+      "correct": "worst"
+    },
+    {
+      "id": 149,
+      "type": "single_choice",
+      "text": "English is _________ than Japanese.",
+      "options": [
+        "easier",
+        "easiest",
+        "easy",
+        "more easy"
+      ],
+      "correct": "easier"
+    },
+    {
+      "id": 150,
+      "type": "single_choice",
+      "text": "Karen is _________ than her sister.",
+      "options": [
+        "older",
+        "more older",
+        "old",
+        "elder"
+      ],
+      "correct": "older"
+    },
+    {
+      "id": 151,
+      "type": "single_choice",
+      "text": "He ________ the dog for a walk every day.",
+      "options": [
+        "take",
+        "takes",
+        "taking",
+        "is taking"
+      ],
+      "correct": "takes"
+    },
+    {
+      "id": 152,
+      "type": "single_choice",
+      "text": "________ she live with her parents?",
+      "options": [
+        "does",
+        "have",
+        "why",
+        "has"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 153,
+      "type": "single_choice",
+      "text": "Mary doesn't _________ TV very often",
+      "options": [
+        "watch",
+        "watches",
+        "watching",
+        "watched"
+      ],
+      "correct": "watch"
+    },
+    {
+      "id": 154,
+      "type": "single_choice",
+      "text": "__________ it snow in winter?",
+      "options": [
+        "does",
+        "do",
+        "has",
+        "have"
+      ],
+      "correct": "does"
+    },
+    {
+      "id": 155,
+      "type": "single_choice",
+      "text": "He _________ very tired yesterday.",
+      "options": [
+        "was",
+        "were",
+        "being",
+        "is"
+      ],
+      "correct": "was"
+    },
+    {
+      "id": 156,
+      "type": "single_choice",
+      "text": "Is she __________ now?",
+      "options": [
+        "working",
+        "work",
+        "worked",
+        "works"
+      ],
+      "correct": "working"
+    },
+    {
+      "id": 157,
+      "type": "single_choice",
+      "text": "Jamesons have decided _________ abroad",
+      "options": [
+        "moving",
+        "to move",
+        "move",
+        "moves"
+      ],
+      "correct": "to move"
+    },
+    {
+      "id": 158,
+      "type": "single_choice",
+      "text": "The prices here are ___________ at a discount store.",
+      "options": [
+        "higher than those",
+        "higher then those",
+        "higher then",
+        "higher than this"
+      ],
+      "correct": "higher than those"
+    },
+    {
+      "id": 159,
+      "type": "single_choice",
+      "text": "I am sure we had _________ before",
+      "options": [
+        "met",
+        "meet",
+        "meeting",
+        "be met"
+      ],
+      "correct": "met"
+    },
+    {
+      "id": 160,
+      "type": "open_text",
+      "text": "Make up a plural form of the noun 'ox'.",
+      "correct": "oxen"
+    }
+  ]
+}

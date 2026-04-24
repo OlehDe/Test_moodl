@@ -24,7 +24,7 @@
                         <h1 class="test-title">{{ test.title }}</h1>
                         <span class="question-counter-badge">Питань: {{ test.questions|length }}</span>
                     </div>
-                    <button type="submit" form="test-form" class="btn">Завершити спробу</button>
+
                 </div>
 
                 <div class="progress-container">
@@ -90,6 +90,7 @@
                     </div>
                     {% endfor %}
                     <input type="hidden" name="test_filename" value="{{ session.get('current_test', '') }}">
+                <button type="submit" form="test-form" class="btn">Завершити спробу</button>
                 </form>
             </div>
 
