@@ -24,7 +24,6 @@
                         <h1 class="test-title">{{ test.title }}</h1>
                         <span class="question-counter-badge">Питань: {{ test.questions|length }}</span>
                     </div>
-
                 </div>
 
                 <div class="progress-container">
@@ -90,7 +89,7 @@
                     </div>
                     {% endfor %}
                     <input type="hidden" name="test_filename" value="{{ session.get('current_test', '') }}">
-                <button type="submit" form="test-form" class="btn">Завершити спробу</button>
+                    <button type="submit" form="test-form" class="btn">Завершити спробу</button>
                 </form>
             </div>
 
@@ -218,6 +217,33 @@
                         resultSpan.className = 'check-result warning';
                     }
                 });
+            });
+
+            // ========== НОВИЙ ОБРОБНИК: ENTER ПЕРЕВІРЯЄ ПИТАННЯ ==========
+            const testForm = document.getElementById('test-form');
+            testForm.addEventListener('submit', function(event) {
+                const activeElement = document.activeElement;
+                // Перевіряємо, чи активний елемент – це поле введення (але не кнопка)
+                const isInputField = activeElement && (
+                    activeElement.tagName === 'INPUT' ||
+                    activeElement.tagName === 'SELECT' ||
+                    activeElement.tagName === 'TEXTAREA'
+                );
+                // Якщо це поле введення і воно не є кнопкою – перехоплюємо
+                if (isInputField && activeElement.type !== 'submit' && activeElement.type !== 'button') {
+                    event.preventDefault();
+
+                    // Знаходимо батьківський блок питання
+                    const questionBlock = activeElement.closest('.question-block');
+                    if (questionBlock) {
+                        const checkBtn = questionBlock.querySelector('.check-btn');
+                        if (checkBtn) {
+                            checkBtn.click(); // емулюємо натискання кнопки "Перевірити"
+                        }
+                    }
+                    return false;
+                }
+                // Інакше форма надсилається нормально (наприклад, клік по кнопці "Завершити")
             });
 
             // Мобільна бічна панель
