@@ -36,7 +36,8 @@
                     </div>
                 </div>
 
-                <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}">
+                <!-- Додано autocomplete="off" для всієї форми, щоб не показувати минулі відповіді -->
+                <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}" autocomplete="off">
                     {% for i, q in enumerate(test.questions) %}
                     <div class="question-block" id="question-{{ q.id }}" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
                         <fieldset>
@@ -59,7 +60,8 @@
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'open_text' %}
-                                <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь...">
+                                <!-- Додано autocomplete="off" безпосередньо до поля введення -->
+                                <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь..." autocomplete="off">
                             {% elif qtype == 'matching' %}
                                 <div class="matching-container">
                                     <table>
@@ -219,31 +221,26 @@
                 });
             });
 
-            // ========== НОВИЙ ОБРОБНИК: ENTER ПЕРЕВІРЯЄ ПИТАННЯ ==========
+            // Перехоплення submit, щоб Enter перевіряв питання, а не завершував тест
             const testForm = document.getElementById('test-form');
             testForm.addEventListener('submit', function(event) {
                 const activeElement = document.activeElement;
-                // Перевіряємо, чи активний елемент – це поле введення (але не кнопка)
                 const isInputField = activeElement && (
                     activeElement.tagName === 'INPUT' ||
                     activeElement.tagName === 'SELECT' ||
                     activeElement.tagName === 'TEXTAREA'
                 );
-                // Якщо це поле введення і воно не є кнопкою – перехоплюємо
                 if (isInputField && activeElement.type !== 'submit' && activeElement.type !== 'button') {
                     event.preventDefault();
-
-                    // Знаходимо батьківський блок питання
                     const questionBlock = activeElement.closest('.question-block');
                     if (questionBlock) {
                         const checkBtn = questionBlock.querySelector('.check-btn');
                         if (checkBtn) {
-                            checkBtn.click(); // емулюємо натискання кнопки "Перевірити"
+                            checkBtn.click();
                         }
                     }
                     return false;
                 }
-                // Інакше форма надсилається нормально (наприклад, клік по кнопці "Завершити")
             });
 
             // Мобільна бічна панель
