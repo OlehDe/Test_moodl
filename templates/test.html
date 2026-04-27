@@ -293,25 +293,6 @@
                 toggleBtn.style.display = 'none';
             }
 
-            // Заборона дублювання у matching
-            document.querySelectorAll('.matching-container').forEach(container => {
-                const selects = container.querySelectorAll('.match-select');
-                const updateOptions = () => {
-                    const selected = new Set(Array.from(selects).map(s => s.value).filter(v => v));
-                    selects.forEach(sel => {
-                        Array.from(sel.options).forEach(opt => {
-                            if (opt.value && opt.value !== sel.value && selected.has(opt.value)) {
-                                opt.disabled = true;
-                            } else {
-                                opt.disabled = false;
-                            }
-                        });
-                    });
-                };
-                selects.forEach(sel => sel.addEventListener('change', updateOptions));
-                updateOptions();
-            });
-
             updateProgressAndSidebar();
         })();
     </script>
