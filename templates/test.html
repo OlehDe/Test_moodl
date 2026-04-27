@@ -36,7 +36,6 @@
                     </div>
                 </div>
 
-                <!-- Додано autocomplete="off" для всієї форми, щоб не показувати минулі відповіді -->
                 <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}" autocomplete="off">
                     {% for i, q in enumerate(test.questions) %}
                     <div class="question-block" id="question-{{ q.id }}" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
@@ -60,7 +59,6 @@
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'open_text' %}
-                                <!-- Додано autocomplete="off" безпосередньо до поля введення -->
                                 <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь..." autocomplete="off">
                             {% elif qtype == 'matching' %}
                                 <div class="matching-container">
@@ -71,8 +69,8 @@
                                             <td>
                                                 <select name="q{{ q.id }}_{{ pair.left }}" class="match-select question-input">
                                                     <option value="">-- оберіть --</option>
-                                                    {% set rights = q.pairs | map(attribute='right') | list %}
-                                                    {% for right_item in rights %}
+                                                    {% set rights_variants = q.shuffled_rights if q.shuffled_rights else q.pairs | map(attribute='right') | list %}
+                                                    {% for right_item in rights_variants %}
                                                     <option value="{{ right_item }}">{{ right_item }}</option>
                                                     {% endfor %}
                                                 </select>
@@ -95,7 +93,6 @@
                 </form>
             </div>
 
-            <!-- Бічна панель навігації -->
             <aside id="question-sidebar" class="question-sidebar">
                 <div class="sidebar-header">
                     <span>📍 Питання</span>
@@ -174,7 +171,6 @@
                     let options = { method: 'POST' };
 
                     if (qtype === 'matching') {
-                        // Збираємо ліві частини та відповіді з select
                         const rows = block.querySelectorAll('.matching-container tr');
                         const answers = {};
                         rows.forEach(row => {
@@ -216,8 +212,12 @@
                             }
                         } else {
                             let correctAnswer = data.correct_answer;
-                            if (Array.isArray(correctAnswer)) correctAnswer = correctAnswer.join(', ');
-                            resultSpan.innerHTML = `❌ Неправильно. Правильна відповідь: ${correctAnswer}`;
+                            if (Array.isArray(correctAnswer)) {
+                                correctAnswer = correctAnswer.join(', ');
+                            } else if (typeof correctAnswer === 'string' && correctAnswer.includes(';')) {
+                                correctAnswer = correctAnswer.split(';').map(pair => pair.trim()).join('<br>');
+                            }
+                            resultSpan.innerHTML = `❌ Неправильно.<br>Правильно: ${correctAnswer}`;
                             resultSpan.className = 'check-result incorrect';
                             if (correctSet.has(qid)) {
                                 correctSet.delete(qid);
@@ -231,7 +231,6 @@
                 });
             });
 
-            // Перехоплення submit, щоб Enter перевіряв питання, а не завершував тест
             const testForm = document.getElementById('test-form');
             testForm.addEventListener('submit', function(event) {
                 const activeElement = document.activeElement;
@@ -253,7 +252,6 @@
                 }
             });
 
-            // Мобільна бічна панель
             function isMobile() { return window.innerWidth <= 900; }
             function openSidebar() {
                 sidebar.classList.add('visible');

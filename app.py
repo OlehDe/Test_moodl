@@ -7,7 +7,6 @@ from flask import Flask, render_template, request, session, url_for, jsonify
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
-# Додаємо фільтр для перемішування списків у шаблонах
 @app.template_filter('shuffle')
 def shuffle_filter(lst):
     if not isinstance(lst, list):
@@ -74,14 +73,13 @@ def prepare_test_for_display(test_data):
         qtype = q.get('type', 'single_choice')
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
-        if is_random and qtype == 'matching':
-            # Перемішуємо пари
+        if qtype == 'matching':
+            # Завжди перемішуємо пари, щоб ліві частини йшли у випадковому порядку
             random.shuffle(q['pairs'])
-            # Додатково: перемішуємо порядок правих відповідей для відображення
-            # Зберігаємо перемішаний список прав частин як тимчасове поле
-            rights = [p['right'] for p in q['pairs']]
+            # Формуємо перемішаний список правих частин (усі унікальні варіанти відповідей)
+            rights = list({p['right'] for p in q['pairs']})
             random.shuffle(rights)
-            q['shuffled_rights'] = rights  # використаємо в шаблоні
+            q['shuffled_rights'] = rights
     return test_copy
 
 @app.route('/test/<path:filename>')
@@ -124,7 +122,6 @@ def submit_test(filename):
             user_pairs = {}
             for pair in pairs:
                 left_key = pair['left']
-                # Отримуємо значення за name="q{id}_{left}"
                 selected_right = request.form.get(f'q{qid}_{left_key}')
                 user_pairs[left_key] = selected_right
                 if selected_right != pair['right']:
@@ -173,17 +170,19 @@ def check_answer(filename, question_id):
         data = request.get_json()
         if not data or 'answers' not in data:
             return jsonify({'error': 'Invalid data'}), 400
-        user_answers = data['answers']  # словник {left: selected}
+        user_answers = data['answers']
         pairs = question['pairs']
         all_correct = True
+        correct_pairs_list = []
         for pair in pairs:
             left = pair['left']
             correct_right = pair['right']
+            correct_pairs_list.append(f"{left} – {correct_right}")
             if left not in user_answers or user_answers[left] != correct_right:
                 all_correct = False
-                break
         is_correct = all_correct
         user_answer = user_answers
+        correct_value = "; ".join(correct_pairs_list)  # Повертаємо рядок з усіма парами
 
     return jsonify({
         'correct': is_correct,
