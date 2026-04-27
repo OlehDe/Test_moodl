@@ -36,6 +36,7 @@
                     </div>
                 </div>
 
+                <!-- Додано autocomplete="off" для всієї форми, щоб не показувати минулі відповіді -->
                 <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}" autocomplete="off">
                     {% for i, q in enumerate(test.questions) %}
                     <div class="question-block" id="question-{{ q.id }}" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
@@ -59,6 +60,7 @@
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'open_text' %}
+                                <!-- Додано autocomplete="off" безпосередньо до поля введення -->
                                 <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь..." autocomplete="off">
                             {% elif qtype == 'matching' %}
                                 <div class="matching-container">
@@ -69,7 +71,8 @@
                                             <td>
                                                 <select name="q{{ q.id }}_{{ pair.left }}" class="match-select question-input">
                                                     <option value="">-- оберіть --</option>
-                                                    {% for right_item in q.shuffled_rights %}
+                                                    {% set rights = q.pairs | map(attribute='right') | list %}
+                                                    {% for right_item in rights %}
                                                     <option value="{{ right_item }}">{{ right_item }}</option>
                                                     {% endfor %}
                                                 </select>
@@ -92,6 +95,7 @@
                 </form>
             </div>
 
+            <!-- Бічна панель навігації -->
             <aside id="question-sidebar" class="question-sidebar">
                 <div class="sidebar-header">
                     <span>📍 Питання</span>
@@ -170,6 +174,7 @@
                     let options = { method: 'POST' };
 
                     if (qtype === 'matching') {
+                        // Збираємо ліві частини та відповіді з select
                         const rows = block.querySelectorAll('.matching-container tr');
                         const answers = {};
                         rows.forEach(row => {
@@ -226,6 +231,7 @@
                 });
             });
 
+            // Перехоплення submit, щоб Enter перевіряв питання, а не завершував тест
             const testForm = document.getElementById('test-form');
             testForm.addEventListener('submit', function(event) {
                 const activeElement = document.activeElement;
@@ -247,6 +253,7 @@
                 }
             });
 
+            // Мобільна бічна панель
             function isMobile() { return window.innerWidth <= 900; }
             function openSidebar() {
                 sidebar.classList.add('visible');
