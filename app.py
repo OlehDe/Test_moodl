@@ -7,6 +7,15 @@ from flask import Flask, render_template, request, session, url_for, jsonify
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
+# Фільтр для перемішування списків у шаблонах
+@app.template_filter('shuffle')
+def shuffle_filter(lst):
+    if not isinstance(lst, list):
+        return lst
+    new_lst = lst[:]
+    random.shuffle(new_lst)
+    return new_lst
+
 TEST_DIRS = ['tests', 'sort']
 
 def get_all_test_files():
@@ -66,7 +75,12 @@ def prepare_test_for_display(test_data):
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
         if is_random and qtype == 'matching':
+            # Перемішуємо порядок пар
             random.shuffle(q['pairs'])
+            # Створюємо перемішаний список унікальних правих відповідей
+            unique_rights = list(set(p['right'] for p in q['pairs']))
+            random.shuffle(unique_rights)
+            q['shuffled_rights'] = unique_rights
     return test_copy
 
 @app.route('/test/<path:filename>')
@@ -107,10 +121,8 @@ def submit_test(filename):
             pairs = question['pairs']
             all_correct = True
             user_pairs = {}
-            # Збираємо всі відповіді для цього питання з форми
             for pair in pairs:
                 left_key = pair['left']
-                # name поля в html має вигляд q{id}_{left} – змінимо генерацію нижче
                 selected_right = request.form.get(f'q{qid}_{left_key}')
                 user_pairs[left_key] = selected_right
                 if selected_right != pair['right']:
@@ -159,7 +171,7 @@ def check_answer(filename, question_id):
         data = request.get_json()
         if not data or 'answers' not in data:
             return jsonify({'error': 'Invalid data'}), 400
-        user_answers = data['answers']  # словник {left: selected_right}
+        user_answers = data['answers']
         pairs = question['pairs']
         all_correct = True
         for pair in pairs:
@@ -169,6 +181,7 @@ def check_answer(filename, question_id):
                 all_correct = False
                 break
         is_correct = all_correct
+        user_answer = user_answers
 
     return jsonify({
         'correct': is_correct,

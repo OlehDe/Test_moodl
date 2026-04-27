@@ -36,7 +36,6 @@
                     </div>
                 </div>
 
-                <!-- Додано autocomplete="off" для всієї форми, щоб не показувати минулі відповіді -->
                 <form id="test-form" method="POST" action="{{ url_for('submit_test', filename=session.get('current_test', '')) }}" autocomplete="off">
                     {% for i, q in enumerate(test.questions) %}
                     <div class="question-block" id="question-{{ q.id }}" data-qid="{{ q.id }}" data-qtype="{{ q.type|default('single_choice') }}">
@@ -60,7 +59,6 @@
                                 </label>
                                 {% endfor %}
                             {% elif qtype == 'open_text' %}
-                                <!-- Додано autocomplete="off" безпосередньо до поля введення -->
                                 <input type="text" name="q{{ q.id }}" class="text-input question-input" placeholder="Ваша відповідь..." autocomplete="off">
                             {% elif qtype == 'matching' %}
                                 <div class="matching-container">
@@ -71,8 +69,7 @@
                                             <td>
                                                 <select name="q{{ q.id }}_{{ pair.left }}" class="match-select question-input">
                                                     <option value="">-- оберіть --</option>
-                                                    {% set rights = q.pairs | map(attribute='right') | list %}
-                                                    {% for right_item in rights %}
+                                                    {% for right_item in q.shuffled_rights %}
                                                     <option value="{{ right_item }}">{{ right_item }}</option>
                                                     {% endfor %}
                                                 </select>
@@ -95,7 +92,6 @@
                 </form>
             </div>
 
-            <!-- Бічна панель навігації -->
             <aside id="question-sidebar" class="question-sidebar">
                 <div class="sidebar-header">
                     <span>📍 Питання</span>
@@ -174,13 +170,16 @@
                     let options = { method: 'POST' };
 
                     if (qtype === 'matching') {
-                        // Збираємо ліві частини з таблиці
-                        const leftItems = Array.from(block.querySelectorAll('.matching-container td:first-child strong'))
-                            .map(el => el.textContent.trim());
-                        const selects = block.querySelectorAll('.match-select');
+                        const rows = block.querySelectorAll('.matching-container tr');
                         const answers = {};
-                        selects.forEach((sel, idx) => {
-                            answers[leftItems[idx]] = sel.value;
+                        rows.forEach(row => {
+                            const leftCell = row.querySelector('td:first-child strong');
+                            const select = row.querySelector('.match-select');
+                            if (leftCell && select) {
+                                const left = leftCell.textContent.trim();
+                                const value = select.value;
+                                if (value) answers[left] = value;
+                            }
                         });
                         options.headers = { 'Content-Type': 'application/json' };
                         options.body = JSON.stringify({ answers: answers });
@@ -227,7 +226,6 @@
                 });
             });
 
-            // Перехоплення submit, щоб Enter перевіряв питання, а не завершував тест
             const testForm = document.getElementById('test-form');
             testForm.addEventListener('submit', function(event) {
                 const activeElement = document.activeElement;
@@ -249,7 +247,6 @@
                 }
             });
 
-            // Мобільна бічна панель
             function isMobile() { return window.innerWidth <= 900; }
             function openSidebar() {
                 sidebar.classList.add('visible');
