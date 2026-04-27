@@ -122,12 +122,6 @@
       "correct": "have"
     },
     {
-      "id": 20,
-      "type": "open_text",
-      "text": "Yesterday we did not ________ enough time to visit all the museums (have).",
-      "correct": "have"
-    },
-    {
       "id": 21,
       "type": "open_text",
       "text": "I am ________ a letter at the moment (write).",
@@ -228,12 +222,6 @@
       "type": "open_text",
       "text": "George fell off the ladder when he was ________ the ceiling (paint).",
       "correct": "painting"
-    },
-    {
-      "id": 38,
-      "type": "open_text",
-      "text": "Tom is fluent ________ English (in, at, on).",
-      "correct": "in"
     },
     {
       "id": 38,
