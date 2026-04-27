@@ -107,9 +107,11 @@ def submit_test(filename):
             pairs = question['pairs']
             all_correct = True
             user_pairs = {}
-            for i, pair in enumerate(pairs):
+            # Збираємо всі відповіді для цього питання з форми
+            for pair in pairs:
                 left_key = pair['left']
-                selected_right = request.form.get(f'q{qid}_{i}')
+                # name поля в html має вигляд q{id}_{left} – змінимо генерацію нижче
+                selected_right = request.form.get(f'q{qid}_{left_key}')
                 user_pairs[left_key] = selected_right
                 if selected_right != pair['right']:
                     all_correct = False
@@ -157,17 +159,16 @@ def check_answer(filename, question_id):
         data = request.get_json()
         if not data or 'answers' not in data:
             return jsonify({'error': 'Invalid data'}), 400
-        user_answers = data['answers']
+        user_answers = data['answers']  # словник {left: selected_right}
         pairs = question['pairs']
-        if len(user_answers) != len(pairs):
-            return jsonify({'error': 'Number of answers does not match pairs'}), 400
         all_correct = True
-        for i, pair in enumerate(pairs):
-            if user_answers[i] != pair['right']:
+        for pair in pairs:
+            left = pair['left']
+            correct_right = pair['right']
+            if left not in user_answers or user_answers[left] != correct_right:
                 all_correct = False
                 break
         is_correct = all_correct
-        user_answer = user_answers
 
     return jsonify({
         'correct': is_correct,

@@ -69,7 +69,7 @@
                                         <tr>
                                             <td><strong>{{ pair.left }}</strong></td>
                                             <td>
-                                                <select name="q{{ q.id }}_{{ loop.index0 }}" class="match-select question-input">
+                                                <select name="q{{ q.id }}_{{ pair.left }}" class="match-select question-input">
                                                     <option value="">-- оберіть --</option>
                                                     {% set rights = q.pairs | map(attribute='right') | list %}
                                                     {% for right_item in rights %}
@@ -174,8 +174,14 @@
                     let options = { method: 'POST' };
 
                     if (qtype === 'matching') {
+                        // Збираємо ліві частини з таблиці
+                        const leftItems = Array.from(block.querySelectorAll('.matching-container td:first-child strong'))
+                            .map(el => el.textContent.trim());
                         const selects = block.querySelectorAll('.match-select');
-                        const answers = Array.from(selects).map(sel => sel.value);
+                        const answers = {};
+                        selects.forEach((sel, idx) => {
+                            answers[leftItems[idx]] = sel.value;
+                        });
                         options.headers = { 'Content-Type': 'application/json' };
                         options.body = JSON.stringify({ answers: answers });
                     } else {
