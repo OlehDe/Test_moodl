@@ -1,0 +1,9 @@
+{
+  "title": "Змішаний тест (рандомний порядок)",
+  "setting": "random",
+  "sources": [
+    {"file": "tests/random/english_level1.json", "count": 20},
+    {"file": "tests/random/english_level2.json", "count": 5},
+    {"file": "tests/random/english_level3.json", "count": 5}
+  ]
+}

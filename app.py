@@ -30,13 +30,19 @@ def get_all_test_files():
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
                     is_random = data.get('setting') == 'random'
+                    if 'sources' in data:
+                        questions_count = sum(source.get('count', 0) for source in data['sources'])
+                    else:
+                        questions_count = len(data.get('questions', []))
             except Exception:
                 title = os.path.basename(filepath)
                 is_random = False
+                questions_count = 0
             tests.append({
                 'path': rel_path,
                 'title': title,
-                'is_random': is_random
+                'is_random': is_random,
+                'questions_count': questions_count
             })
     return tests
 
@@ -49,7 +55,8 @@ def index():
                            normal_tests=normal_tests,
                            random_tests=random_tests)
 
-def load_test(rel_path):
+def _load_json_file(rel_path):
+    """Завантажує JSON-файл з перевіркою дозволеного шляху."""
     norm_path = os.path.normpath(rel_path)
     abs_path = os.path.abspath(norm_path)
     allowed = False
@@ -60,8 +67,40 @@ def load_test(rel_path):
             break
     if not allowed:
         raise ValueError(f"Недозволений шлях: {rel_path}")
+    if not os.path.isfile(norm_path):
+        raise FileNotFoundError(f"Файл не знайдено: {norm_path}")
     with open(norm_path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+def _load_meta_test(meta_data):
+    """Будує тест із мета-опису (sources), вибираючи випадкові питання."""
+    questions = []
+    for source in meta_data['sources']:
+        source_file = source['file']          # відносний шлях від кореня проекту (напр. "tests/random/english_level1.json")
+        required = source['count']
+        source_data = _load_json_file(source_file)
+        source_questions = source_data.get('questions', [])
+        if required > len(source_questions):
+            raise ValueError(f"Недостатньо питань у {source_file}: потрібно {required}, є {len(source_questions)}")
+        chosen = random.sample(source_questions, required)
+        questions.extend(chosen)
+
+    # Перенумеровуємо ID, щоб не було конфліктів
+    for idx, q in enumerate(questions, start=1):
+        q['id'] = idx
+
+    return {
+        'title': meta_data.get('title', 'Mixed Test'),
+        'questions': questions,
+        'setting': meta_data.get('setting', '')
+    }
+
+def load_test(rel_path):
+    """Завантажує тест: звичайний файл або мета-тест."""
+    test_data = _load_json_file(rel_path)
+    if 'sources' in test_data:
+        return _load_meta_test(test_data)
+    return test_data
 
 def prepare_test_for_display(test_data):
     import copy
@@ -74,9 +113,7 @@ def prepare_test_for_display(test_data):
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
         if qtype == 'matching':
-            # Завжди перемішуємо пари, щоб ліві частини йшли у випадковому порядку
             random.shuffle(q['pairs'])
-            # Формуємо перемішаний список правих частин (усі унікальні варіанти відповідей)
             rights = list({p['right'] for p in q['pairs']})
             random.shuffle(rights)
             q['shuffled_rights'] = rights
@@ -86,12 +123,16 @@ def prepare_test_for_display(test_data):
 def take_test(filename):
     original_test = load_test(filename)
     session['current_test'] = filename
+    session['current_test_data'] = original_test
     display_test = prepare_test_for_display(original_test)
     return render_template('test.html', test=display_test, enumerate=enumerate)
 
 @app.route('/submit/<path:filename>', methods=['POST'])
 def submit_test(filename):
-    original_test = load_test(filename)
+    original_test = session.get('current_test_data')
+    if not original_test:
+        # Якщо сесія втрачена (наприклад, перезапуск), завантажуємо наново
+        original_test = load_test(filename)
     user_answers = {}
     score = 0
     total = len(original_test['questions'])
@@ -130,18 +171,20 @@ def submit_test(filename):
             if all_correct:
                 score += 1
 
-    current_test_filename = filename
     session.pop('current_test', None)
+    session.pop('current_test_data', None)
     return render_template('result.html',
                            test=original_test,
                            user_answers=user_answers,
                            score=score,
                            total=total,
-                           filename=current_test_filename)
+                           filename=filename)
 
 @app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])
 def check_answer(filename, question_id):
-    original_test = load_test(filename)
+    original_test = session.get('current_test_data')
+    if not original_test:
+        original_test = load_test(filename)
     question = next((q for q in original_test['questions'] if q['id'] == question_id), None)
     if not question:
         return jsonify({'error': 'Question not found'}), 404
@@ -182,7 +225,7 @@ def check_answer(filename, question_id):
                 all_correct = False
         is_correct = all_correct
         user_answer = user_answers
-        correct_value = "; ".join(correct_pairs_list)  # Повертаємо рядок з усіма парами
+        correct_value = "; ".join(correct_pairs_list)
 
     return jsonify({
         'correct': is_correct,
