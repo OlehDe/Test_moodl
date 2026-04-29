@@ -32,17 +32,22 @@ def get_all_test_files():
                     is_random = data.get('setting') == 'random'
                     if 'sources' in data:
                         questions_count = sum(source.get('count', 0) for source in data['sources'])
+                        # Максимальний бал для мета-тесту – сума (count * weight)
+                        max_score = sum(source.get('count', 0) * source.get('weight', 1) for source in data['sources'])
                     else:
                         questions_count = len(data.get('questions', []))
+                        max_score = questions_count  # для звичайних тестів кожне питання 1 бал
             except Exception:
                 title = os.path.basename(filepath)
                 is_random = False
                 questions_count = 0
+                max_score = 0
             tests.append({
                 'path': rel_path,
                 'title': title,
                 'is_random': is_random,
-                'questions_count': questions_count
+                'questions_count': questions_count,
+                'max_score': max_score
             })
     return tests
 
@@ -73,16 +78,20 @@ def _load_json_file(rel_path):
         return json.load(f)
 
 def _load_meta_test(meta_data):
-    """Будує тест із мета-опису (sources), вибираючи випадкові питання."""
+    """Будує тест із мета-опису (sources), вибираючи випадкові питання та призначаючи вагу."""
     questions = []
     for source in meta_data['sources']:
-        source_file = source['file']          # відносний шлях від кореня проекту (напр. "tests/random/english_level1.json")
+        source_file = source['file']
         required = source['count']
+        weight = source.get('weight', 1)   # вага для кожного питання з цього джерела
         source_data = _load_json_file(source_file)
         source_questions = source_data.get('questions', [])
         if required > len(source_questions):
             raise ValueError(f"Недостатньо питань у {source_file}: потрібно {required}, є {len(source_questions)}")
         chosen = random.sample(source_questions, required)
+        # Призначаємо вагу кожному вибраному питанню
+        for q in chosen:
+            q['weight'] = weight
         questions.extend(chosen)
 
     # Перенумеровуємо ID, щоб не було конфліктів
@@ -92,7 +101,9 @@ def _load_meta_test(meta_data):
     return {
         'title': meta_data.get('title', 'Mixed Test'),
         'questions': questions,
-        'setting': meta_data.get('setting', '')
+        'setting': meta_data.get('setting', ''),
+        'passing_score': meta_data.get('passing_score', None),  # зберігаємо для результату
+        'max_score': sum(source['count'] * source.get('weight', 1) for source in meta_data['sources'])
     }
 
 def load_test(rel_path):
@@ -100,6 +111,9 @@ def load_test(rel_path):
     test_data = _load_json_file(rel_path)
     if 'sources' in test_data:
         return _load_meta_test(test_data)
+    # Для звичайного тесту додаємо властивості
+    test_data['passing_score'] = None
+    test_data['max_score'] = len(test_data.get('questions', []))
     return test_data
 
 def prepare_test_for_display(test_data):
@@ -131,32 +145,34 @@ def take_test(filename):
 def submit_test(filename):
     original_test = session.get('current_test_data')
     if not original_test:
-        # Якщо сесія втрачена (наприклад, перезапуск), завантажуємо наново
         original_test = load_test(filename)
     user_answers = {}
     score = 0
     total = len(original_test['questions'])
+    max_score = original_test.get('max_score', total)
+    passing_score = original_test.get('passing_score', None)
 
     for question in original_test['questions']:
         qid = str(question['id'])
         qtype = question.get('type', 'single_choice')
         correct_value = question.get('correct', None)
+        weight = question.get('weight', 1)
 
         if qtype == 'single_choice':
             selected = request.form.get(f'q{qid}')
             user_answers[qid] = selected
             if selected and correct_value and selected.strip() == correct_value.strip():
-                score += 1
+                score += weight
         elif qtype == 'multiple_choice':
             selected_list = request.form.getlist(f'q{qid}')
             user_answers[qid] = selected_list
             if correct_value and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
-                score += 1
+                score += weight
         elif qtype == 'open_text':
             answer = request.form.get(f'q{qid}', '').strip()
             user_answers[qid] = answer
             if correct_value and answer.lower() == correct_value.strip().lower():
-                score += 1
+                score += weight
         elif qtype == 'matching':
             pairs = question['pairs']
             all_correct = True
@@ -169,7 +185,7 @@ def submit_test(filename):
                     all_correct = False
             user_answers[qid] = user_pairs
             if all_correct:
-                score += 1
+                score += weight
 
     session.pop('current_test', None)
     session.pop('current_test_data', None)
@@ -178,6 +194,8 @@ def submit_test(filename):
                            user_answers=user_answers,
                            score=score,
                            total=total,
+                           max_score=max_score,
+                           passing_score=passing_score,
                            filename=filename)
 
 @app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])

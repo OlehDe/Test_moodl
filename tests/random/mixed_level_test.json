@@ -1,9 +1,10 @@
 {
   "title": "Змішаний тест (рандомний порядок)",
   "setting": "random",
+  "passing_score": 25,
   "sources": [
-    {"file": "tests/random/english_level1.json", "count": 20},
-    {"file": "tests/random/english_level2.json", "count": 5},
-    {"file": "tests/random/english_level3.json", "count": 5}
+    {"file": "tests/random/english_level1.json", "count": 20, "weight": 1},
+    {"file": "tests/random/english_level2.json", "count": 5, "weight": 2},
+    {"file": "tests/random/english_level3.json", "count": 5, "weight": 2}
   ]
 }
