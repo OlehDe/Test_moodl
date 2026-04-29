@@ -6,7 +6,6 @@
     <title>Тестування – ExamTests</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        /* Додаткові стилі для вкладок */
         .tabs {
             display: flex;
             gap: 8px;
@@ -52,6 +51,13 @@
             margin-bottom: 12px;
             opacity: 0.7;
         }
+        .test-meta .badge {
+            background: var(--bg-warm);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
     </style>
 </head>
 <body>
@@ -73,13 +79,11 @@
                 <p class="subtitle">Оберіть тест, щоб розпочати проходження</p>
             </div>
 
-            <!-- Вкладки -->
             <div class="tabs">
                 <button class="tab-btn active" data-tab="normal">📘 Звичайні тести</button>
                 <button class="tab-btn" data-tab="random">🎲 З перемішуванням питань</button>
             </div>
 
-            <!-- Таб звичайних тестів -->
             <div id="tab-normal" class="tab-content active">
                 {% if normal_tests %}
                     <ul class="test-grid">
@@ -89,8 +93,15 @@
                                     <div class="test-icon">📝</div>
                                     <div class="test-info">
                                         <div class="test-title">{{ test.title }}</div>
-                                        <!-- Кількість питань буде підтягнута з JSON при завантаженні, але тут можна залишити без мета-інформації або додати заглушку -->
-                                        <div class="test-meta">Без перемішування</div>
+                                        <div class="test-meta">
+                                            {% if test.questions_count %}
+                                                {{ test.questions_count }} пит.
+                                            {% endif %}
+                                            {% if test.max_score %}
+                                                ({{ test.max_score }} балів)
+                                            {% endif %}
+                                            <span class="badge">Без перемішування</span>
+                                        </div>
                                     </div>
                                     <span class="test-arrow">→</span>
                                 </a>
@@ -105,7 +116,6 @@
                 {% endif %}
             </div>
 
-            <!-- Таб рандомних тестів (перемішані питання) -->
             <div id="tab-random" class="tab-content">
                 {% if random_tests %}
                     <ul class="test-grid">
@@ -115,7 +125,15 @@
                                     <div class="test-icon">🎲</div>
                                     <div class="test-info">
                                         <div class="test-title">{{ test.title }}</div>
-                                        <div class="test-meta">Питання перемішані</div>
+                                        <div class="test-meta">
+                                            {% if test.questions_count %}
+                                                {{ test.questions_count }} пит.
+                                            {% endif %}
+                                            {% if test.max_score %}
+                                                ({{ test.max_score }} балів)
+                                            {% endif %}
+                                            <span class="badge">Питання перемішані</span>
+                                        </div>
                                     </div>
                                     <span class="test-arrow">→</span>
                                 </a>
@@ -133,17 +151,14 @@
     </div>
 
     <script>
-        // Перемикання вкладок
         const tabs = document.querySelectorAll('.tab-btn');
         const contents = document.querySelectorAll('.tab-content');
 
         tabs.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.getAttribute('data-tab');
-                // Активна кнопка
                 tabs.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                // Показати потрібний контент
                 contents.forEach(content => content.classList.remove('active'));
                 document.getElementById(`tab-${tabId}`).classList.add('active');
             });

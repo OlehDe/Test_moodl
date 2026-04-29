@@ -1,11 +1,22 @@
 import json
 import os
 import random
+import copy
 from glob import glob
 from flask import Flask, render_template, request, session, url_for, jsonify
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
+
+
+# Забороняємо кешування, щоб браузер не зберігав старі відповіді
+@app.after_request
+def add_no_cache(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+
 
 @app.template_filter('shuffle')
 def shuffle_filter(lst):
@@ -15,7 +26,9 @@ def shuffle_filter(lst):
     random.shuffle(new_lst)
     return new_lst
 
+
 TEST_DIRS = ['tests', 'sort']
+
 
 def get_all_test_files():
     tests = []
@@ -30,18 +43,33 @@ def get_all_test_files():
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
                     is_random = data.get('setting') == 'random'
+                    if 'sources' in data:
+                        questions_count = sum(source.get('count', 0) for source in data['sources'])
+                        max_score = sum(source.get('count', 0) * source.get('weight', 1) for source in data['sources'])
+                    else:
+                        questions_count = len(data.get('questions', []))
+                        max_score = None
             except Exception:
                 title = os.path.basename(filepath)
                 is_random = False
+                questions_count = 0
+                max_score = None
             tests.append({
                 'path': rel_path,
                 'title': title,
-                'is_random': is_random
+                'is_random': is_random,
+                'questions_count': questions_count,
+                'max_score': max_score
             })
     return tests
 
+
 @app.route('/')
 def index():
+    # Очищаємо будь-які залишки попереднього тесту
+    session.pop('current_test', None)
+    session.pop('current_test_data', None)
+
     all_tests = get_all_test_files()
     normal_tests = [t for t in all_tests if not t['is_random']]
     random_tests = [t for t in all_tests if t['is_random']]
@@ -49,7 +77,8 @@ def index():
                            normal_tests=normal_tests,
                            random_tests=random_tests)
 
-def load_test(rel_path):
+
+def _load_json_file(rel_path):
     norm_path = os.path.normpath(rel_path)
     abs_path = os.path.abspath(norm_path)
     allowed = False
@@ -60,11 +89,52 @@ def load_test(rel_path):
             break
     if not allowed:
         raise ValueError(f"Недозволений шлях: {rel_path}")
+    if not os.path.isfile(norm_path):
+        raise FileNotFoundError(f"Файл не знайдено: {norm_path}")
     with open(norm_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+
+def _is_meta_test(test_data):
+    return 'sources' in test_data
+
+
+def _load_meta_test(meta_data):
+    questions = []
+    for source in meta_data['sources']:
+        source_file = source['file']
+        required = source['count']
+        weight = source.get('weight', 1)
+        source_data = _load_json_file(source_file)
+        source_questions = source_data.get('questions', [])
+        if required > len(source_questions):
+            raise ValueError(f"Недостатньо питань у {source_file}: потрібно {required}, є {len(source_questions)}")
+        chosen = random.sample(source_questions, required)
+        for q in chosen:
+            q = copy.deepcopy(q)  # ізоляція оригіналів
+            q['weight'] = weight
+            questions.append(q)
+
+    for idx, q in enumerate(questions, start=1):
+        q['id'] = idx
+
+    return {
+        'title': meta_data.get('title', 'Mixed Test'),
+        'questions': questions,
+        'setting': meta_data.get('setting', ''),
+        'passing_score': meta_data.get('passing_score', None),
+        'max_score': sum(source['count'] * source.get('weight', 1) for source in meta_data['sources'])
+    }
+
+
+def load_test(rel_path):
+    test_data = _load_json_file(rel_path)
+    if _is_meta_test(test_data):
+        return _load_meta_test(test_data)
+    return test_data
+
+
 def prepare_test_for_display(test_data):
-    import copy
     test_copy = copy.deepcopy(test_data)
     is_random = test_copy.get('setting') == 'random'
     if is_random:
@@ -74,48 +144,58 @@ def prepare_test_for_display(test_data):
         if is_random and qtype in ('single_choice', 'multiple_choice'):
             random.shuffle(q['options'])
         if qtype == 'matching':
-            # Завжди перемішуємо пари, щоб ліві частини йшли у випадковому порядку
             random.shuffle(q['pairs'])
-            # Формуємо перемішаний список правих частин (усі унікальні варіанти відповідей)
             rights = list({p['right'] for p in q['pairs']})
             random.shuffle(rights)
             q['shuffled_rights'] = rights
     return test_copy
 
+
 @app.route('/test/<path:filename>')
 def take_test(filename):
     original_test = load_test(filename)
     session['current_test'] = filename
+    session['current_test_data'] = original_test
     display_test = prepare_test_for_display(original_test)
     return render_template('test.html', test=display_test, enumerate=enumerate)
 
+
 @app.route('/submit/<path:filename>', methods=['POST'])
 def submit_test(filename):
-    original_test = load_test(filename)
+    original_test = session.get('current_test_data')
+    if not original_test:
+        if _is_meta_test(_load_json_file(filename)):
+            return "Сесію втрачено. Будь ласка, почніть тест заново.", 400
+        else:
+            original_test = load_test(filename)
+
     user_answers = {}
     score = 0
     total = len(original_test['questions'])
+    max_score = original_test.get('max_score', total)
+    passing_score = original_test.get('passing_score', None)
 
     for question in original_test['questions']:
         qid = str(question['id'])
         qtype = question.get('type', 'single_choice')
         correct_value = question.get('correct', None)
+        weight = question.get('weight', 1)
 
         if qtype == 'single_choice':
             selected = request.form.get(f'q{qid}')
             user_answers[qid] = selected
             if selected and correct_value and selected.strip() == correct_value.strip():
-                score += 1
+                score += weight
         elif qtype == 'multiple_choice':
             selected_list = request.form.getlist(f'q{qid}')
             user_answers[qid] = selected_list
             if correct_value and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
-                score += 1
+                score += weight
         elif qtype == 'open_text':
             answer = request.form.get(f'q{qid}', '').strip()
             user_answers[qid] = answer
             if correct_value and answer.lower() == correct_value.strip().lower():
-                score += 1
+                score += weight
         elif qtype == 'matching':
             pairs = question['pairs']
             all_correct = True
@@ -128,20 +208,29 @@ def submit_test(filename):
                     all_correct = False
             user_answers[qid] = user_pairs
             if all_correct:
-                score += 1
+                score += weight
 
-    current_test_filename = filename
     session.pop('current_test', None)
+    session.pop('current_test_data', None)
     return render_template('result.html',
                            test=original_test,
                            user_answers=user_answers,
                            score=score,
                            total=total,
-                           filename=current_test_filename)
+                           max_score=max_score,
+                           passing_score=passing_score,
+                           filename=filename)
+
 
 @app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])
 def check_answer(filename, question_id):
-    original_test = load_test(filename)
+    original_test = session.get('current_test_data')
+    if not original_test:
+        if _is_meta_test(_load_json_file(filename)):
+            return jsonify({'error': 'Session lost. Please restart the test.'}), 400
+        else:
+            original_test = load_test(filename)
+
     question = next((q for q in original_test['questions'] if q['id'] == question_id), None)
     if not question:
         return jsonify({'error': 'Question not found'}), 404
@@ -182,13 +271,14 @@ def check_answer(filename, question_id):
                 all_correct = False
         is_correct = all_correct
         user_answer = user_answers
-        correct_value = "; ".join(correct_pairs_list)  # Повертаємо рядок з усіма парами
+        correct_value = "; ".join(correct_pairs_list)
 
     return jsonify({
         'correct': is_correct,
         'user_answer': user_answer,
         'correct_answer': correct_value if correct_value else ''
     })
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

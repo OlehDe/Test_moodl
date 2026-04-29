@@ -20,14 +20,26 @@
         <div class="card">
             <h1>{{ test.title }} – Результат</h1>
 
-            <!-- Герой-секція -->
             <div class="result-hero">
-                {% set percent = (score / total * 100)|round(1) %}
-                <div class="result-score-circle {% if score == total %}excellent{% elif score >= total/2 %}good{% else %}needs-work{% endif %}">
-                    {{ percent }}<span style="font-size: 1.2rem;">%</span>
+                {% if max_score is none %}
+                    {% set max_score = total %}
+                {% endif %}
+                {% set percent = (score / max_score * 100)|round(1) %}
+                <div class="result-score-circle {% if score == max_score %}excellent{% elif passing_score and score >= passing_score %}good{% else %}needs-work{% endif %}">
+                    {{ score }}<span style="font-size: 1.2rem;"> / {{ max_score }}</span>
                 </div>
                 <div class="result-message">
-                    {% if score == total %} 🎉 Чудово! {% elif score >= total/2 %} 👍 Добре. {% else %} 📚 Спробуйте ще раз. {% endif %}
+                    {% if score == max_score %}
+                        🎉 Чудово!
+                    {% elif passing_score is not none %}
+                        {% if score >= passing_score %}
+                            ✅ Складено (прохідний {{ passing_score }})
+                        {% else %}
+                            ❌ Не складено (прохідний {{ passing_score }})
+                        {% endif %}
+                    {% else %}
+                        {{ score }} з {{ total }}
+                    {% endif %}
                 </div>
                 <div class="result-percentage">Правильних відповідей: {{ score }} з {{ total }} ({{ percent }}%)</div>
             </div>
