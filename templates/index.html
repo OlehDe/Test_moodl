@@ -58,6 +58,23 @@
             font-size: 0.8rem;
             margin-left: 6px;
         }
+
+        /* Стилі для заголовків категорій */
+        .test-category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 24px 0 12px;
+            padding-left: 8px;
+            border-left: 4px solid var(--primary);
+            letter-spacing: -0.01em;
+        }
+        .test-category-title:first-child {
+            margin-top: 0;
+        }
+        .test-grid {
+            /* вже є в основному CSS, залишаємо */
+        }
     </style>
 </head>
 <body>
@@ -84,30 +101,35 @@
                 <button class="tab-btn" data-tab="random">🎲 З перемішуванням питань</button>
             </div>
 
+            <!-- Вкладка звичайних тестів -->
             <div id="tab-normal" class="tab-content active">
                 {% if normal_tests %}
-                    <ul class="test-grid">
-                        {% for test in normal_tests %}
-                            <li>
-                                <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
-                                    <div class="test-icon">📝</div>
-                                    <div class="test-info">
-                                        <div class="test-title">{{ test.title }}</div>
-                                        <div class="test-meta">
-                                            {% if test.questions_count %}
-                                                {{ test.questions_count }} пит.
-                                            {% endif %}
-                                            {% if test.max_score %}
-                                                ({{ test.max_score }} балів)
-                                            {% endif %}
-                                            <span class="badge">Без перемішування</span>
+                    {% set normal_by_category = normal_tests|groupby('category') %}
+                    {% for category, tests in normal_by_category %}
+                        <h2 class="test-category-title">{{ category }}</h2>
+                        <ul class="test-grid">
+                            {% for test in tests %}
+                                <li>
+                                    <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
+                                        <div class="test-icon">📝</div>
+                                        <div class="test-info">
+                                            <div class="test-title">{{ test.title }}</div>
+                                            <div class="test-meta">
+                                                {% if test.questions_count %}
+                                                    {{ test.questions_count }} пит.
+                                                {% endif %}
+                                                {% if test.max_score %}
+                                                    ({{ test.max_score }} балів)
+                                                {% endif %}
+                                                <span class="badge">Без перемішування</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="test-arrow">→</span>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                                        <span class="test-arrow">→</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
                 {% else %}
                     <div class="empty-state">
                         <div class="empty-icon">📭</div>
@@ -116,30 +138,35 @@
                 {% endif %}
             </div>
 
+            <!-- Вкладка тестів із перемішуванням -->
             <div id="tab-random" class="tab-content">
                 {% if random_tests %}
-                    <ul class="test-grid">
-                        {% for test in random_tests %}
-                            <li>
-                                <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
-                                    <div class="test-icon">🎲</div>
-                                    <div class="test-info">
-                                        <div class="test-title">{{ test.title }}</div>
-                                        <div class="test-meta">
-                                            {% if test.questions_count %}
-                                                {{ test.questions_count }} пит.
-                                            {% endif %}
-                                            {% if test.max_score %}
-                                                ({{ test.max_score }} балів)
-                                            {% endif %}
-                                            <span class="badge">Питання перемішані</span>
+                    {% set random_by_category = random_tests|groupby('category') %}
+                    {% for category, tests in random_by_category %}
+                        <h2 class="test-category-title">{{ category }}</h2>
+                        <ul class="test-grid">
+                            {% for test in tests %}
+                                <li>
+                                    <a href="{{ url_for('take_test', filename=test.path) }}" class="test-card">
+                                        <div class="test-icon">🎲</div>
+                                        <div class="test-info">
+                                            <div class="test-title">{{ test.title }}</div>
+                                            <div class="test-meta">
+                                                {% if test.questions_count %}
+                                                    {{ test.questions_count }} пит.
+                                                {% endif %}
+                                                {% if test.max_score %}
+                                                    ({{ test.max_score }} балів)
+                                                {% endif %}
+                                                <span class="badge">Питання перемішані</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="test-arrow">→</span>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                                        <span class="test-arrow">→</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
                 {% else %}
                     <div class="empty-state">
                         <div class="empty-icon">🎲</div>

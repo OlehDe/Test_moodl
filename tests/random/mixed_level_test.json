@@ -1,6 +1,7 @@
 {
   "title": "Змішаний тест (рандомний порядок)",
   "setting": "random",
+  "category": "АНГЛІЙСЬКА МОВА",
   "passing_score": 25,
   "sources": [
     {"file": "tests/random/english_level1.json", "count": 20, "weight": 1},

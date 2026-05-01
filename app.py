@@ -4,6 +4,7 @@ import random
 import copy
 from glob import glob
 from flask import Flask, render_template, request, session, url_for, jsonify
+from unicodedata import category
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
@@ -42,6 +43,7 @@ def get_all_test_files():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
+                    category = data.get('category', 'Без категорії')  # ← додано
                     is_random = data.get('setting') == 'random'
                     if 'sources' in data:
                         questions_count = sum(source.get('count', 0) for source in data['sources'])
@@ -51,12 +53,14 @@ def get_all_test_files():
                         max_score = None
             except Exception:
                 title = os.path.basename(filepath)
+                category = 'Без категорії'  # ← додано
                 is_random = False
                 questions_count = 0
                 max_score = None
             tests.append({
                 'path': rel_path,
                 'title': title,
+                'category': category,      # ← додано
                 'is_random': is_random,
                 'questions_count': questions_count,
                 'max_score': max_score
