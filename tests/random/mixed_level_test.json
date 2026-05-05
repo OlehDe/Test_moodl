@@ -1,11 +1,11 @@
 {
   "title": "Змішаний тест (рандомний порядок)",
   "setting": "random",
-  "category": "АНГЛІЙСЬКА МОВА",
+  "category": "ІНСТРУМЕНТАЛЬНІ ЗАСОБИ",
   "passing_score": 25,
   "sources": [
-    {"file": "tests/random/english_level1.json", "count": 20, "weight": 1},
-    {"file": "tests/random/english_level2.json", "count": 5, "weight": 2},
-    {"file": "tests/random/english_level3.json", "count": 5, "weight": 2}
+    {"file": "tests/random/instrumentalni_stroich_lvl1.json", "count": 20, "weight": 1},
+    {"file": "tests/random/instrumentalni_stroich_lvl2.json", "count": 5, "weight": 2},
+    {"file": "tests/random/instrumentalni_stroich_lvl3.json", "count": 5, "weight": 2}
   ]
 }

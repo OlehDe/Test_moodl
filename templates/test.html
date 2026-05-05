@@ -51,7 +51,7 @@
                                     {{ opt }}
                                 </label>
                                 {% endfor %}
-                            {% elif qtype == 'multiple_choice' %}
+                            {% elif qtype == 'multiple_choice' or qtype == 'multi_select' %}
                                 {% for opt in q.options %}
                                 <label class="option-label">
                                     <input type="checkbox" name="q{{ q.id }}" value="{{ opt }}" class="question-input">
@@ -141,7 +141,7 @@
             function hasUserAnswer(block, qtype, qid) {
                 if (qtype === 'single_choice') {
                     return block.querySelector(`input[name="q${qid}"]:checked`) !== null;
-                } else if (qtype === 'multiple_choice') {
+                } else if (qtype === 'multiple_choice' || qtype === 'multi_select') {
                     return block.querySelectorAll(`input[name="q${qid}"]:checked`).length > 0;
                 } else if (qtype === 'open_text') {
                     const inp = block.querySelector(`input[name="q${qid}"]`);
@@ -189,7 +189,7 @@
                         if (qtype === 'single_choice') {
                             const selected = block.querySelector(`input[name="q${qid}"]:checked`);
                             if (selected) formData.append('answer', selected.value);
-                        } else if (qtype === 'multiple_choice') {
+                        } else if (qtype === 'multiple_choice' || qtype === 'multi_select') {
                             const checked = block.querySelectorAll(`input[name="q${qid}"]:checked`);
                             checked.forEach(cb => formData.append('answer', cb.value));
                         } else if (qtype === 'open_text') {

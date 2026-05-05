@@ -145,7 +145,7 @@ def prepare_test_for_display(test_data):
         random.shuffle(test_copy['questions'])
     for q in test_copy['questions']:
         qtype = q.get('type', 'single_choice')
-        if is_random and qtype in ('single_choice', 'multiple_choice'):
+        if is_random and qtype in ('single_choice', 'multiple_choice', 'multi_select'):
             random.shuffle(q['options'])
         if qtype == 'matching':
             random.shuffle(q['pairs'])
@@ -213,6 +213,13 @@ def submit_test(filename):
             user_answers[qid] = user_pairs
             if all_correct:
                 score += weight
+        elif qtype == 'multi_select':
+            selected_list = request.form.getlist(f'q{qid}')
+            user_answers[qid] = selected_list
+            select_count = question.get('select_count', len(correct_value) if correct_value else 0)
+            if correct_value and len(selected_list) == select_count \
+                    and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
+                score += weight
 
     session.pop('current_test', None)
     session.pop('current_test_data', None)
@@ -276,6 +283,14 @@ def check_answer(filename, question_id):
         is_correct = all_correct
         user_answer = user_answers
         correct_value = "; ".join(correct_pairs_list)
+    elif qtype == 'multi_select':
+        selected_list = request.form.getlist('answer')
+        user_answer = selected_list
+        select_count = question.get('select_count', len(correct_value) if correct_value else 0)
+        if correct_value and len(selected_list) == select_count \
+                and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
+            is_correct = True
+        correct_value = ', '.join(correct_value) if correct_value else ''
 
     return jsonify({
         'correct': is_correct,
