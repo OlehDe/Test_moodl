@@ -4,11 +4,9 @@ import random
 import copy
 from glob import glob
 from flask import Flask, render_template, request, session, url_for, jsonify
-from unicodedata import category
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
-
 
 # Забороняємо кешування, щоб браузер не зберігав старі відповіді
 @app.after_request
@@ -43,7 +41,7 @@ def get_all_test_files():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     title = data.get('title', os.path.basename(filepath))
-                    category = data.get('category', 'Без категорії')  # ← додано
+                    category = data.get('category', 'Без категорії')
                     is_random = data.get('setting') == 'random'
                     if 'sources' in data:
                         questions_count = sum(source.get('count', 0) for source in data['sources'])
@@ -53,14 +51,14 @@ def get_all_test_files():
                         max_score = None
             except Exception:
                 title = os.path.basename(filepath)
-                category = 'Без категорії'  # ← додано
+                category = 'Без категорії'
                 is_random = False
                 questions_count = 0
                 max_score = None
             tests.append({
                 'path': rel_path,
                 'title': title,
-                'category': category,      # ← додано
+                'category': category,
                 'is_random': is_random,
                 'questions_count': questions_count,
                 'max_score': max_score
@@ -72,7 +70,7 @@ def get_all_test_files():
 def index():
     # Очищаємо будь-які залишки попереднього тесту
     session.pop('current_test', None)
-    session.pop('current_test_data', None)
+    session.pop('current_recipe', None)
 
     all_tests = get_all_test_files()
     normal_tests = [t for t in all_tests if not t['is_random']]
@@ -104,18 +102,19 @@ def _is_meta_test(test_data):
 
 
 def _load_meta_test(meta_data):
+    """Генерує тест із джерел і повертає разом з рецептом (recipe)."""
     questions = []
+    recipe = []   # збережемо, які питання брали
     for source in meta_data['sources']:
         source_file = source['file']
         required = source['count']
         weight = source.get('weight', 1)
         source_data = _load_json_file(source_file)
         source_questions = source_data.get('questions', [])
-        if required > len(source_questions):
-            raise ValueError(f"Недостатньо питань у {source_file}: потрібно {required}, є {len(source_questions)}")
-        chosen = random.sample(source_questions, required)
-        for q in chosen:
-            q = copy.deepcopy(q)  # ізоляція оригіналів
+        chosen = random.sample(range(len(source_questions)), required)  # індекси
+        recipe.append({'file': source_file, 'indices': chosen, 'weight': weight})
+        for idx in chosen:
+            q = copy.deepcopy(source_questions[idx])
             q['weight'] = weight
             questions.append(q)
 
@@ -127,8 +126,33 @@ def _load_meta_test(meta_data):
         'questions': questions,
         'setting': meta_data.get('setting', ''),
         'passing_score': meta_data.get('passing_score', None),
-        'max_score': sum(source['count'] * source.get('weight', 1) for source in meta_data['sources'])
+        'max_score': sum(source['count'] * source.get('weight', 1) for source in meta_data['sources']),
+        'recipe': recipe   # додаємо рецепт у тест
     }
+
+
+def _rebuild_from_recipe(recipe):
+    """Відновлює тест за збереженим рецептом."""
+    questions = []
+    for entry in recipe:
+        source_file = entry['file']
+        indices = entry['indices']
+        weight = entry['weight']
+        source_data = _load_json_file(source_file)
+        source_questions = source_data.get('questions', [])
+        for idx in indices:
+            q = copy.deepcopy(source_questions[idx])
+            q['weight'] = weight
+            questions.append(q)
+
+    for idx, q in enumerate(questions, start=1):
+        q['id'] = idx
+
+    # Збираємо налаштування з першого джерела? Але нам потрібні title, passing_score тощо.
+    # Оскільки ми відновлюємо вже після того, як тест був створений, ми можемо зберегти метадані в сесії.
+    # Але для простоти повернемо лише питання; заголовок тощо візьмемо з сесії або з файлу.
+    # Насправді, нам для перевірки потрібні лише питання. Тому передамо лише словник з questions.
+    return {'questions': questions}
 
 
 def load_test(rel_path):
@@ -152,26 +176,52 @@ def prepare_test_for_display(test_data):
             rights = list({p['right'] for p in q['pairs']})
             random.shuffle(rights)
             q['shuffled_rights'] = rights
+    # Не показуємо recipe клієнту
+    test_copy.pop('recipe', None)
     return test_copy
+
+
+def get_current_test():
+    """Отримує поточний тест: відновлює з рецепту або завантажує з файлу."""
+    filename = session.get('current_test')
+    if not filename:
+        return None
+    recipe = session.get('current_recipe')
+    if recipe:
+        # Відновлюємо питання за рецептом
+        rebuilt = _rebuild_from_recipe(recipe)
+        # Потрібні також метадані (title, passing_score, max_score тощо)
+        # Завантажимо оригінальний meta-файл лише заради заголовка та налаштувань
+        meta_data = _load_json_file(filename)
+        # Додаємо налаштування, якщо вони є
+        full_test = {
+            'title': meta_data.get('title', 'Test'),
+            'questions': rebuilt['questions'],
+            'setting': meta_data.get('setting', ''),
+            'passing_score': meta_data.get('passing_score'),
+            'max_score': sum(source['count'] * source.get('weight', 1) for source in meta_data.get('sources', []))
+        }
+        return full_test
+    else:
+        # Звичайний тест (не meta)
+        return load_test(filename)
 
 
 @app.route('/test/<path:filename>')
 def take_test(filename):
     original_test = load_test(filename)
+    # Зберігаємо в сесії лише шлях та рецепт (якщо є)
     session['current_test'] = filename
-    session['current_test_data'] = original_test
+    session['current_recipe'] = original_test.get('recipe')  # для звичайних тестів буде None
     display_test = prepare_test_for_display(original_test)
     return render_template('test.html', test=display_test, enumerate=enumerate)
 
 
 @app.route('/submit/<path:filename>', methods=['POST'])
 def submit_test(filename):
-    original_test = session.get('current_test_data')
+    original_test = get_current_test()
     if not original_test:
-        if _is_meta_test(_load_json_file(filename)):
-            return "Сесію втрачено. Будь ласка, почніть тест заново.", 400
-        else:
-            original_test = load_test(filename)
+        return "Сесію втрачено. Будь ласка, почніть тест заново.", 400
 
     user_answers = {}
     score = 0
@@ -221,8 +271,10 @@ def submit_test(filename):
                     and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
                 score += weight
 
+    # Очищення сесії після завершення
     session.pop('current_test', None)
-    session.pop('current_test_data', None)
+    session.pop('current_recipe', None)
+
     return render_template('result.html',
                            test=original_test,
                            user_answers=user_answers,
@@ -235,12 +287,9 @@ def submit_test(filename):
 
 @app.route('/check_answer/<path:filename>/<int:question_id>', methods=['POST'])
 def check_answer(filename, question_id):
-    original_test = session.get('current_test_data')
+    original_test = get_current_test()
     if not original_test:
-        if _is_meta_test(_load_json_file(filename)):
-            return jsonify({'error': 'Session lost. Please restart the test.'}), 400
-        else:
-            original_test = load_test(filename)
+        return jsonify({'error': 'Session lost. Please restart the test.'}), 400
 
     question = next((q for q in original_test['questions'] if q['id'] == question_id), None)
     if not question:
