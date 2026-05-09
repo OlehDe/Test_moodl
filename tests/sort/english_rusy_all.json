@@ -1,0 +1,555 @@
+{
+  "title": "Англійська мова – Тести",
+  "category": "АНГЛІЙСЬКА МОВА РУСЯ",
+  "questions": [
+    {
+      "id": 1,
+      "type": "open_text",
+      "text": "His name has completely ________ my mind.",
+      "correct": "slipped"
+    },
+    {
+      "id": 2,
+      "type": "open_text",
+      "text": "I looked at the map to ________ my memory of the route.",
+      "correct": "refresh"
+    },
+    {
+      "id": 3,
+      "type": "open_text",
+      "text": "Jane advised me to ________ an appointment with Dr. Drake.",
+      "correct": "arrange"
+    },
+    {
+      "id": 4,
+      "type": "open_text",
+      "text": "Online platforms enable users to access information at their ________.",
+      "correct": "convenience"
+    },
+    {
+      "id": 5,
+      "type": "open_text",
+      "text": "Perhaps you could ________ that in mind.",
+      "correct": "bear"
+    },
+    {
+      "id": 6,
+      "type": "open_text",
+      "text": "She feared she wouldn't be able to ________ with these problems.",
+      "correct": "cope"
+    },
+    {
+      "id": 7,
+      "type": "open_text",
+      "text": "She was ________ in French and Italian.",
+      "correct": "fluent"
+    },
+    {
+      "id": 8,
+      "type": "open_text",
+      "text": "The new law has been in ________ since last January.",
+      "correct": "force"
+    },
+    {
+      "id": 9,
+      "type": "open_text",
+      "text": "The package will have been ________ by the time you get home.",
+      "correct": "delivered"
+    },
+    {
+      "id": 10,
+      "type": "open_text",
+      "text": "We are looking for somebody who has a ________ in science.",
+      "correct": "background"
+    },
+    {
+      "id": 11,
+      "type": "open_text",
+      "text": "Although the painting was strange, it was ________ more than a million dollars.",
+      "correct": "worth"
+    },
+    {
+      "id": 12,
+      "type": "open_text",
+      "text": "What you said was a bit ________.",
+      "correct": "confusing"
+    },
+    {
+      "id": 13,
+      "type": "open_text",
+      "text": "He must be ________ after running a marathon in that heat.",
+      "correct": "exhausted"
+    },
+    {
+      "id": 14,
+      "type": "open_text",
+      "text": "To be honest, my first day in the new job was a little bit ________.",
+      "correct": "overwhelming"
+    },
+    {
+      "id": 15,
+      "type": "open_text",
+      "text": "Women in Switzerland ________ the right to vote in 1971.",
+      "correct": "gained"
+    },
+    {
+      "id": 16,
+      "type": "open_text",
+      "text": "John has a good memory for ________.",
+      "correct": "dates"
+    },
+    {
+      "id": 17,
+      "type": "open_text",
+      "text": "Business is a ________ unpredictable at the moment.",
+      "correct": "bit"
+    },
+    {
+      "id": 18,
+      "type": "open_text",
+      "text": "She's very ________ ; she looks at everything closely before making a decision.",
+      "correct": "thoughtful"
+    },
+    {
+      "id": 19,
+      "type": "open_text",
+      "text": "He’ll never change his mind, he’s so ________.",
+      "correct": "stubborn"
+    },
+    {
+      "id": 20,
+      "type": "open_text",
+      "text": "He’s only been working here for a week, so he’s still quite ________.",
+      "correct": "inexperienced"
+    },
+    {
+      "id": 21,
+      "type": "open_text",
+      "text": "You look absolutely ________ in this dress!",
+      "correct": "stunning"
+    },
+    {
+      "id": 22,
+      "type": "open_text",
+      "text": "Applicants must have a ________ in Engineering.",
+      "correct": "degree"
+    },
+    {
+      "id": 23,
+      "type": "open_text",
+      "text": "I think I'm going to ________ Micah. I really don't like what he's been writing on social media.",
+      "correct": "unfriend"
+    },
+    {
+      "id": 24,
+      "type": "open_text",
+      "text": "My grandma is surprisingly ________: she has her own blog and is always posting comments.",
+      "correct": "tech-savvy"
+    },
+    {
+      "id": 25,
+      "type": "open_text",
+      "text": "How much are they ________ to pay?",
+      "correct": "willing"
+    },
+    {
+      "id": 26,
+      "type": "open_text",
+      "text": "She has a ________ for music.",
+      "correct": "passion"
+    },
+    {
+      "id": 27,
+      "type": "open_text",
+      "text": "I am deeply ________ about the environmental problems our world faces.",
+      "correct": "concerned"
+    },
+    {
+      "id": 28,
+      "type": "open_text",
+      "text": "My boss sometimes ________ what I do and it's usually helpful.",
+      "correct": "criticises"
+    },
+    {
+      "id": 29,
+      "type": "open_text",
+      "text": "My parents get a ________ from the government because they are over retirement age.",
+      "correct": "pension"
+    },
+    {
+      "id": 30,
+      "type": "open_text",
+      "text": "Dan ________ with his brother over something, but they are talking to each other again now.",
+      "correct": "fell out"
+    },
+    {
+      "id": 31,
+      "type": "open_text",
+      "text": "Every month, I make a ________ to the local animal charity.",
+      "correct": "donation"
+    },
+    {
+      "id": 32,
+      "type": "open_text",
+      "text": "The police found a lot of DNA ________ at the scene of the crime.",
+      "correct": "evidence"
+    },
+    {
+      "id": 33,
+      "type": "open_text",
+      "text": "My new motorbike cost ________.",
+      "correct": "an arm and a leg"
+    },
+    {
+      "id": 34,
+      "type": "open_text",
+      "text": "Anyone who's worked hard at something deserves ________.",
+      "correct": "praise"
+    },
+    {
+      "id": 35,
+      "type": "open_text",
+      "text": "I have a strong ________ with all my siblings.",
+      "correct": "bond"
+    },
+    {
+      "id": 36,
+      "type": "open_text",
+      "text": "There seems to be a lot of ________ in the office today. Why is everyone stressed?",
+      "correct": "tension"
+    },
+    {
+      "id": 37,
+      "type": "open_text",
+      "text": "My maths teacher ________ to tell my parents if I didn't behave.",
+      "correct": "threatened"
+    },
+    {
+      "id": 38,
+      "type": "open_text",
+      "text": "My youngest daughter ________ drawing on the wall, but I knew it was her.",
+      "correct": "denied"
+    },
+    {
+      "id": 39,
+      "type": "open_text",
+      "text": "I wasn't sure about joining a gym but Sara ________ me it was a good idea.",
+      "correct": "convinced"
+    },
+    {
+      "id": 40,
+      "type": "open_text",
+      "text": "Beatriz ________ for dropping food on her friend's sofa.",
+      "correct": "apologised"
+    },
+    {
+      "id": 41,
+      "type": "open_text",
+      "text": "My brother always ________ me for his broken bike but it wasn't me!",
+      "correct": "blames"
+    },
+    {
+      "id": 42,
+      "type": "matching",
+      "text": "З'єднайте фрази зі значеннями",
+      "pairs": [
+        {"left": "over the moon", "right": "дуже щасливий"},
+        {"left": "a pain", "right": "щось неприємне або незручне"},
+        {"left": "charge", "right": "офіційно звинуватити у злочині"},
+        {"left": "plead guilty", "right": "визнати провину"},
+        {"left": "found guilty", "right": "визнаний винним судом"},
+        {"left": "on cloud nine", "right": "дуже щасливий"},
+        {"left": "fine", "right": "грошовий штраф"},
+        {"left": "parking permit", "right": "дозвіл на паркування"},
+        {"left": "break the ice", "right": "розпочати спілкування, зняти напругу"}
+      ],
+      "correct": [
+        "дуже щасливий",
+        "щось неприємне або незручне",
+        "офіційно звинуватити у злочині",
+        "визнати провину",
+        "визнаний винним судом",
+        "дуже щасливий",
+        "грошовий штраф",
+        "дозвіл на паркування",
+        "розпочати спілкування, зняти напругу"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "open_text",
+      "text": "They said they ________ (work) on a new project then.",
+      "correct": "were working"
+    },
+    {
+      "id": 44,
+      "type": "open_text",
+      "text": "The family is used to ________ (have) dinner at 8 o'clock every evening.",
+      "correct": "having"
+    },
+    {
+      "id": 45,
+      "type": "open_text",
+      "text": "She said she ________ (finish) the report the following day.",
+      "correct": "would finish"
+    },
+    {
+      "id": 46,
+      "type": "open_text",
+      "text": "He told me he ________ (send) the email.",
+      "correct": "had sent"
+    },
+    {
+      "id": 47,
+      "type": "open_text",
+      "text": "By next week, they ________ (build) the new website.",
+      "correct": "will have built"
+    },
+    {
+      "id": 48,
+      "type": "open_text",
+      "text": "By next June, she ________ (work) here for ten years.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 49,
+      "type": "open_text",
+      "text": "If she were more organised, she ________ (meet) all her deadlines.",
+      "correct": "would meet"
+    },
+    {
+      "id": 50,
+      "type": "open_text",
+      "text": "Before the meeting starts, we ________ (prepare) the materials.",
+      "correct": "will have prepared"
+    },
+    {
+      "id": 51,
+      "type": "open_text",
+      "text": "If you don't study, you ________ (fail) the exam.",
+      "correct": "will fail"
+    },
+    {
+      "id": 52,
+      "type": "open_text",
+      "text": "In a few months, he ________ (complete) his training course.",
+      "correct": "will have completed"
+    },
+    {
+      "id": 53,
+      "type": "open_text",
+      "text": "If I had more confidence, I ________ (apply) for that position.",
+      "correct": "would apply"
+    },
+    {
+      "id": 54,
+      "type": "open_text",
+      "text": "At 8 p.m. tonight, they ________ (work) on the project for three hours.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 55,
+      "type": "open_text",
+      "text": "If she calls me, I ________ (tell) her everything.",
+      "correct": "will tell"
+    },
+    {
+      "id": 56,
+      "type": "open_text",
+      "text": "In ten years, he ________ (build) his own business.",
+      "correct": "will have built"
+    },
+    {
+      "id": 57,
+      "type": "open_text",
+      "text": "If they were less impatient, they ________ (accept) the situation.",
+      "correct": "would accept"
+    },
+    {
+      "id": 58,
+      "type": "open_text",
+      "text": "By the end of the seminar, the speakers ________ (present) all the topics.",
+      "correct": "will have presented"
+    },
+    {
+      "id": 59,
+      "type": "open_text",
+      "text": "If you don't stay focused, you ________ (lose) your motivation.",
+      "correct": "will lose"
+    },
+    {
+      "id": 60,
+      "type": "open_text",
+      "text": "In December, she ________ (live) here for five years.",
+      "correct": "will have lived"
+    },
+    {
+      "id": 61,
+      "type": "open_text",
+      "text": "If he tried harder, he ________ (achieve) better results.",
+      "correct": "would achieve"
+    },
+    {
+      "id": 62,
+      "type": "open_text",
+      "text": "At this pace, we ________ (finish) everything by Friday.",
+      "correct": "will have finished"
+    },
+    {
+      "id": 63,
+      "type": "open_text",
+      "text": "If they invest properly, they ________ (increase) their income.",
+      "correct": "will increase"
+    },
+    {
+      "id": 64,
+      "type": "open_text",
+      "text": "By 2040, experts ________ (develop) new technologies.",
+      "correct": "will have developed"
+    },
+    {
+      "id": 65,
+      "type": "open_text",
+      "text": "If she practised more, she ________ (improve) quickly.",
+      "correct": "would improve"
+    },
+    {
+      "id": 66,
+      "type": "open_text",
+      "text": "At noon tomorrow, I ________ (work) for six hours in a row.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 67,
+      "type": "open_text",
+      "text": "If the weather gets better, we ________ (go) hiking.",
+      "correct": "will go"
+    },
+    {
+      "id": 68,
+      "type": "matching",
+      "text": "Match the sentence halves (З'єднайте половинки речень)",
+      "pairs": [
+        {"left": "Before the meeting we should do", "right": "some research on the company"},
+        {"left": "Good luck with the presentation. Just give", "right": "it your best shot and you'll be fine"},
+        {"left": "The company needs to get", "right": "through this difficult financial year"},
+        {"left": "It doesn't make", "right": "sense to charge the client before we do the work"}
+      ],
+      "correct": [
+        "some research on the company",
+        "it your best shot and you'll be fine",
+        "through this difficult financial year",
+        "sense to charge the client before we do the work"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "matching",
+      "text": "Match the sentence halves",
+      "pairs": [
+        {"left": "If a colleague needs help, you should give", "right": "them a hand"},
+        {"left": "I hope the new manager takes", "right": "charge of the problems with our pay"},
+        {"left": "Mainly because of our new website, we have made", "right": "a profit of over $2 million in the last year"},
+        {"left": "This is not a company that takes", "right": "risks without thinking carefully about things"}
+      ],
+      "correct": [
+        "them a hand",
+        "charge of the problems with our pay",
+        "a profit of over $2 million in the last year",
+        "risks without thinking carefully about things"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "open_text",
+      "text": "I imagine she ________ following his bad advice.",
+      "correct": "regrets"
+    },
+    {
+      "id": 71,
+      "type": "open_text",
+      "text": "We need a highly ________ electrician for such a difficult job.",
+      "correct": "qualified"
+    },
+    {
+      "id": 72,
+      "type": "open_text",
+      "text": "I'll go to the party if you ________ to go with me.",
+      "correct": "promise"
+    },
+    {
+      "id": 73,
+      "type": "open_text",
+      "text": "I think you should ________ for leaving so early.",
+      "correct": "apologise"
+    },
+    {
+      "id": 74,
+      "type": "matching",
+      "text": "Match the sentence halves",
+      "pairs": [
+        {"left": "It was a bitterly", "right": "cold evening last night"},
+        {"left": "My teacher threatened", "right": "to call my parents"},
+        {"left": "My new car is relatively", "right": "small compared to my last one"},
+        {"left": "You can't blame", "right": "me for the problems at work"}
+      ],
+      "correct": [
+        "cold evening last night",
+        "to call my parents",
+        "small compared to my last one",
+        "me for the problems at work"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "matching",
+      "text": "Match the sentence halves (conditionals)",
+      "pairs": [
+        {"left": "I'll only book the restaurant", "right": "if you're sure you can come"},
+        {"left": "We wouldn't have lost the match", "right": "if we had had our star player"},
+        {"left": "I wouldn't have had financial problems", "right": "if I'd bought a smaller house"},
+        {"left": "We'll be top of the league", "right": "when we get our star player"}
+      ],
+      "correct": [
+        "if you're sure you can come",
+        "if we had had our star player",
+        "if I'd bought a smaller house",
+        "when we get our star player"
+      ]
+    },
+    {
+      "id": 76,
+      "type": "matching",
+      "text": "Match the sentence halves",
+      "pairs": [
+        {"left": "I'd choose the Bahamas", "right": "if I could live anywhere I wanted"},
+        {"left": "I wouldn't let you down", "right": "if you gave me a chance"},
+        {"left": "I wouldn't have given you the money", "right": "if I had known I couldn't trust you"},
+        {"left": "When I get paid", "right": "I'll pay you back"}
+      ],
+      "correct": [
+        "if I could live anywhere I wanted",
+        "if you gave me a chance",
+        "if I had known I couldn't trust you",
+        "I'll pay you back"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "matching",
+      "text": "Match the sentence halves",
+      "pairs": [
+        {"left": "We don't have enough money, so we'll have to do", "right": "without a staff party this year"},
+        {"left": "The economic situation is too bad to take", "right": "a risk on expanding into other regions"},
+        {"left": "Before I go away, I want to give", "right": "priority to my current project"},
+        {"left": "He's not well. We should keep", "right": "an eye on him for a while"}
+      ],
+      "correct": [
+        "without a staff party this year",
+        "a risk on expanding into other regions",
+        "priority to my current project",
+        "an eye on him for a while"
+      ]
+    }
+  ]
+}
