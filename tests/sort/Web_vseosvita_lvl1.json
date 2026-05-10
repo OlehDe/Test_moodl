@@ -1,7 +1,7 @@
 {
   "title": "Web-розробка ВСЕОСВІТА РІВЕНЬ 1",
   "category": "Web-розробка ВСЕОСВІТА",
-
+  "setting": "random",
   "questions": [
         {
           "id": 1,
