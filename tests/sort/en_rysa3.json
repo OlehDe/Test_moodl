@@ -1,0 +1,90 @@
+{
+  "title": "Англійська мова – Рівень 3",
+  "category": "АНГЛІЙСЬКА МОВА РУСЯ",
+  "questions": [
+    {
+      "id": 1,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "i imagine she regret", "right": "following his bad advice"},
+        {"left": "We need a highly", "right": "qualified electrician for such a difficult job"},
+        {"left": "I’ll go to the party if you promise", "right": "to go with me"},
+        {"left": "I think you should apologise", "right": "for leaving so early"}
+      ],
+      "correct": ["following his bad advice", "qualified electrician for such a difficult job", "to go with me", "for leaving so early"]
+    },
+    {
+      "id": 2,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "It was a bitterly", "right": "cold evening last night"},
+        {"left": "My teacher threatened", "right": "to call my parents"},
+        {"left": "My new car is relatively", "right": "small compared to my last one"},
+        {"left": "You can’t blame", "right": "me for the problems at work"}
+      ],
+      "correct": ["cold evening last night", "to call my parents", "small compared to my last one", "me for the problems at work"]
+    },
+    {
+      "id": 3,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "I’ll only book the restaurant", "right": "if you’re sure you can come"},
+        {"left": "We wouldn’t have lost the match", "right": "if we had had our star player"},
+        {"left": "I wouldn’t have had financial problems", "right": "if I’d bought a smaller house"},
+        {"left": "We’ll be top of the league", "right": "when we get our star player"}
+      ],
+      "correct": ["if you’re sure you can come", "if we had had our star player", "if I’d bought a smaller house", "when we get our star player"]
+    },
+    {
+      "id": 4,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "If a colleague need help, you should give", "right": "them a hand"},
+        {"left": "I hope the new manager takes", "right": "charge of the problems with our pay"},
+        {"left": "Mainly because of our new website, we have made", "right": "a profit of over $2 million it the last year"},
+        {"left": "This is not a company that takes", "right": "risks without thinking carefully about things"}
+      ],
+      "correct": ["them a hand", "charge of the problems with our pay", "a profit of over $2 million it the last year", "risks without thinking carefully about things"]
+    },
+    {
+      "id": 5,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "Before the meeting we should do", "right": "some research on the company"},
+        {"left": "Good luck with the presentation. Just give", "right": "it your best shot and you’ll be fine"},
+        {"left": "The company needs to get", "right": "through this difficult financial year"},
+        {"left": "It doesn’t make", "right": "sense to charge the client before we do the work"}
+      ],
+      "correct": ["some research on the company", "it your best shot and you’ll be fine", "through this difficult financial year", "sense to charge the client before we do the work"]
+    },
+    {
+      "id": 6,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "We don’t have enough money, so we’ll have to do", "right": "without a staff party this year"},
+        {"left": "The economic situation is too bad to take", "right": "a risk on expanding into other region"},
+        {"left": "Before I go away, I want to give", "right": "priority to my current project"},
+        {"left": "He's not well. We should keep", "right": "an eye on him for a while"}
+      ],
+      "correct": ["without a staff party this year", "a risk on expanding into other region", "priority to my current project", "an eye on him for a while"]
+    },
+    {
+      "id": 7,
+      "type": "matching",
+      "text": "Match the following sentence halves",
+      "pairs": [
+        {"left": "I’d choose the Bahamas", "right": "if I could live anywhere I wanted"},
+        {"left": "I wouldn’t let you down", "right": "if you gave me a chance"},
+        {"left": "I wouldn’t have given you the money", "right": "if I had known I couldn’t trust you"},
+        {"left": "When I get paid", "right": "when I get paid ="}
+      ],
+      "correct": ["if I could live anywhere I wanted", "if you gave me a chance", "if I had known I couldn’t trust you", "when I get paid ="]
+    }
+  ]
+}

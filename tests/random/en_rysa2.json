@@ -1,0 +1,163 @@
+{
+  "title": "Англійська мова – Рівень 2 РАНДОМ",
+  "setting": "random",
+  "category": "АНГЛІЙСЬКА МОВА РУСЯ",
+  "questions": [
+    {
+      "id": 1,
+      "type": "open_text",
+      "text": "They said they ________ (work) on a new project then.",
+      "correct": "were working"
+    },
+    {
+      "id": 2,
+      "type": "open_text",
+      "text": "The family is used to ________ (have) dinner at 8 o’clock every evening.",
+      "correct": "having"
+    },
+    {
+      "id": 3,
+      "type": "open_text",
+      "text": "She said she ________ (finish) the report the following day.",
+      "correct": "would finish"
+    },
+    {
+      "id": 4,
+      "type": "open_text",
+      "text": "He told me he ________ (send) the email.",
+      "correct": "had sent"
+    },
+    {
+      "id": 5,
+      "type": "open_text",
+      "text": "By next week, they ________ (build) the new website.",
+      "correct": "will have built"
+    },
+    {
+      "id": 6,
+      "type": "open_text",
+      "text": "By next June, she ________ (work) here for ten years.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 7,
+      "type": "open_text",
+      "text": "This time tomorrow, he ________ (teach) a lesson for two hours.",
+      "correct": "will be teaching"
+    },
+    {
+      "id": 8,
+      "type": "open_text",
+      "text": "If she were more organised, she ________ (meet) all her deadlines.",
+      "correct": "would meet"
+    },
+    {
+      "id": 9,
+      "type": "open_text",
+      "text": "Before the meeting starts, we ________ (prepare) the materials.",
+      "correct": "will have prepared"
+    },
+    {
+      "id": 10,
+      "type": "open_text",
+      "text": "If you don’t study, you ________ (fail) the exam.",
+      "correct": "will fail"
+    },
+    {
+      "id": 11,
+      "type": "open_text",
+      "text": "In a few months, he ________ (complete) his training course.",
+      "correct": "will have completed"
+    },
+    {
+      "id": 12,
+      "type": "open_text",
+      "text": "If I had more confidence, I ________ (apply) for that position.",
+      "correct": "would apply"
+    },
+    {
+      "id": 13,
+      "type": "open_text",
+      "text": "At 8 p.m. tonight, they ________ (work) on the project for three hours.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 14,
+      "type": "open_text",
+      "text": "If she calls me, I ________ (tell) her everything.",
+      "correct": "will tell"
+    },
+    {
+      "id": 15,
+      "type": "open_text",
+      "text": "In ten years, he ________ (build) his own business.",
+      "correct": "will have built"
+    },
+    {
+      "id": 16,
+      "type": "open_text",
+      "text": "If they were less impatient, they ________ (accept) the situation.",
+      "correct": "would accept"
+    },
+    {
+      "id": 17,
+      "type": "open_text",
+      "text": "By the end of the seminar, the speakers ________ (present) all the topics.",
+      "correct": "will have presented"
+    },
+    {
+      "id": 18,
+      "type": "open_text",
+      "text": "If you don’t stay focused, you ________ (lose) your motivation.",
+      "correct": "will lose"
+    },
+    {
+      "id": 19,
+      "type": "open_text",
+      "text": "In December, she ________ (live) here for five years.",
+      "correct": "will have lived"
+    },
+    {
+      "id": 20,
+      "type": "open_text",
+      "text": "If he tried harder, he ________ (achieve) better results.",
+      "correct": "would achieve"
+    },
+    {
+      "id": 21,
+      "type": "open_text",
+      "text": "At this pace, we ________ (finish) everything by Friday.",
+      "correct": "will have finished"
+    },
+    {
+      "id": 22,
+      "type": "open_text",
+      "text": "If they invest properly, they ________ (increase) their income.",
+      "correct": "will increase"
+    },
+    {
+      "id": 23,
+      "type": "open_text",
+      "text": "By 2040, experts ________ (develop) new technologies.",
+      "correct": "will have developed"
+    },
+    {
+      "id": 24,
+      "type": "open_text",
+      "text": "If she practised more, she ________ (improve) quickly.",
+      "correct": "would improve"
+    },
+    {
+      "id": 25,
+      "type": "open_text",
+      "text": "At noon tomorrow, I ________ (work) for six hours in a row.",
+      "correct": "will have been working"
+    },
+    {
+      "id": 26,
+      "type": "open_text",
+      "text": "If the weather gets better, we ________ (go) hiking.",
+      "correct": "will go"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Змішаний тест (рандомний порядок)",
+  "setting": "random",
+  "category": "АНГЛІЙСЬКА МОВА РУСЯ",
+  "passing_score": 25,
+  "sources": [
+    {"file": "tests/random/en_rysa1.json", "count": 20, "weight": 1},
+    {"file": "tests/random/en_rysa2.json", "count": 5, "weight": 2},
+    {"file": "tests/random/en_rysa3.json", "count": 5, "weight": 2}
+  ]
+}

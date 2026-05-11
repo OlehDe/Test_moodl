@@ -1,0 +1,1026 @@
+{
+  "title": "Англійська мова – Рівень 1",
+  "category": "АНГЛІЙСЬКА МОВА РУСЯ",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single_choice",
+      "text": "__________, people felt you do your job well.",
+      "options": [
+        "Overall",
+        "However",
+        "Therefore",
+        "Despite"
+      ],
+      "correct": "Overall"
+    },
+    {
+      "id": 2,
+      "type": "single_choice",
+      "text": "As for me, you are __________ right. I agree with you.",
+      "options": [
+        "absolutely",
+        "exactly",
+        "definitely",
+        "certainly"
+      ],
+      "correct": "absolutely"
+    },
+    {
+      "id": 3,
+      "type": "single_choice",
+      "text": "His name has completely __________ my mind.",
+      "options": [
+        "lose",
+        "lost",
+        "slipped",
+        "forgot"
+      ],
+      "correct": "lose"
+    },
+    {
+      "id": 4,
+      "type": "single_choice",
+      "text": "How long __________ this book?",
+      "options": [
+        "have you been reading",
+        "did you read",
+        "do you read",
+        "have you read"
+      ],
+      "correct": "have you been reading"
+    },
+    {
+      "id": 5,
+      "type": "single_choice",
+      "text": "I looked at the map to __________ my memory of the route.",
+      "options": [
+        "refresh",
+        "remind",
+        "recall",
+        "recover"
+      ],
+      "correct": "refresh"
+    },
+    {
+      "id": 6,
+      "type": "single_choice",
+      "text": "If Anita hadn’t taken her smartphone with her, the hunters __________ her.",
+      "options": [
+        "wouldn't have caught",
+        "didn't catch",
+        "hadn't caught",
+        "won't catch"
+      ],
+      "correct": "wouldn't have caught"
+    },
+    {
+      "id": 7,
+      "type": "single_choice",
+      "text": "Jane advised me to arrange an appointment with Dr. Drake. He is __________ qualified.",
+      "options": [
+        "highly",
+        "very",
+        "well",
+        "greatly"
+      ],
+      "correct": "highly"
+    },
+    {
+      "id": 8,
+      "type": "single_choice",
+      "text": "Kate is very __________ and makes up wonderful stories for children.",
+      "options": [
+        "imaginative",
+        "imaginary",
+        "imaginable",
+        "imagining"
+      ],
+      "correct": "imaginative"
+    },
+    {
+      "id": 9,
+      "type": "single_choice",
+      "text": "My granny is a __________ religious person.",
+      "options": [
+        "deeply",
+        "strongly",
+        "truly",
+        "highly"
+      ],
+      "correct": "deeply"
+    },
+    {
+      "id": 10,
+      "type": "single_choice",
+      "text": "Online platforms enable users to access information at their __________.",
+      "options": [
+        "convenience",
+        "disposal",
+        "leisure",
+        "request"
+      ],
+      "correct": "convenience"
+    },
+    {
+      "id": 11,
+      "type": "single_choice",
+      "text": "Someone who is married to your brother is your __________.",
+      "options": [
+        "sister-in-law",
+        "step-sister",
+        "half-sister",
+        "cousin"
+      ],
+      "correct": "sister-in-law"
+    },
+    {
+      "id": 12,
+      "type": "single_choice",
+      "text": "Perhaps you could bear that in __________.",
+      "options": [
+        "mind",
+        "brain",
+        "head",
+        "thought"
+      ],
+      "correct": "mind"
+    },
+    {
+      "id": 13,
+      "type": "single_choice",
+      "text": "She feared she wouldn’t be able to cope __________ these problems.",
+      "options": [
+        "with",
+        "on",
+        "to",
+        "for"
+      ],
+      "correct": "with"
+    },
+    {
+      "id": 14,
+      "type": "single_choice",
+      "text": "She was fluent __________ French and Italian.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "with"
+      ],
+      "correct": "in"
+    },
+    {
+      "id": 15,
+      "type": "single_choice",
+      "text": "The new law __________ since last January.",
+      "options": [
+        "has been in force",
+        "is in force",
+        "was in force",
+        "will be in force"
+      ],
+      "correct": "has been in force"
+    },
+    {
+      "id": 16,
+      "type": "single_choice",
+      "text": "The new policy is intended to raise public __________ of environmental issues.",
+      "options": [
+        "awareness",
+        "knowledge",
+        "concern",
+        "attention"
+      ],
+      "correct": "awareness"
+    },
+    {
+      "id": 17,
+      "type": "single_choice",
+      "text": "The package __________ by the time you get home.",
+      "options": [
+        "will have been delivered",
+        "will be delivered",
+        "has been delivered",
+        "was delivered"
+      ],
+      "correct": "will have been delivered"
+    },
+    {
+      "id": 18,
+      "type": "single_choice",
+      "text": "We are looking for somebody who has a __________ in science.",
+      "options": [
+        "background",
+        "history",
+        "experience",
+        "degree"
+      ],
+      "correct": "background"
+    },
+    {
+      "id": 19,
+      "type": "single_choice",
+      "text": "__________ the painting was strange, it was worth more than a million dollars.",
+      "options": [
+        "Although",
+        "Despite",
+        "However",
+        "Because"
+      ],
+      "correct": "Although"
+    },
+    {
+      "id": 20,
+      "type": "single_choice",
+      "text": "How many countries __________ so far?",
+      "options": [
+        "have you visited",
+        "did you visit",
+        "you visited",
+        "you have visited"
+      ],
+      "correct": "have you visited"
+    },
+    {
+      "id": 21,
+      "type": "single_choice",
+      "text": "The building of the new airport __________ soon.",
+      "options": [
+        "will be finished",
+        "is finishing",
+        "will finish",
+        "finishes"
+      ],
+      "correct": "will be finished"
+    },
+    {
+      "id": 22,
+      "type": "single_choice",
+      "text": "The windows of the sports centre __________ last night.",
+      "options": [
+        "were smashed",
+        "smashed",
+        "are smashed",
+        "have smashed"
+      ],
+      "correct": "were smashed"
+    },
+    {
+      "id": 23,
+      "type": "single_choice",
+      "text": "What you said was a bit __________.",
+      "options": [
+        "confusing",
+        "confused",
+        "confuse",
+        "confusion"
+      ],
+      "correct": "confusing"
+    },
+    {
+      "id": 24,
+      "type": "single_choice",
+      "text": "He must be __________ after running a marathon in that heat.",
+      "options": [
+        "exhausted",
+        "exhausting",
+        "tired",
+        "tiring"
+      ],
+      "correct": "exhausted"
+    },
+    {
+      "id": 25,
+      "type": "single_choice",
+      "text": "To be honest, my first day in the new job was a little bit __________.",
+      "options": [
+        "overwhelming",
+        "overwhelmed",
+        "underwhelming",
+        "overworked"
+      ],
+      "correct": "overwhelming"
+    },
+    {
+      "id": 26,
+      "type": "single_choice",
+      "text": "Women in Switzerland __________ the right to vote in 1971.",
+      "options": [
+        "gained",
+        "obtained",
+        "received",
+        "achieved"
+      ],
+      "correct": "gained"
+    },
+    {
+      "id": 27,
+      "type": "single_choice",
+      "text": "John has a good memory __________ dates.",
+      "options": [
+        "for",
+        "with",
+        "to",
+        "on"
+      ],
+      "correct": "for"
+    },
+    {
+      "id": 28,
+      "type": "single_choice",
+      "text": "Gabriel is more creative and artistic __________ his father.",
+      "options": [
+        "than",
+        "as",
+        "like",
+        "then"
+      ],
+      "correct": "than"
+    },
+    {
+      "id": 29,
+      "type": "single_choice",
+      "text": "In the end, the meeting wasn’t as difficult __________ we thought it would be.",
+      "options": [
+        "as",
+        "than",
+        "that",
+        "like"
+      ],
+      "correct": "as"
+    },
+    {
+      "id": 30,
+      "type": "single_choice",
+      "text": "The longer I work here, the __________ surprised I am that the company’s still in business.",
+      "options": [
+        "more",
+        "much",
+        "most",
+        "less"
+      ],
+      "correct": "more"
+    },
+    {
+      "id": 31,
+      "type": "single_choice",
+      "text": "I knew he __________ to Mexico even though he claimed that he had.",
+      "options": [
+        "had never been",
+        "never was",
+        "has never been",
+        "was never"
+      ],
+      "correct": "had never been"
+    },
+    {
+      "id": 32,
+      "type": "single_choice",
+      "text": "Business is a bit __________ at the moment. No one knows what’s going to happen next.",
+      "options": [
+        "unpredictable",
+        "predictable",
+        "unexpected",
+        "uncertain"
+      ],
+      "correct": "unpredictable"
+    },
+    {
+      "id": 33,
+      "type": "single_choice",
+      "text": "She’s very __________. She looks at everything closely before making a decision.",
+      "options": [
+        "thoughtful",
+        "careful",
+        "cautious",
+        "serious"
+      ],
+      "correct": "thoughtful"
+    },
+    {
+      "id": 34,
+      "type": "single_choice",
+      "text": "He’ll never change his mind, he’s so __________.",
+      "options": [
+        "stubborn",
+        "obstinate",
+        "persistent",
+        "proud"
+      ],
+      "correct": "stubborn"
+    },
+    {
+      "id": 35,
+      "type": "single_choice",
+      "text": "He’s only been working here for a week, so he’s still quite __________.",
+      "options": [
+        "inexperienced",
+        "unexperienced",
+        "experienced",
+        "skilled"
+      ],
+      "correct": "inexperienced"
+    },
+    {
+      "id": 36,
+      "type": "single_choice",
+      "text": "His name has completely __________ my mind.",
+      "options": [
+        "slipped",
+        "slipped off",
+        "escaped",
+        "gone"
+      ],
+      "correct": "slipped"
+    },
+    {
+      "id": 37,
+      "type": "single_choice",
+      "text": "The desserts get a big __________.",
+      "options": [
+        "thumbs up",
+        "thumb up",
+        "thumbs down",
+        "praise"
+      ],
+      "correct": "thumbs up"
+    },
+    {
+      "id": 38,
+      "type": "single_choice",
+      "text": "She accidentally broke the phone __________ belonged to her husband.",
+      "options": [
+        "that",
+        "what",
+        "who",
+        "it"
+      ],
+      "correct": "that"
+    },
+    {
+      "id": 39,
+      "type": "single_choice",
+      "text": "These are the art books __________ Gina recommended.",
+      "options": [
+        "which",
+        "who",
+        "what",
+        "where"
+      ],
+      "correct": "which"
+    },
+    {
+      "id": 40,
+      "type": "single_choice",
+      "text": "John’s sister, __________ runs the museum, can tell you what’s on display.",
+      "options": [
+        "who",
+        "which",
+        "that",
+        "she"
+      ],
+      "correct": "who"
+    },
+    {
+      "id": 41,
+      "type": "single_choice",
+      "text": "You look absolutely __________ in this dress!",
+      "options": [
+        "stunning",
+        "shocked",
+        "surprised",
+        "excited"
+      ],
+      "correct": "stunning"
+    },
+    {
+      "id": 42,
+      "type": "single_choice",
+      "text": "Applicants must have a degree __________ Engineering.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "for"
+      ],
+      "correct": "in"
+    },
+    {
+      "id": 43,
+      "type": "single_choice",
+      "text": "I’m sorry, but you __________ to go in there. There’s a meeting in progress.",
+      "options": [
+        "aren’t allowed",
+        "shouldn’t",
+        "can’t",
+        "mustn’t"
+      ],
+      "correct": "aren’t allowed"
+    },
+    {
+      "id": 44,
+      "type": "single_choice",
+      "text": "You __________ do the washing-up. We can use the dishwasher.",
+      "options": [
+        "don’t have to",
+        "mustn’t",
+        "shouldn’t",
+        "can’t"
+      ],
+      "correct": "don’t have to"
+    },
+    {
+      "id": 45,
+      "type": "single_choice",
+      "text": "I’ve got my phone – let’s take a __________ together.",
+      "options": [
+        "selfie",
+        "photo",
+        "picture",
+        "shot"
+      ],
+      "correct": "selfie"
+    },
+    {
+      "id": 46,
+      "type": "single_choice",
+      "text": "I think I’m going to __________ Micah. I really don’t like what he’s been writing on social media.",
+      "options": [
+        "unfriend",
+        "block",
+        "delete",
+        "ignore"
+      ],
+      "correct": "unfriend"
+    },
+    {
+      "id": 47,
+      "type": "single_choice",
+      "text": "My grandma is surprisingly __________: she has her own blog and is always posting comments on social media.",
+      "options": [
+        "tech-savvy",
+        "old-fashioned",
+        "busy",
+        "curious"
+      ],
+      "correct": "tech-savvy"
+    },
+    {
+      "id": 48,
+      "type": "single_choice",
+      "text": "Bear __________ mind that the traffic is always worse on Friday evenings.",
+      "options": [
+        "in",
+        "on",
+        "to",
+        "for"
+      ],
+      "correct": "in"
+    },
+    {
+      "id": 49,
+      "type": "single_choice",
+      "text": "This is the town __________ I was born and lived half of my life.",
+      "options": [
+        "where",
+        "which",
+        "that",
+        "when"
+      ],
+      "correct": "where"
+    },
+    {
+      "id": 50,
+      "type": "single_choice",
+      "text": "She has a passion __________ music.",
+      "options": [
+        "for",
+        "to",
+        "in",
+        "with"
+      ],
+      "correct": "for"
+    },
+    {
+      "id": 51,
+      "type": "single_choice",
+      "text": "People say that skydiving is __________ safe, but I still wouldn’t do it.",
+      "options": [
+        "perfectly",
+        "completely",
+        "totally",
+        "absolutely"
+      ],
+      "correct": "perfectly"
+    },
+    {
+      "id": 52,
+      "type": "single_choice",
+      "text": "Miley Cyrus is probably more __________ known than her father these days.",
+      "options": [
+        "widely",
+        "well",
+        "broadly",
+        "highly"
+      ],
+      "correct": "widely"
+    },
+    {
+      "id": 53,
+      "type": "single_choice",
+      "text": "Ana visits her grandparents __________ Saturday morning.",
+      "options": [
+        "every",
+        "every",
+        "all",
+        "each"
+      ],
+      "correct": "every"
+    },
+    {
+      "id": 54,
+      "type": "single_choice",
+      "text": "I am __________ concerned about the environmental problems our world faces.",
+      "options": [
+        "deeply",
+        "very",
+        "much",
+        "extremely worried"
+      ],
+      "correct": "deeply"
+    },
+    {
+      "id": 55,
+      "type": "single_choice",
+      "text": "Have you eaten __________ the cakes?",
+      "options": [
+        "all",
+        "every",
+        "whole",
+        "each"
+      ],
+      "correct": "all"
+    },
+    {
+      "id": 56,
+      "type": "single_choice",
+      "text": "My boss sometimes __________ what I do and it’s usually helpful.",
+      "options": [
+        "criticises",
+        "criticizes",
+        "blames",
+        "punishes"
+      ],
+      "correct": "criticises"
+    },
+    {
+      "id": 57,
+      "type": "single_choice",
+      "text": "My parents get a __________ from the government because they are over 65.",
+      "options": [
+        "pension",
+        "salary",
+        "grant",
+        "bonus"
+      ],
+      "correct": "pension"
+    },
+    {
+      "id": 58,
+      "type": "single_choice",
+      "text": "Dan __________ out with his brother over something, but they are talking again now.",
+      "options": [
+        "fell",
+        "dropped",
+        "broke",
+        "got"
+      ],
+      "correct": "fell"
+    },
+    {
+      "id": 59,
+      "type": "single_choice",
+      "text": "Every month, I make a __________ to the local animal charity.",
+      "options": [
+        "donation",
+        "contribution",
+        "payment",
+        "gift"
+      ],
+      "correct": "donation"
+    },
+    {
+      "id": 60,
+      "type": "single_choice",
+      "text": "Some people __________ to believe that the world is round.",
+      "options": [
+        "refuse",
+        "reject",
+        "decline",
+        "deny"
+      ],
+      "correct": "refuse"
+    },
+    {
+      "id": 61,
+      "type": "single_choice",
+      "text": "The police found a lot of DNA evidence at the __________ of the crime.",
+      "options": [
+        "scene",
+        "site",
+        "place",
+        "point"
+      ],
+      "correct": "scene"
+    },
+    {
+      "id": 62,
+      "type": "single_choice",
+      "text": "My new motorbike cost an arm and a __________.",
+      "options": [
+        "leg",
+        "hand",
+        "foot",
+        "arm"
+      ],
+      "correct": "leg"
+    },
+    {
+      "id": 63,
+      "type": "single_choice",
+      "text": "Danielle made a risky __________ in a new company and lost a lot of money.",
+      "options": [
+        "investment",
+        "bet",
+        "purchase",
+        "contract"
+      ],
+      "correct": "investment"
+    },
+    {
+      "id": 64,
+      "type": "single_choice",
+      "text": "Anyone who's worked hard at something deserves __________.",
+      "options": [
+        "praise",
+        "reward",
+        "prize",
+        "award"
+      ],
+      "correct": "praise"
+    },
+    {
+      "id": 65,
+      "type": "single_choice",
+      "text": "I have a strong __________ with all my siblings. We've always been close.",
+      "options": [
+        "bond",
+        "connection",
+        "relationship",
+        "link"
+      ],
+      "correct": "bond"
+    },
+    {
+      "id": 66,
+      "type": "single_choice",
+      "text": "There seems to be a lot of __________ in the office today. Why is everyone stressed?",
+      "options": [
+        "connection",
+        "tension",
+        "confusion",
+        "pressure"
+      ],
+      "correct": "connection"
+    },
+    {
+      "id": 67,
+      "type": "single_choice",
+      "text": "I'd forgotten about my dentist's appointment. Thanks for __________ me.",
+      "options": [
+        "reminding",
+        "remembering",
+        "recalling",
+        "alerting"
+      ],
+      "correct": "reminding"
+    },
+    {
+      "id": 68,
+      "type": "single_choice",
+      "text": "My maths teacher __________ to tell my parents if I didn't behave.",
+      "options": [
+        "threatened",
+        "warned",
+        "promised",
+        "advised"
+      ],
+      "correct": "threatened"
+    },
+    {
+      "id": 69,
+      "type": "single_choice",
+      "text": "My youngest daughter __________ drawing on the wall, but I knew it was her.",
+      "options": [
+        "denied",
+        "refused",
+        "rejected",
+        "opposed"
+      ],
+      "correct": "denied"
+    },
+    {
+      "id": 70,
+      "type": "single_choice",
+      "text": "I wasn't sure about joining a gym but Sara __________ me it was a good idea.",
+      "options": [
+        "convinced",
+        "persuaded",
+        "encouraged",
+        "forced"
+      ],
+      "correct": "convinced"
+    },
+    {
+      "id": 71,
+      "type": "single_choice",
+      "text": "Beatrix __________ for dropping food on her friend's sofa.",
+      "options": [
+        "apologised",
+        "excused",
+        "regretted",
+        "admitted"
+      ],
+      "correct": "apologised"
+    },
+    {
+      "id": 72,
+      "type": "single_choice",
+      "text": "This view takes my __________ away.",
+      "options": [
+        "breath",
+        "breathe",
+        "heart",
+        "mind"
+      ],
+      "correct": "breath"
+    },
+    {
+      "id": 73,
+      "type": "single_choice",
+      "text": "That noise is driving me up the __________.",
+      "options": [
+        "wall",
+        "ceiling",
+        "roof",
+        "floor"
+      ],
+      "correct": "wall"
+    },
+    {
+      "id": 74,
+      "type": "single_choice",
+      "text": "The homework won't take you long. It's a piece of __________.",
+      "options": [
+        "cake",
+        "pie",
+        "work",
+        "art"
+      ],
+      "correct": "cake"
+    },
+    {
+    "id": 75,
+    "type": "single_choice",
+    "text": "How much are they willing __________ pay?",
+    "options": [
+      "to",
+      "for",
+      "at",
+      "on"
+    ],
+    "correct": "to"
+    },
+    {
+      "id": 76,
+      "type": "single_choice",
+      "text": "People assume things because of my taste in fashion but you can't judge a book by its __________.",
+      "options": [
+        "cover",
+        "page",
+        "title",
+        "colour"
+      ],
+      "correct": "cover"
+    },
+    {
+      "id": 77,
+      "type": "single_choice",
+      "text": "I got the job! I'm over the __________.",
+      "options": [
+        "moon",
+        "sun",
+        "stars",
+        "sky"
+      ],
+      "correct": "moon"
+    },
+    {
+      "id": 78,
+      "type": "single_choice",
+      "text": "I have to walk 20 minutes to the nearest bus stop. It's __________.",
+      "options": [
+        "a pain",
+        "pleasure",
+        "a problem",
+        "a task"
+      ],
+      "correct": "a pain"
+    },
+    {
+      "id": 79,
+      "type": "single_choice",
+      "text": "If criminals are caught, the police __________.",
+      "options": [
+        "charge",
+        "arrest",
+        "fine",
+        "release"
+      ],
+      "correct": "charge"
+    },
+    {
+      "id": 80,
+      "type": "single_choice",
+      "text": "If criminals plead guilty, they __________ that they committed a crime.",
+      "options": [
+        "admit",
+        "deny",
+        "confess",
+        "argue"
+      ],
+      "correct": "admit"
+    },
+    {
+      "id": 81,
+      "type": "single_choice",
+      "text": "Somebody is found guilty or not guilty by __________.",
+      "options": [
+        "a judge or jury",
+        "a lawyer",
+        "a police officer",
+        "a witness"
+      ],
+      "correct": "a judge or jury"
+    },
+    {
+      "id": 82,
+      "type": "single_choice",
+      "text": "Mehmet has just heard that he’s passed all his exams! He’s on cloud __________!",
+      "options": [
+        "nine",
+        "ten",
+        "eight",
+        "seven"
+      ],
+      "correct": "nine"
+    },
+  {
+    "id": 83,
+    "type": "single_choice",
+    "text": "I got a __________ of £100 for parking outside the office but that’s wrong as I have a parking __________ for that part of town.",
+    "options": [
+      "fine / permit",
+      "ticket / license",
+      "bill / pass",
+      "fine / license"
+    ],
+    "correct": "fine / permit"
+  },
+    {
+      "id": 84,
+      "type": "single_choice",
+      "text": "I have a parking __________ for that part of town.",
+      "options": [
+        "permit",
+        "permission",
+        "license",
+        "card"
+      ],
+      "correct": "permit"
+    },
+    {
+      "id": 85,
+      "type": "single_choice",
+      "text": "No one knew each other but the group leader had designed an activity to break __________.",
+      "options": [
+        "the ice",
+        "ice",
+        "a leg",
+        "the silence"
+      ],
+      "correct": "the ice"
+    }
+  ]
+}

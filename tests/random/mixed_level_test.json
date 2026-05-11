@@ -1,11 +1,11 @@
 {
   "title": "Змішаний тест (рандомний порядок)",
   "setting": "random",
-  "category": "Web-розробка ВСЕОСВІТА",
+  "category": "ТЕСТУВАННЯ СТРОЇЧ",
   "passing_score": 25,
   "sources": [
-    {"file": "tests/random/Web_vseosvita_lvl1.json", "count": 20, "weight": 1},
-    {"file": "tests/random/Web_vseosvita_lvl2.json", "count": 5, "weight": 2},
-    {"file": "tests/random/Web_vseosvita_lvl3.json", "count": 5, "weight": 2}
+    {"file": "tests/random/testuvania_stroich_lvl1.json", "count": 20, "weight": 1},
+    {"file": "tests/random/testuvania_stroich_lvl2.json", "count": 5, "weight": 2},
+    {"file": "tests/random/testuvania_stroich_lvl3.json", "count": 5, "weight": 2}
   ]
 }
