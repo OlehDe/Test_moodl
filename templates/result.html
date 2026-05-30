@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Результат – {{ test.title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 12px 0;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -56,6 +73,11 @@
                                 {% if user_answer and user_answer is mapping %}✅ Правильно{% else %}❌ Помилка{% endif %}
                             </span>
                         </div>
+                        {% if q.code %}
+                        <div class="code-block">
+                            <pre><code>{{ q.code.strip() }}</code></pre>
+                        </div>
+                        {% endif %}
                         <table class="matching-review-table">
                             <tr><th>Слово</th><th>Ваша відповідь</th><th>Правильно</th></tr>
                             {% for pair in q.pairs %}
@@ -76,6 +98,11 @@
                                 {% if user_answer is none %}⚠️ Не відповіли{% elif is_correct %}✅ Правильно{% else %}❌ Помилка{% endif %}
                             </span>
                         </div>
+                        {% if q.code %}
+                        <div class="code-block">
+                            <pre><code>{{ q.code.strip() }}</code></pre>
+                        </div>
+                        {% endif %}
                         <p>Ваша відповідь:
                             {% if user_answer is not none %}
                                 {% if qtype == 'multiple_choice' %}

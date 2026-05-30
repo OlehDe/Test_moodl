@@ -1241,7 +1241,8 @@
     {
       "id": 104,
       "type": "single_choice",
-      "text": "Розгляньте наступну програму:\nclass Q6 {\n  public static void main(String args[]) {\n    Holder h = new Holder();\n    h.held = 100;\n    h.bump(h);\n    System.out.println(h.held);\n  }\n}\nclass Holder {\n  public int held;\n  public void bump(Holder theHolder) {\n    theHolder.held++;\n  }\n}\nЯке значення буде надруковано в рядку 6?",
+      "text": "Розгляньте наступну програму. Яке значення буде надруковано в рядку 6?",
+      "code": "class Q6 {\n    public static void main(String args[]) {\n        Holder h = new Holder();\n        h.held = 100;\n        h.bump(h);\n        System.out.println(h.held);  // рядок 6\n    }\n}\nclass Holder {\n    public int held;\n    public void bump(Holder theHolder) {\n        theHolder.held++;\n    }\n}",
       "options": [
         "0",
         "1",
@@ -1313,7 +1314,8 @@
     {
       "id": 110,
       "type": "single_choice",
-      "text": "Дано:\npublic class Foozit {\n  public static void main(String[] args) {\n    Integer x = 0;\n    Integer y = 0;\n    for(Short z = 0; z < 5; z++)\n      if((++x > 2) || (++y > 2))\n        x++;\n    System.out.println(x + \" \" + y);\n  }\n}\nЯким буде результат?",
+      "text": "Яким буде результат виконання програми?",
+      "code": "public class Foozit {\n    public static void main(String[] args) {\n        Integer x = 0;\n        Integer y = 0;\n        for (Short z = 0; z < 5; z++)\n            if ((++x > 2) || (++y > 2))\n                x++;\n        System.out.println(x + \" \" + y);\n    }\n}",
       "options": [
         "5 1",
         "8 1",
