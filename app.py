@@ -4,6 +4,7 @@ import random
 import copy
 from glob import glob
 from flask import Flask, render_template, request, session, url_for, jsonify
+from markupsafe import Markup
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
@@ -80,6 +81,35 @@ def index():
                            random_tests=random_tests)
 
 
+# ---------------------------------------------------------------------------
+# Підтримка картинок (<img ...>) у питаннях і варіантах відповідей
+# ---------------------------------------------------------------------------
+
+def _mark_html(value):
+    """Рядки, що починаються з <img, позначає як безпечний HTML (Markup),
+    щоб Jinja не екранувала теги й картинка відображалась.
+    Подвійні лапки міняє на одинарні, щоб рядок можна було вставляти
+    і в текст, і в атрибут value="..." без поломки розмітки."""
+    if isinstance(value, str) and value.lstrip().startswith('<img'):
+        return Markup(value.replace('"', "'"))
+    return value
+
+
+def _mark_questions(data):
+    """Проходить по всіх питаннях і позначає HTML-картинки як безпечні."""
+    for q in data.get('questions', []):
+        if 'text' in q:
+            q['text'] = _mark_html(q['text'])
+        if isinstance(q.get('options'), list):
+            q['options'] = [_mark_html(o) for o in q['options']]
+        c = q.get('correct')
+        if isinstance(c, list):
+            q['correct'] = [_mark_html(x) for x in c]
+        else:
+            q['correct'] = _mark_html(c)
+    return data
+
+
 def _load_json_file(rel_path):
     norm_path = os.path.normpath(rel_path)
     abs_path = os.path.abspath(norm_path)
@@ -94,7 +124,7 @@ def _load_json_file(rel_path):
     if not os.path.isfile(norm_path):
         raise FileNotFoundError(f"Файл не знайдено: {norm_path}")
     with open(norm_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+        return _mark_questions(json.load(f))
 
 
 def _is_meta_test(test_data):
@@ -148,10 +178,8 @@ def _rebuild_from_recipe(recipe):
     for idx, q in enumerate(questions, start=1):
         q['id'] = idx
 
-    # Збираємо налаштування з першого джерела? Але нам потрібні title, passing_score тощо.
-    # Оскільки ми відновлюємо вже після того, як тест був створений, ми можемо зберегти метадані в сесії.
-    # Але для простоти повернемо лише питання; заголовок тощо візьмемо з сесії або з файлу.
-    # Насправді, нам для перевірки потрібні лише питання. Тому передамо лише словник з questions.
+    # Для перевірки потрібні лише питання; метадані беруться з meta-файлу
+    # у get_current_test().
     return {'questions': questions}
 
 
@@ -173,7 +201,8 @@ def prepare_test_for_display(test_data):
             random.shuffle(q['options'])
         if qtype == 'matching':
             random.shuffle(q['pairs'])
-            rights = list({p['right'] for p in q['pairs']})
+            # distractors — зайві праві варіанти без пари (необов'язкове поле)
+            rights = list({p['right'] for p in q['pairs']} | set(q.get('distractors', [])))
             random.shuffle(rights)
             q['shuffled_rights'] = rights
     # Не показуємо recipe клієнту
@@ -190,10 +219,8 @@ def get_current_test():
     if recipe:
         # Відновлюємо питання за рецептом
         rebuilt = _rebuild_from_recipe(recipe)
-        # Потрібні також метадані (title, passing_score, max_score тощо)
-        # Завантажимо оригінальний meta-файл лише заради заголовка та налаштувань
+        # Метадані (title, passing_score, max_score) беремо з оригінального meta-файлу
         meta_data = _load_json_file(filename)
-        # Додаємо налаштування, якщо вони є
         full_test = {
             'title': meta_data.get('title', 'Test'),
             'questions': rebuilt['questions'],
@@ -237,12 +264,14 @@ def submit_test(filename):
 
         if qtype == 'single_choice':
             selected = request.form.get(f'q{qid}')
-            user_answers[qid] = selected
+            # Відповідь з форми — звичайний рядок; позначаємо як HTML,
+            # якщо це картинка, щоб у результатах вона теж відобразилась
+            user_answers[qid] = _mark_html(selected)
             if selected and correct_value and selected.strip() == correct_value.strip():
                 score += weight
         elif qtype == 'multiple_choice':
             selected_list = request.form.getlist(f'q{qid}')
-            user_answers[qid] = selected_list
+            user_answers[qid] = [_mark_html(s) for s in selected_list]
             if correct_value and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
                 score += weight
         elif qtype == 'open_text':
@@ -265,7 +294,7 @@ def submit_test(filename):
                 score += weight
         elif qtype == 'multi_select':
             selected_list = request.form.getlist(f'q{qid}')
-            user_answers[qid] = selected_list
+            user_answers[qid] = [_mark_html(s) for s in selected_list]
             select_count = question.get('select_count', len(correct_value) if correct_value else 0)
             if correct_value and len(selected_list) == select_count \
                     and set(s.strip() for s in selected_list) == set(s.strip() for s in correct_value):
@@ -341,6 +370,7 @@ def check_answer(filename, question_id):
             is_correct = True
         correct_value = ', '.join(correct_value) if correct_value else ''
 
+    # Markup — підклас str, тому jsonify віддає його як звичайний рядок з тегом <img>
     return jsonify({
         'correct': is_correct,
         'user_answer': user_answer,
