@@ -9,6 +9,12 @@ from markupsafe import Markup
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
 # Забороняємо кешування, щоб браузер не зберігав старі відповіді
 @app.after_request
 def add_no_cache(response):
