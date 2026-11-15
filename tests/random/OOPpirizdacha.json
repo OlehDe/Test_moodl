@@ -1,0 +1,1349 @@
+{
+  "title": "ООП (Java) – тест",
+  "category": "ООП",
+  "setting": "random",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single_choice",
+      "text": "Чим характеризуються об'єкти?",
+      "options": [
+        "Методами",
+        "Функціями",
+        "Модифікаторами доступу",
+        "Атрибутами"
+      ],
+      "correct": "Атрибутами"
+    },
+    {
+      "id": 2,
+      "type": "single_choice",
+      "text": "Яке слово найчастіше використовують замість слова \"метод\"?",
+      "options": [
+        "Змінна",
+        "Конструктор",
+        "Програма",
+        "Функція"
+      ],
+      "correct": "Функція"
+    },
+    {
+      "id": 3,
+      "type": "single_choice",
+      "text": "<img src='/static/img/oop/composition.png' alt='Схема: A містить B і C, C містить D і E' style='display:block;width:100%;max-width:560px;height:auto;margin:10px 0;background:#fff;border:1px solid #ccc;border-radius:6px;padding:6px;'>Що зображено на малюнку?",
+      "options": [
+        "Композиція",
+        "Наслідування",
+        "Поліморфізм",
+        "Типізація"
+      ],
+      "correct": "Композиція"
+    },
+    {
+      "id": 4,
+      "type": "single_choice",
+      "text": "<img src='/static/img/oop/inheritance.png' alt='Схема: A, від нього B і C, від C — D і E' style='display:block;width:100%;max-width:480px;height:auto;margin:10px 0;background:#fff;border:1px solid #ccc;border-radius:6px;padding:6px;'>Що зображено на малюнку?",
+      "options": [
+        "Композиція",
+        "Наслідування",
+        "Поліморфізм",
+        "Типізація"
+      ],
+      "correct": "Наслідування"
+    },
+    {
+      "id": 5,
+      "type": "single_choice",
+      "text": "Яка абстракція найбільш високорівнева?",
+      "options": [
+        "Об'єкт",
+        "Метод",
+        "Змінна",
+        "Атрибут"
+      ],
+      "correct": "Об'єкт"
+    },
+    {
+      "id": 6,
+      "type": "single_choice",
+      "text": "За допомогою якої команди відбувається створення об'єкта?",
+      "options": [
+        "new",
+        "add",
+        "put",
+        "select"
+      ],
+      "correct": "new"
+    },
+    {
+      "id": 7,
+      "type": "single_choice",
+      "text": "Які конструкції може наслідувати клас?",
+      "options": [
+        "Класи",
+        "Інтерфейси",
+        "Об'єкти",
+        "Методи"
+      ],
+      "correct": "Класи"
+    },
+    {
+      "id": 8,
+      "type": "single_choice",
+      "text": "Що з переліченого НЕ відноситься до циклу?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "for-each"
+      ],
+      "correct": "if"
+    },
+    {
+      "id": 9,
+      "type": "single_choice",
+      "text": "На базі якої конструкції можна створити об'єкт?",
+      "options": [
+        "Класу",
+        "Інтерфейсу",
+        "Абстрактного класу",
+        "Процедури"
+      ],
+      "correct": "Класу"
+    },
+    {
+      "id": 10,
+      "type": "single_choice",
+      "text": "Які конструкції може реалізовувати клас?",
+      "options": [
+        "Класи",
+        "Інтерфейси",
+        "Об'єкти",
+        "Методи"
+      ],
+      "correct": "Інтерфейси"
+    },
+    {
+      "id": 11,
+      "type": "single_choice",
+      "text": "За допомогою якої конструкції відбувається створення об'єкта?",
+      "options": [
+        "Конструктора",
+        "Деструктора",
+        "Функції",
+        "Процедури"
+      ],
+      "correct": "Конструктора"
+    },
+    {
+      "id": 12,
+      "type": "single_choice",
+      "text": "Яку кількість об'єктів можна створити на базі одного класу?",
+      "options": [
+        "∞ - безліч",
+        "1",
+        "10",
+        "1000"
+      ],
+      "correct": "∞ - безліч"
+    },
+    {
+      "id": 13,
+      "type": "single_choice",
+      "text": "За допомогою якого механізму відбувається доступ до об'єкта?",
+      "options": [
+        "Адрес",
+        "Типів даних",
+        "Копій",
+        "Процедур"
+      ],
+      "correct": "Адрес"
+    },
+    {
+      "id": 14,
+      "type": "single_choice",
+      "text": "За яких умов об'єкти, створені на базі одного класу, можуть бути рівними?",
+      "options": [
+        "Об'єкти, створені на базі одного класу, завжди будуть рівними",
+        "У випадку перевизначення методу equals",
+        "У випадку їх створення в одному блоці коду",
+        "Якщо при створенні такого об'єкта передаємо параметр \"equals:true\""
+      ],
+      "correct": "У випадку перевизначення методу equals"
+    },
+    {
+      "id": 15,
+      "type": "single_choice",
+      "text": "Скільки конструкторів містить клас по замовчуванню?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    {
+      "id": 16,
+      "type": "single_choice",
+      "text": "Який модифікатор доступу присвоюється змінній по замовчуванню?",
+      "options": [
+        "Default (package-private)",
+        "Private",
+        "Protected",
+        "Public"
+      ],
+      "correct": "Default (package-private)"
+    },
+    {
+      "id": 17,
+      "type": "single_choice",
+      "text": "Яка максимальна кількість випадків (cases) передбачена в одному операторі if?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "0"
+      ],
+      "correct": "2"
+    },
+    {
+      "id": 18,
+      "type": "single_choice",
+      "text": "Який з циклів НЕ дозволяє модифікувати елементи перебору?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "for-each"
+      ],
+      "correct": "for-each"
+    },
+    {
+      "id": 19,
+      "type": "single_choice",
+      "text": "Коли відбувається безпечний кастинг?",
+      "options": [
+        "Перетворення з базового класу в дочірній клас",
+        "Перетворення з базового класу в батьківський клас",
+        "Перетворення з базового класу в братерський клас",
+        "Перетворення з батьківського класу в дочірній клас"
+      ],
+      "correct": "Перетворення з базового класу в батьківський клас"
+    },
+    {
+      "id": 20,
+      "type": "single_choice",
+      "text": "Який клас знаходиться найвище в ієрархії Java?",
+      "options": [
+        "Main",
+        "Object",
+        "Father"
+      ],
+      "correct": "Object"
+    },
+    {
+      "id": 21,
+      "type": "single_choice",
+      "text": "Розгляньте наступну програму. Яке значення буде надруковано?",
+      "options": [
+        "0",
+        "1",
+        "100",
+        "101"
+      ],
+      "correct": "101",
+      "code": "class Q6 {\n    public static void main(String args[]) {\n        Holder h = new Holder();\n        h.held = 100;\n        h.bump(h);\n        System.out.println(h.held);\n    }\n}\n\nclass Holder {\n    public int held;\n    public void bump(Holder theHolder) {\n        theHolder.held++;\n    }\n}"
+    },
+    {
+      "id": 22,
+      "type": "single_choice",
+      "text": "Розгляньте наступну програму. Яке значення буде надруковано?",
+      "options": [
+        "0.0",
+        "1.0",
+        "12.3",
+        "11.3"
+      ],
+      "correct": "12.3",
+      "code": "class Q7 {\n    public static void main(String args[]) {\n        double d = 12.3;\n        Decrementer dec = new Decrementer();\n        dec.decrement(d);\n        System.out.println(d);\n    }\n}\n\nclass Decrementer {\n    public void decrement(double decMe) {\n        decMe = decMe - 1.0;\n    }\n}"
+    },
+    {
+      "id": 23,
+      "type": "single_choice",
+      "text": "Що відбудеться, коли ви спробуєте скомпілювати і запустити код, поданий нижче?",
+      "options": [
+        "The code does not compile",
+        "The code compiles, and prints out >>s<<",
+        "The code compiles, and prints out >><<",
+        "The code compiles, and prints out >>null<<"
+      ],
+      "correct": "The code compiles, and prints out >>null<<",
+      "code": "public class Q15 {\n    static String s;\n    public static void main(String[] args) {\n        System.out.println(\">>\" + s + \"<<\");\n    }\n}"
+    },
+    {
+      "id": 24,
+      "type": "single_choice",
+      "text": "Який вираз з поданих нижче є правильним?",
+      "options": [
+        "char c = 1L;",
+        "char c = \\u1234;",
+        "char c = '\\u1234';",
+        "char c = \"\\u1234\";"
+      ],
+      "correct": "char c = '\\u1234';"
+    },
+    {
+      "id": 25,
+      "type": "single_choice",
+      "text": "Яка назва є коректною?",
+      "options": [
+        "$char1MyNumber",
+        "case",
+        "null"
+      ],
+      "correct": "$char1MyNumber"
+    },
+    {
+      "id": 26,
+      "type": "single_choice",
+      "text": "Розгляньте оголошення: boolean iKnow;\nЯким значенням буде автоматично проініціалізована змінна iKnow?",
+      "options": [
+        "True",
+        "0",
+        "null",
+        "False"
+      ],
+      "correct": "False"
+    },
+    {
+      "id": 27,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Яким буде результат?",
+      "options": [
+        "The value of luckyNumber::.",
+        "The value of luckyNumber: 1.25.",
+        "Цей уривок коду не буде скомпільовано.",
+        "Цей уривок коду буде скомпільовано, але виникне помилка під час виконання."
+      ],
+      "correct": "Цей уривок коду не буде скомпільовано.",
+      "code": "float luckyNumber = 1.25;\nSystem.out.println(\"The value of luckyNumber: \" + luckyNumber);"
+    },
+    {
+      "id": 28,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма?",
+      "options": [
+        "y= 42 b= 48",
+        "y= 48 b= 48",
+        "y= 48 b= 42",
+        "y= 42 b= 42"
+      ],
+      "correct": "y= 42 b= 48",
+      "code": "public class Unary {\n    public static void main(String[] args) {\n        int x = 7;\n        int y = 6 * x++;\n        System.out.println(\" y= \" + y);\n        int a = 7;\n        int b = 6 * ++a;\n        System.out.println(\" b= \" + b);\n    }\n}"
+    },
+    {
+      "id": 29,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Яким буде значення змінної x після його виконання?",
+      "options": [
+        "13",
+        "14",
+        "15",
+        "Виникне помилка на стадії компіляції."
+      ],
+      "correct": "14",
+      "code": "int x;\nint a = 5;\nint b = 8;\nx = ++a + b++;"
+    },
+    {
+      "id": 30,
+      "type": "single_choice",
+      "text": "Який з виразів є допустимим?",
+      "options": [
+        "int x = 9; int y = !x;",
+        "double z = 9.00 >> 2;",
+        "int i = ^7;",
+        "int i = ~7;"
+      ],
+      "correct": "int i = ~7;"
+    },
+    {
+      "id": 31,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма?",
+      "options": [
+        "z: 42",
+        "z: 48",
+        "Код не буде скомпільовано через помилку в 4 рядочку.",
+        "Код буде скомпільовано, але виникне помилка на стадії виконання (runtime error)."
+      ],
+      "correct": "Код не буде скомпільовано через помилку в 4 рядочку.",
+      "code": "1. public class Unary {\n2.     public static void main(String[] args) {\n3.         byte x = 7;\n4.         byte y = 6 * x++;\n5.         byte z = x * y;\n6.         System.out.println(\"z: \" + z);\n7.     }\n8. }"
+    },
+    {
+      "id": 32,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма?",
+      "options": [
+        "-1",
+        "1",
+        "4.5",
+        "4"
+      ],
+      "correct": "1",
+      "code": "int x = 9;\nint y = -2;\nSystem.out.println(\"output: \" + x % y);"
+    },
+    {
+      "id": 33,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Який результат виведе програма?",
+      "options": [
+        "24",
+        "29",
+        "21",
+        "13"
+      ],
+      "correct": "13",
+      "code": "1. public class Question {\n2.     static byte x;\n3.     public static void main(String[] args) {\n4.         byte y = 13;\n5.         int z = x + y;\n6.         System.out.println(z);\n7.     }\n8. }"
+    },
+    {
+      "id": 34,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма? (рядки виводу розділені знаком «/»)",
+      "options": [
+        "First if, value of k: 14 / Out of if, k: 13",
+        "First if, value of k: 15 / Out of if, k: 14",
+        "First if, value of k: 15 / Out of if, k: 13",
+        "First if, value of k: 15 / Out of if, k: 15"
+      ],
+      "correct": "First if, value of k: 15 / Out of if, k: 14",
+      "code": "1.  public class LogicTest {\n2.      public static void main(String[] args) {\n3.          int i = 5;\n4.          int j = 10;\n5.          int k = 15;\n6.          if ((i < j) || (k-- > j)) {\n7.              System.out.println(\"First if, value of k: \" + k);\n8.          }\n9.          if ((i < j) && (--k < j)) {\n10.             System.out.println(\"Second if, value of k: \" + k);\n11.         }\n12.         System.out.println(\"Out of if, k:\" + k);\n13.     }\n14. }"
+    },
+    {
+      "id": 35,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма? (рядки виводу розділені знаком «/»)",
+      "options": [
+        "First if, value of k: 14 / Out of if, k: 13",
+        "First if, value of k: 15 / Out of if, k: 14",
+        "First if, value of k: 15 / Out of if, k: 13",
+        "First if, value of k: 15 / Out of if, k: 15"
+      ],
+      "correct": "First if, value of k: 15 / Out of if, k: 15",
+      "code": "1.  public class LogicTest {\n2.      public static void main(String[] args) {\n3.          int i = 5;\n4.          int j = 10;\n5.          int k = 15;\n6.          if ((i < j) || (k-- > j)) {\n7.              System.out.println(\"First if, value of k: \" + k);\n8.          }\n9.          if ((i > j) && (--k < j)) {\n10.             System.out.println(\"Second if, value of k: \" + k);\n11.         }\n12.         System.out.println(\"Out of if, k:\" + k);\n13.     }\n14. }"
+    },
+    {
+      "id": 36,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Що виведе програма?",
+      "options": [
+        "В рядку 4 виникне помилка компіляції",
+        "3",
+        "4",
+        "2",
+        "99"
+      ],
+      "correct": "99",
+      "code": "1. class CodeWalkOne {\n2.     public static void main(String[] args) {\n3.         int[] counts = {1, 2, 3, 4, 5};\n4.         counts[1] = (counts[2] == 2) ? counts[3] : 99;\n5.         System.out.println(counts[1]);\n6.     }\n7. }"
+    },
+    {
+      "id": 37,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Які значення змінних \"i\" та \"n\" будуть після його виконання?",
+      "options": [
+        "i = 10; n = 0",
+        "i = 10; n = 1",
+        "i = 11; n = 0",
+        "i = 11; n = 2"
+      ],
+      "correct": "i = 11; n = 0",
+      "code": "int i = 10;\nint n = i++ % 5;"
+    },
+    {
+      "id": 38,
+      "type": "single_choice",
+      "text": "Визначте тип оператора, поданого нижче:",
+      "options": [
+        "Оператор присвоювання",
+        "Оператор інкременту",
+        "Виклик методу",
+        "Створення об'єкту"
+      ],
+      "correct": "Оператор присвоювання",
+      "code": "aValue = 8933.234;"
+    },
+    {
+      "id": 39,
+      "type": "single_choice",
+      "text": "Визначте тип оператора, поданого нижче:",
+      "options": [
+        "Оператор присвоювання",
+        "Оператор інкременту",
+        "Виклик методу",
+        "Створення об'єкту"
+      ],
+      "correct": "Оператор інкременту",
+      "code": "aValue++;"
+    },
+    {
+      "id": 40,
+      "type": "single_choice",
+      "text": "Визначте тип оператора, поданого нижче:",
+      "options": [
+        "Оператор присвоювання",
+        "Оператор інкременту",
+        "Виклик методу",
+        "Створення об'єкту"
+      ],
+      "correct": "Виклик методу",
+      "code": "System.out.println(\"Hello World!\");"
+    },
+    {
+      "id": 41,
+      "type": "single_choice",
+      "text": "Визначте тип оператора, поданого нижче:",
+      "options": [
+        "Оператор присвоювання",
+        "Оператор інкременту",
+        "Виклик методу",
+        "Створення об'єкту"
+      ],
+      "correct": "Створення об'єкту",
+      "code": "Bicycle myBike = new Bicycle();"
+    },
+    {
+      "id": 42,
+      "type": "single_choice",
+      "text": "Позначте НЕправильне твердження.",
+      "options": [
+        "Абстрактний клас (abstract class) повинен мати хоча б один абстрактний метод (abstract method).",
+        "Абстрактний клас (abstract class) може містити статичні методи.",
+        "Клас, що оголошено з модифікатором final, не може мати абстрактний метод (abstract method).",
+        "Базовий клас (що стоїть вище по ієрархії наслідування) не може бути оголошений як private."
+      ],
+      "correct": "Абстрактний клас (abstract class) повинен мати хоча б один абстрактний метод (abstract method)."
+    },
+    {
+      "id": 43,
+      "type": "single_choice",
+      "text": "Яке твердження про модифікатор static є правильним?",
+      "options": [
+        "Статична змінна не може змінювати своє значення.",
+        "Статичний метод не може бути перевизначений (override) таким чином, щоб стати нестатичним.",
+        "Статичний метод часто написано іншою (non-Java) мовою програмування і існує поза межами JVM.",
+        "Статичний код лежить поза межами будь-якого класу."
+      ],
+      "correct": "Статичний метод не може бути перевизначений (override) таким чином, щоб стати нестатичним."
+    },
+    {
+      "id": 44,
+      "type": "single_choice",
+      "text": "Розгляньте наступний код. Яке твердження про цей код є правильним?",
+      "options": [
+        "Код буде скомпільовано і після запуску буде виведено: From the subclass!",
+        "Код буде скомпільовано і після запуску буде виведено: From the super class!",
+        "В рядку 7 буде помилка компіляції.",
+        "В рядку 11 буде помилка компіляції."
+      ],
+      "correct": "В рядку 7 буде помилка компіляції.",
+      "code": "1.  class MySuperClass {\n2.      public void message() {\n3.          System.out.println(\"From the super class!\");\n4.      }\n5.  }\n6.  public class MySubClass extends MySuperClass {\n7.      void message() {\n8.          System.out.println(\"From the subclass!\");\n9.      }\n10.     public static void main(String args[]) {\n11.         MySubClass mysub = new MySubClass();\n12.         mysub.message();\n13.     }\n14. }"
+    },
+    {
+      "id": 45,
+      "type": "single_choice",
+      "text": "Розгляньте наступний фрагмент коду. Яке з тверджень про цей код є правильним?",
+      "options": [
+        "Код буде скомпільовано і виконано без помилок, і він виведе Value of j: 15.",
+        "В рядку 3 виникне помилка компіляції.",
+        "Код буде скомпільовано, але виникне помилка під час виконання.",
+        "В рядку 7 виникне помилка компіляції."
+      ],
+      "correct": "В рядку 3 виникне помилка компіляції.",
+      "code": "1.  class MyClass {\n2.      public void message(int i) {\n3.          public int j = i;\n4.          System.out.println(\"Value of j: \" + j);\n5.      }\n6.      public static void main(String[] args) {\n7.          MyClass ma = new MyClass();\n8.          ma.message(15);\n9.      }\n10. }"
+    },
+    {
+      "id": 46,
+      "type": "single_choice",
+      "text": "Розгляньте наступний фрагмент коду. Яким буде результат?",
+      "options": [
+        "false false",
+        "true true",
+        "false true",
+        "true false"
+      ],
+      "correct": "false true",
+      "code": "public class CodeWalkThree {\n    public static void main(String[] args) {\n        CodeWalkThree cw = new CodeWalkThree();\n        CodeWalkThree cw2 = new CodeWalkThree();\n        System.out.print(cw == cw2);\n        cw2 = operate(cw, cw2);\n        System.out.print(\" \" + (cw == cw2));\n    }\n\n    static CodeWalkThree operate(CodeWalkThree cw1, CodeWalkThree cw2) {\n        CodeWalkThree cw3 = cw1;\n        cw1 = cw2;\n        return cw3;\n    }\n}"
+    },
+    {
+      "id": 47,
+      "type": "multi_select",
+      "text": "Розгляньте наступний фрагмент коду. Яким буде результат? (1 правильна відповідь)",
+      "options": [
+        "I am in the do block.",
+        "Виникне помилка компіляції в рядку 5.",
+        "Виникне помилка під час виконання.",
+        "Код буде скомпільовано і виконано, але не буде нічого виведено в результаті."
+      ],
+      "correct": [
+        "I am in the do block."
+      ],
+      "select_count": 1,
+      "code": "1 int i = 0;\n2 do\n3 {\n4     System.out.println(\" I am in the do block.\");\n5 } while (i > 0);"
+    },
+    {
+      "id": 48,
+      "type": "multi_select",
+      "text": "Розгляньте наступний фрагмент коду. Які з поданих нижче рядків будуть частиною виводу цього коду? (1 правильна відповідь)",
+      "options": [
+        "Case 1",
+        "Case 3",
+        "Default",
+        "В рядку 2 виникне помилка компіляції."
+      ],
+      "correct": [
+        "В рядку 2 виникне помилка компіляції."
+      ],
+      "select_count": 1,
+      "code": "1  long i = 2;\n2  switch (i) {\n3      case 1:\n4          System.out.println(\"Case 1\");\n5      case 2:\n6          System.out.println(\"Case 2\");\n7      case 3:\n8          System.out.println(\"Case 3\");\n9      default:\n10         System.out.println(\"Default\");\n11 }"
+    },
+    {
+      "id": 49,
+      "type": "single_choice",
+      "text": "Розгляньте наступний фрагмент коду. Яким буде результат?",
+      "options": [
+        "I am in the do block.",
+        "Виникне помилка компіляції в рядку 2.",
+        "Виникне помилка під час виконання.",
+        "Код буде скомпільовано і виконано, але не буде нічого виведено."
+      ],
+      "correct": "Код буде скомпільовано і виконано, але не буде нічого виведено.",
+      "code": "1 int i = 0;\n2 while (i > 0)\n3 {\n4     System.out.println(\" I am in the do block.\");\n5 }"
+    },
+    {
+      "id": 50,
+      "type": "single_choice",
+      "text": "Розгляньте наступний фрагмент коду. Позначте правильне твердження.",
+      "options": [
+        "Програма виведе Case 2.",
+        "Програма виведе Case 2 потім Case 3.",
+        "Програма виведе Case 2 потім Case 3 потім Default.",
+        "В рядку 1 виникне помилка компіляції."
+      ],
+      "correct": "Програма виведе Case 2 потім Case 3 потім Default.",
+      "code": "1  int i = 1, j = 1;\n2  switch (i + j) {\n3      case 1:\n4          System.out.println(\"Case 1\");\n5      case 2:\n6          System.out.println(\"Case 2\");\n7      case 3:\n8          System.out.println(\"Case 3\");\n9      default:\n10         System.out.println(\"Default\");\n11 }"
+    },
+    {
+      "id": 51,
+      "type": "single_choice",
+      "text": "Розгляньте наступний фрагмент коду. Яким буде результат?",
+      "options": [
+        "Помилка компіляції.",
+        "k=7",
+        "k=8",
+        "k=9"
+      ],
+      "correct": "k=7",
+      "code": "1.  class RevQOne {\n2.      public static void main(String[] args) {\n3.          boolean i = true;\n4.          boolean j = false;\n5.          short k = 10;\n6.          if ((k == 10) && (j = true)) k--;\n7.          if ((i = false) || (k == 9))\n8.              k--;\n9.          k--;\n10.         System.out.println(\"k=\" + k);\n11.     }\n12. }"
+    },
+    {
+      "id": 52,
+      "type": "single_choice",
+      "text": "Який оператор з поданих нижче необхідно вставити в рядок 5, щоб програма вивела \"123\"?",
+      "options": [
+        "for (int[] i : myArray)",
+        "for (int i : myArray)",
+        "for (myArray : int i)",
+        "for (int I : myArray.iterator())"
+      ],
+      "correct": "for (int i : myArray)",
+      "code": "1. class RevQTwo {\n2.     static int[] myArray = new int[3];\n3.     public static void main(String[] args) {\n4.         myArray[0] = 1; myArray[1] = 2; myArray[2] = 3;\n5.         // вставте код\n6.             System.out.print(i);\n7.     }\n8. }"
+    },
+    {
+      "id": 53,
+      "type": "single_choice",
+      "text": "Розгляньте фрагмент коду. Яким буде результат?",
+      "options": [
+        "i=5 j=3 x=true y=false",
+        "i=6 j=4 x=false y=true",
+        "i=5 j=3 x=false y=true",
+        "Помилка компіляції в рядках 9 і 10."
+      ],
+      "correct": "i=5 j=3 x=false y=true",
+      "code": "1.  class CodeWalkFive {\n2.      public static void main(String[] args) {\n3.          boolean x = true;\n4.          boolean y = false;\n5.          int i = 1;\n6.          int j = 1;\n7.          if ((i++ == 1) && (y = true)) i++;\n8.          if ((++j == 1) && (x = false)) j++;\n9.          if ((x = false) || (++i == 4)) i++;\n10.         if ((y = true) || (++j == 4)) j++;\n11.         System.out.print(\"i=\" + i);\n12.         System.out.print(\" j=\" + j);\n13.         System.out.print(\" x=\" + x);\n14.         System.out.print(\" y=\" + y);\n15.     }\n16. }"
+    },
+    {
+      "id": 54,
+      "type": "single_choice",
+      "text": "Що виведе наступний уривок програми?",
+      "options": [
+        "message one",
+        "message two",
+        "message three",
+        "message four"
+      ],
+      "correct": "message four",
+      "code": "1.  int x = 0, y = 4, z = 5;\n2.  if (x > 2) {\n3.      if (y < 5) {\n4.          System.out.println(\"message one\");\n5.      }\n6.      else {\n7.          System.out.println(\"message two\");\n8.      }\n9.  }\n10. else if (z > 5) {\n11.     System.out.println(\"message three\");\n12. }\n13. else {\n14.     System.out.println(\"message four\");\n15. }"
+    },
+    {
+      "id": 55,
+      "type": "single_choice",
+      "text": "Яке твердження про наступний уривок коду є правильним?",
+      "options": [
+        "Код є неправильним через помилку в рядку 5.",
+        "Програма виведе текст value is two.",
+        "Програма виведе текст value is two, за ним виведе value is three.",
+        "Програма виведе value is two, за ним виведе value is three, за ним виведе value is 2."
+      ],
+      "correct": "Програма виведе текст value is two, за ним виведе value is three.",
+      "code": "1.  int j = 2;\n2.  switch (j) {\n3.      case 2:\n4.          System.out.println(\"value is two\");\n5.      case 2 + 1:\n6.          System.out.println(\"value is three\");\n7.          break;\n8.      default:\n9.          System.out.println(\"value is \" + j);\n10.         break;\n11. }"
+    },
+    {
+      "id": 56,
+      "type": "single_choice",
+      "text": "Нехай \"salaries\" — масив дійсних чисел (float[]). Позначте правильний оператор циклу, який дозволить обробити всі елементи масиву salaries.",
+      "options": [
+        "for (float f : salaries)",
+        "for (int i : salaries)",
+        "for (float f :: salaries)",
+        "for (int i :: salaries)"
+      ],
+      "correct": "for (float f : salaries)"
+    },
+    {
+      "id": 57,
+      "type": "single_choice",
+      "text": "Позначте правильний оператор циклу.",
+      "options": [
+        "while (int a = 0) { /* whatever */ }",
+        "while (int a == 0) { /* whatever */ }",
+        "do { /* whatever */ } while (int a = 0)",
+        "for (int a = 0; a < 100; a++) { /* whatever */ }"
+      ],
+      "correct": "for (int a = 0; a < 100; a++) { /* whatever */ }"
+    },
+    {
+      "id": 58,
+      "type": "single_choice",
+      "text": "Дано клас. Яким буде результат?",
+      "options": [
+        "null",
+        "universe",
+        "everything",
+        "Помилка компіляції."
+      ],
+      "correct": "everything",
+      "code": "public class Hexy {\n    public static void main(String[] args) {\n        Integer i = 42;\n        String s = (i < 40) ? \"life\" : (i > 50) ? \"universe\" : \"everything\";\n        System.out.println(s);\n    }\n}"
+    },
+    {
+      "id": 59,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Який із запропонованих виразів можна вставити в рядок 5, щоб програма скомпілювалась?",
+      "options": [
+        "b = (Number instanceof s);",
+        "b = (s instanceof Short);",
+        "b = s.instanceof(Short);",
+        "b = s.instanceof(Object);"
+      ],
+      "correct": "b = (s instanceof Short);",
+      "code": "1 public class Example {\n2     public static void main(String[] args) {\n3         Short s = 15;\n4         Boolean b;\n5         // insert code here\n6     }\n7 }"
+    },
+    {
+      "id": 60,
+      "type": "single_choice",
+      "text": "Дано. Яким буде результат?",
+      "options": [
+        "5 1",
+        "8 1",
+        "8 2",
+        "10 3"
+      ],
+      "correct": "8 2",
+      "code": "public class Foozit {\n    public static void main(String[] args) {\n        Integer x = 0;\n        Integer y = 0;\n        for (Short z = 0; z < 5; z++)\n            if ((++x > 2) || (++y > 2))\n                x++;\n        System.out.println(x + \" \" + y);\n    }\n}"
+    },
+    {
+      "id": 61,
+      "type": "single_choice",
+      "text": "Дано. Яким буде результат?",
+      "options": [
+        "alpha",
+        "alpha beta",
+        "Помилка компіляції.",
+        "Порожній результат (нічого не буде виведено)."
+      ],
+      "correct": "Порожній результат (нічого не буде виведено).",
+      "code": "public class Titanic {\n    public static void main(String[] args) {\n        Boolean b1 = true;\n        boolean b2 = false;\n        boolean b3 = true;\n        if ((b1 & b2) | (b2 & b3) & b3)\n            System.out.print(\"alpha \");\n        if ((b1 = false) | (b1 & b3) | (b1 | b2))\n            System.out.print(\"beta \");\n    }\n}"
+    },
+    {
+      "id": 62,
+      "type": "single_choice",
+      "text": "Дано. Яким буде результат?",
+      "options": [
+        "72 foo47 4244foo",
+        "72 foo425 86foo",
+        "72 foo425 4244foo",
+        "Помилка компіляції."
+      ],
+      "correct": "72 foo425 86foo",
+      "code": "public class Feline {\n    public static void main(String[] args) {\n        Long x = 42L;\n        Long y = 44L;\n        System.out.print(\" \" + 7 + 2 + \" \");\n        System.out.print(foo() + x + 5 + \" \");\n        System.out.println(x + y + foo());\n    }\n\n    static String foo() { return \"foo\"; }\n}"
+    },
+    {
+      "id": 63,
+      "type": "single_choice",
+      "text": "Дано. Яким буде результат?",
+      "options": [
+        "2 1",
+        "2 2",
+        "4 1",
+        "4 2"
+      ],
+      "correct": "4 2",
+      "code": "public class Sixties {\n    public static void main(String[] args) {\n        int x = 5; int y = 7;\n        System.out.print(((y * 2) % x));\n        System.out.print(\" \" + (y % x));\n    }\n}"
+    },
+    {
+      "id": 64,
+      "type": "single_choice",
+      "text": "Розгляньте наступний програмний рядок. Яким буде результат?",
+      "options": [
+        "Виникне помилка компіляції.",
+        "Виникне помилка часу виконання.",
+        "Помилки відсутні",
+        "Втрата точності"
+      ],
+      "correct": "Виникне помилка компіляції.",
+      "code": "short s = 9L;"
+    },
+    {
+      "id": 65,
+      "type": "single_choice",
+      "text": "Яке твердження з поданих нижче правильне?",
+      "options": [
+        "Перетворення типів беззастережно (неявним чином) можна застосовувати тільки для примітивних типів, а не для посилань на об'єкти.",
+        "Перетворення типів явним чином можна застосовувати тільки для посилальних типів, а не для примітивних типів.",
+        "Приведення типів може використовуватись явним і неявним чином як до примітивних, так і до класових типів.",
+        "Приведення типів примітивів перевіряється тільки на стадії виконання."
+      ],
+      "correct": "Приведення типів може використовуватись явним і неявним чином як до примітивних, так і до класових типів."
+    },
+    {
+      "id": 66,
+      "type": "single_choice",
+      "text": "Розгляньте наступний програмний рядок. Яким буде результат?",
+      "options": [
+        "Виникне помилка компіляції.",
+        "Виникне помилка часу виконання.",
+        "Помилки відсутні",
+        "Втрата точності"
+      ],
+      "correct": "Помилки відсутні",
+      "code": "short s = 9;"
+    },
+    {
+      "id": 67,
+      "type": "single_choice",
+      "text": "Розгляньте наступний програмний рядок. Яким буде результат?",
+      "options": [
+        "Виникне помилка компіляції.",
+        "Виникне помилка часу виконання.",
+        "Помилки відсутні",
+        "Втрата точності"
+      ],
+      "correct": "Виникне помилка компіляції.",
+      "code": "byte b = 335;"
+    },
+    {
+      "id": 68,
+      "type": "single_choice",
+      "text": "Якщо поданий нижче код працює без помилок, які типи може мати змінна c?",
+      "options": [
+        "short, int, long, float, double",
+        "short, char, int, float, double",
+        "byte, short, int, long, float, double",
+        "int, long, float, double"
+      ],
+      "correct": "int, long, float, double",
+      "code": "byte a = 7;\nshort b = 3;\nc = a * ++b;"
+    },
+    {
+      "id": 69,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Оберіть правильне твердження про цей код.",
+      "options": [
+        "В рядку 10 виникне помилка компіляції, оскільки метод setStudentID(…) приймає в якості аргумента int, а не short.",
+        "Код буде скомпільовано, але виникне помилка на стадії виконання (throw an exception) в рядку 10.",
+        "Код буде скомпільовано і виконано без помилок, і в результаті буде виведено Student ID has been set to 420.",
+        "Виникне помилка компіляції в рядку 8."
+      ],
+      "correct": "Код буде скомпільовано і виконано без помилок, і в результаті буде виведено Student ID has been set to 420.",
+      "code": "1  class Student {\n2      private int studentId = 0;\n3      void setStudentID(int sid) {\n4          studentId = sid;\n5          System.out.println(\"Student ID has been set to \" + sid);\n6      }\n7      public static void main(String args[]) {\n8          short s = 420;\n9          Student st1 = new Student();\n10         st1.setStudentID(s);\n11     }\n12 }"
+    },
+    {
+      "id": 70,
+      "type": "single_choice",
+      "text": "Розгляньте уривок коду. Яке твердження про цей код є правильним?",
+      "options": [
+        "В рядку 9 виникне помилка компіляції.",
+        "В рядку 12 виникне помилка компіляції.",
+        "Помилка на стадії виконання (exception) виникне через помилку в рядку 11.",
+        "Код буде скомпільовано, виконано і в результаті виведе Student ID has been set to 420."
+      ],
+      "correct": "Код буде скомпільовано, виконано і в результаті виведе Student ID has been set to 420.",
+      "code": "1  class StudentProb {\n2      private int studentId = 0;\n3      void setStudentID(int sid) {\n4          studentId = sid;\n5          System.out.println(\"Student ID has been set to \" + sid);\n6      }\n7      public static void main(String args[]) {\n8          int i = 420;\n9          Object ob1;\n10         StudentProb st1 = new StudentProb();\n11         ob1 = st1;\n12         st1.setStudentID(i);\n13     }\n14 }"
+    },
+    {
+      "id": 71,
+      "type": "single_choice",
+      "text": "<img src='/static/img/oop/classroom_hierarchy.png' alt='Ієрархія: ClassRoom extends Room implements Facilities; Lab, LectureHall, Auditorium extend ClassRoom' style='display:block;width:100%;max-width:640px;height:auto;margin:10px 0;background:#fff;border:1px solid #ccc;border-radius:6px;padding:6px;'>Розгляньте ієрархію класів та фрагмент коду. Позначте правильне твердження про цей код.",
+      "options": [
+        "Код буде скомпільовано і виконано без помилок.",
+        "В рядку 5 виникне помилка компіляції, оскільки необхідно виконати явне приведення типів (cast).",
+        "В рядку 6 виникне помилка компіляції, оскільки необхідно виконати явне приведення (cast) типу Facilities до типу Auditorium.",
+        "Рядок 6 буде скомпільовано добре, але виникне помилка на стадії виконання."
+      ],
+      "correct": "В рядку 6 виникне помилка компіляції, оскільки необхідно виконати явне приведення (cast) типу Facilities до типу Auditorium.",
+      "code": "1. LectureHall lh = new LectureHall();\n2. Auditorium a1;\n3. Facilities f1;\n4.\n5. f1 = lh;\n6. a1 = f1;"
+    },
+    {
+      "id": 72,
+      "type": "single_choice",
+      "text": "<img src='/static/img/oop/classroom_hierarchy.png' alt='Ієрархія: ClassRoom extends Room implements Facilities; Lab, LectureHall, Auditorium extend ClassRoom' style='display:block;width:100%;max-width:640px;height:auto;margin:10px 0;background:#fff;border:1px solid #ccc;border-radius:6px;padding:6px;'>Розгляньте ієрархію класів та фрагмент коду. Позначте правильне твердження про цей код.",
+      "options": [
+        "Код буде скомпільовано і виконано без помилок.",
+        "В рядку 5 виникне помилка компіляції, оскільки необхідно виконати явне приведення типів (cast).",
+        "В рядку 6 виникне помилка компіляції, оскільки інтерфейс не може бути приведений до типу класу, що його реалізує.",
+        "Рядок 6 буде скомпільовано добре, але виникне помилка на стадії виконання."
+      ],
+      "correct": "Рядок 6 буде скомпільовано добре, але виникне помилка на стадії виконання.",
+      "code": "1. LectureHall lh = new LectureHall();\n2. Auditorium a1;\n3. Facilities f1;\n4.\n5. f1 = lh;\n6. a1 = (Auditorium) f1;"
+    },
+    {
+      "id": 73,
+      "type": "single_choice",
+      "text": "Який з уривків коду може перевизначити метод void xyz(float f)?",
+      "options": [
+        "public void xyz(float f)",
+        "private void xyz(float f)",
+        "public int xyz(float f)",
+        "private int xyz(float f)"
+      ],
+      "correct": "public void xyz(float f)"
+    },
+    {
+      "id": 74,
+      "type": "multi_select",
+      "text": "Які з поданих тверджень є правильними? (2 правильні відповіді)",
+      "options": [
+        "Наслідування представляє відношення типу «is-a» (це є)",
+        "Наслідування представляє відношення типу «has-a» (містить в собі, володіє)",
+        "Реалізація інтерфейсу представляє відношення типу «is-a».",
+        "Реалізація інтерфейсу представляє відношення типу «has-a»."
+      ],
+      "correct": [
+        "Наслідування представляє відношення типу «is-a» (це є)",
+        "Реалізація інтерфейсу представляє відношення типу «is-a»."
+      ],
+      "select_count": 2
+    },
+    {
+      "id": 75,
+      "type": "single_choice",
+      "text": "Дано наступний код. Який метод, вставлений в рядок 6, згенерує помилку?",
+      "options": [
+        "Flower getType() { return this; }",
+        "String getType() { return \"this\"; }",
+        "Plant getType() { return this; }",
+        "Tulip getType() { return new Tulip(); }"
+      ],
+      "correct": "String getType() { return \"this\"; }",
+      "code": "1. class Plant {\n2.     String getName() { return \"plant\"; }\n3.     Plant getType() { return this; }\n4. }\n5. class Flower extends Plant {\n6.     // insert code here\n7. }\n8. class Tulip extends Flower { }"
+    },
+    {
+      "id": 76,
+      "type": "single_choice",
+      "text": "Дано наступний код. Яке твердження є вірним?",
+      "options": [
+        "Woop is-a Hmpf and has-a Zing.",
+        "Zing is-a Woop and has-a Hmpf.",
+        "Hmpf has-a Woop and Woop is-a Zing.",
+        "Woop has-a Hmpf and Woop is-a Zing."
+      ],
+      "correct": "Woop has-a Hmpf and Woop is-a Zing.",
+      "code": "1. class Zing {\n2.     protected Hmpf h;\n3. }\n4. class Woop extends Zing { }\n5. class Hmpf { }"
+    },
+    {
+      "id": 77,
+      "type": "single_choice",
+      "text": "Дано наступний код. Який метод, вставлений в рядок 5, буде працювати без помилок?",
+      "options": [
+        "Programmer debug() { return this; }",
+        "Object debug() { return this; }",
+        "int debug() { return 1; }"
+      ],
+      "correct": "Programmer debug() { return this; }",
+      "code": "1. class Programmer {\n2.     Programmer debug() { return this; }\n3. }\n4. class SCJP extends Programmer {\n5.     // insert code here\n6. }"
+    },
+    {
+      "id": 78,
+      "type": "single_choice",
+      "text": "Дано наступний код. Який результат виконання програми?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correct": "9",
+      "code": "class Uber {\n    static int y = 2;\n    Uber(int x) { this(); y = y * 2; }\n    Uber() { y++; }\n}\n\nclass Minor extends Uber {\n    Minor() { super(y); y = y + 3; }\n    public static void main(String[] args) {\n        new Minor();\n        System.out.println(y);\n    }\n}"
+    },
+    {
+      "id": 79,
+      "type": "single_choice",
+      "text": "Розгляньте фрагмент коду. Який метод може бути коректно вставлений в рядок 5?",
+      "options": [
+        "public int myMethod(int i, double a) { return 0; }",
+        "public double myMethod(double b, int j) { return 0; }",
+        "public int myMethod(double... a, double b) { return 0; }",
+        "public int myMethod(double a, int i) { return 0; }"
+      ],
+      "correct": "public int myMethod(int i, double a) { return 0; }",
+      "code": "1. class MyClass {\n2.     public int myMethod(double a, int i) {\n3.         return 0;\n4.     }\n5.\n6. }"
+    },
+    {
+      "id": 80,
+      "type": "single_choice",
+      "text": "Парадигма – це:",
+      "options": [
+        "Сукупність узгоджених властивостей, правил та понять, що визначають стиль написання програми;",
+        "Це методологія розробки програмного забезпечення;",
+        "Сукупність змінних, методів, керуючих конструкцій та зв'язків між ними, що утворюють програму;",
+        "Множина правил, що регламентують процес розробки ПЗ;"
+      ],
+      "correct": "Сукупність узгоджених властивостей, правил та понять, що визначають стиль написання програми;"
+    },
+    {
+      "id": 81,
+      "type": "single_choice",
+      "text": "Абстракція – це:",
+      "options": [
+        "Виділення необхідних властивостей з досліджуваного об'єкта;",
+        "Сприйняття об'єкта через його вплив на програму;",
+        "Присвоєння певних властивостей досліджуваному об'єкту;",
+        "Комбінація команд, оформлених в блок коду;"
+      ],
+      "correct": "Виділення необхідних властивостей з досліджуваного об'єкта;"
+    },
+    {
+      "id": 82,
+      "type": "single_choice",
+      "text": "Що таке об'єкт в ООП?",
+      "options": [
+        "Копія (зліпок), створений на основі класу;",
+        "Конструкція, що відповідає за створення об'єктів;",
+        "Контейнер, що виконує певні дії та має інтерфейс для взаємодії;",
+        "Конструкція-контейнер, що містить змінні та методи і є основою для створення об'єктів;"
+      ],
+      "correct": "Копія (зліпок), створений на основі класу;"
+    },
+    {
+      "id": 83,
+      "type": "single_choice",
+      "text": "Клас в ООП – це?",
+      "options": [
+        "Конструкція-контейнер, що є основою для створення об'єктів;",
+        "Конструкція, що відповідає за створення об'єктів;",
+        "Різновид об'єкта;",
+        "Блок коду, що знаходиться після оголошення методу;"
+      ],
+      "correct": "Конструкція-контейнер, що є основою для створення об'єктів;"
+    },
+    {
+      "id": 84,
+      "type": "single_choice",
+      "text": "Метод – це (виберіть повну відповідь):",
+      "options": [
+        "\"Чорний ящик\", який виконує якісь дії",
+        "Копія (зліпок), створений на основі класу;",
+        "Контейнер, що виконує певні дії та має інтерфейс для взаємодії;",
+        "Конструкція-контейнер, що містить змінні та методи і є основою для створення об'єктів;"
+      ],
+      "correct": "Контейнер, що виконує певні дії та має інтерфейс для взаємодії;"
+    },
+    {
+      "id": 85,
+      "type": "single_choice",
+      "text": "Об'єкт характеризується…",
+      "options": [
+        "Станом та аномаліями;",
+        "Доступністю та станом;",
+        "Станом та поведінкою;",
+        "Доступністю та аномаліями;"
+      ],
+      "correct": "Станом та поведінкою;"
+    },
+    {
+      "id": 86,
+      "type": "single_choice",
+      "text": "Концепція – це:",
+      "options": [
+        "Копіювання властивостей батьківського класу;",
+        "Розглядання об'єкта через призму батьківського класу;",
+        "Система поглядів, незавершених (до кінця) та непідтверджених;",
+        "Це методологія розробки програмного забезпечення;"
+      ],
+      "correct": "Система поглядів, незавершених (до кінця) та непідтверджених;"
+    },
+    {
+      "id": 87,
+      "type": "single_choice",
+      "text": "Змінна – це:",
+      "options": [
+        "\"Чорний ящик\", який виконує якісь дії",
+        "Конструкція-контейнер, що містить змінні та методи і є основою для створення об'єктів;",
+        "Певна частина пам'яті, яка має назву та може зберігати різні значення;",
+        "Це методологія розробки програмного забезпечення;"
+      ],
+      "correct": "Певна частина пам'яті, яка має назву та може зберігати різні значення;"
+    },
+    {
+      "id": 88,
+      "type": "single_choice",
+      "text": "Що таке інкапсуляція в ООП?",
+      "options": [
+        "Процес створення об'єктів на базі класів.",
+        "Механізм \"приховування\" коду від зовнішнього світу.",
+        "Підхід до програмування, в якому усі елементи програми пов'язані між собою.",
+        "Механізм, який дозволяє одному класу наслідувати функціональність іншого."
+      ],
+      "correct": "Механізм \"приховування\" коду від зовнішнього світу."
+    },
+    {
+      "id": 89,
+      "type": "single_choice",
+      "text": "Поліморфізм – це?",
+      "options": [
+        "Механізм, що дозволяє приховати деталі реалізації від користувачів",
+        "Процес створення об'єктів",
+        "Наслідування від батьківського класу",
+        "Можливість сприймати дочірній об'єкт через призму батьківського класу"
+      ],
+      "correct": "Можливість сприймати дочірній об'єкт через призму батьківського класу"
+    },
+    {
+      "id": 90,
+      "type": "single_choice",
+      "text": "Який принцип ООП використовується для розв'язання проблеми дублювання коду?",
+      "options": [
+        "Принцип наслідування",
+        "Принцип поліморфізму",
+        "Принцип інкапсуляції",
+        "Принцип абстракції"
+      ],
+      "correct": "Принцип наслідування"
+    },
+    {
+      "id": 91,
+      "type": "single_choice",
+      "text": "Наслідування – це процес передачі властивостей:",
+      "options": [
+        "від батьківського класу до дочірнього класу;",
+        "від дочірнього класу до батьківського класу;",
+        "між двома класами, які не пов'язані між собою;",
+        "між двома класами, які пов'язані між собою;"
+      ],
+      "correct": "від батьківського класу до дочірнього класу;"
+    },
+    {
+      "id": 92,
+      "type": "single_choice",
+      "text": "Які основні переваги використання наслідування в програмуванні?",
+      "options": [
+        "Уникнення дублювання, додаткова гнучкість у використанні модифікаторів доступу, можливість застосувати поліморфізм;",
+        "Обмеження доступу до методів та властивостей батьківського класу в дочірньому класі, уникнення дублювання;",
+        "Забезпечення можливості створення об'єкта одного класу всередині іншого класу, можливість застосувати поліморфізм;",
+        "Забезпечення можливості передачі властивостей як від батьківського класу до дочірнього, так і в зворотньому порядку."
+      ],
+      "correct": "Уникнення дублювання, додаткова гнучкість у використанні модифікаторів доступу, можливість застосувати поліморфізм;"
+    },
+    {
+      "id": 93,
+      "type": "single_choice",
+      "text": "Яка різниця між агрегацією та композицією?",
+      "options": [
+        "В агрегації об'єкти двох класів незалежні, а в композиції – один клас є частиною іншого класу;",
+        "В агрегації один клас є батьківським класом для іншого класу, а в композиції – об'єкти двох класів незалежні;",
+        "В агрегації об'єкти двох класів зберігаються окремо, а в композиції – один об'єкт наслідує інший об'єкт;",
+        "В агрегації один клас є батьківським класом для іншого класу, а в композиції – один об'єкт наслідує інший об'єкт;"
+      ],
+      "correct": "В агрегації об'єкти двох класів незалежні, а в композиції – один клас є частиною іншого класу;"
+    },
+    {
+      "id": 94,
+      "type": "single_choice",
+      "text": "Які типи зв'язку можуть бути між класами?",
+      "options": [
+        "Наслідування, композиція та агрегація;",
+        "Наслідування, імплементація та інкапсуляція;",
+        "Залежність, імплементація та інкапсуляція;",
+        "Агрегація, залежність та наслідування;"
+      ],
+      "correct": "Наслідування, композиція та агрегація;"
+    },
+    {
+      "id": 95,
+      "type": "single_choice",
+      "text": "Дано наступне твердження: Bus is-a Car. За допомогою якого механізму пов'язані ці класи?",
+      "options": [
+        "extends;",
+        "implements;",
+        "composition;",
+        "encapsulation;"
+      ],
+      "correct": "extends;"
+    },
+    {
+      "id": 96,
+      "type": "single_choice",
+      "text": "Дано наступне твердження: Car has-a Engine. За допомогою якого механізму пов'язані ці класи?",
+      "options": [
+        "extends;",
+        "implements;",
+        "composition;",
+        "encapsulation;"
+      ],
+      "correct": "composition;"
+    },
+    {
+      "id": 97,
+      "type": "single_choice",
+      "text": "Статичні елементи належать…",
+      "options": [
+        "Об'єкту;",
+        "Методу;",
+        "Класу;",
+        "Конструктору;"
+      ],
+      "correct": "Класу;"
+    },
+    {
+      "id": 98,
+      "type": "single_choice",
+      "text": "Дано наступне твердження: Car is-a Vehicle, Bus is-a Car, Car has-a Engine and Car has-a Wheel. Яке твердження вірне?",
+      "options": [
+        "Wheel нащадок від Car;",
+        "Engine нащадок від Car;",
+        "Bus містить об'єкти Wheel та Engine;",
+        "Engine містить об'єкти Wheel та Car;"
+      ],
+      "correct": "Bus містить об'єкти Wheel та Engine;"
+    },
+    {
+      "id": 99,
+      "type": "single_choice",
+      "text": "Дано наступне твердження: Car is-a Vehicle, Bus is-a Car, Car has-a Engine and Car has-a Wheel. Яке твердження вірне?",
+      "options": [
+        "Wheel нащадок від Car;",
+        "Vehicle містить Car та Engine;",
+        "Car містить об'єкти Wheel та Engine;",
+        "Vehicle містить об'єкти Wheel та Engine;"
+      ],
+      "correct": "Car містить об'єкти Wheel та Engine;"
+    },
+    {
+      "id": 100,
+      "type": "single_choice",
+      "text": "Дано наступне твердження: Car is-a Vehicle, Bus is-a Car, Car has-a Engine and Car has-a Wheel. Яке твердження вірне?",
+      "options": [
+        "Engine містить об'єкти Wheel та Car;",
+        "Vehicle містить Car та Engine;",
+        "Car є нащадком Vehicle та батьком для Bus;",
+        "Vehicle містить об'єкти Wheel та Engine;"
+      ],
+      "correct": "Car є нащадком Vehicle та батьком для Bus;"
+    },
+    {
+      "id": 101,
+      "type": "single_choice",
+      "text": "Перевантаження методів – це?",
+      "options": [
+        "Створення декількох однакових методів;",
+        "Копіювання значень з одного методу в інший;",
+        "Створення декількох методів з однаковою назвою, але різною сигнатурою;",
+        "Явище, коли метод отримує даних більше, ніж здатен обробити;"
+      ],
+      "correct": "Створення декількох методів з однаковою назвою, але різною сигнатурою;"
+    },
+    {
+      "id": 102,
+      "type": "single_choice",
+      "text": "Сигнатура методу – це?",
+      "options": [
+        "Назва плюс параметри;",
+        "Назва та тіло методу;",
+        "Тип повертання, назва та тіло методу;",
+        "Тип повертання, ключове слово return та назва;"
+      ],
+      "correct": "Назва плюс параметри;"
+    },
+    {
+      "id": 103,
+      "type": "single_choice",
+      "text": "Якщо метод нічого не повертає, який тип повертання потрібно вказати в його оголошенні?",
+      "options": [
+        "string",
+        "int",
+        "void",
+        "return"
+      ],
+      "correct": "void"
+    },
+    {
+      "id": 104,
+      "type": "single_choice",
+      "text": "Який з методів перевантажує наведений нижче метод?",
+      "options": [
+        "void generator(){}",
+        "int generatorWishes(){}",
+        "int generatorWishes(int x){}",
+        "void generator(int y){}"
+      ],
+      "correct": "int generatorWishes(int x){}",
+      "code": "void generatorWishes(){}"
+    },
+    {
+      "id": 105,
+      "type": "single_choice",
+      "text": "Який з методів перевизначає наведений нижче метод?",
+      "options": [
+        "private int generatorWishes(int x){}",
+        "int generatorWishes(){}",
+        "public void generatorWishes(){}",
+        "void generatorWishes(int y){}"
+      ],
+      "correct": "public void generatorWishes(){}",
+      "code": "void generatorWishes(){}"
+    },
+    {
+      "id": 106,
+      "type": "single_choice",
+      "text": "Якщо змінна має властивість static, тоді…",
+      "options": [
+        "До неї можна звертатись тільки через створення об'єкта;",
+        "Її не можна модифікувати;",
+        "До неї можна звертатись через ім'я класу;",
+        "Вона є загальнодоступною для зовнішніх об'єктів;"
+      ],
+      "correct": "До неї можна звертатись через ім'я класу;"
+    },
+    {
+      "id": 107,
+      "type": "single_choice",
+      "text": "Якщо метод має тип повертання відмінний від void, тоді…",
+      "options": [
+        "В тілі метода має бути або ключове слово break, або continue;",
+        "Метод має приймати хоча б один параметр;",
+        "В тілі метода має бути ключове слово return;",
+        "Потрібно використовувати оператор back;"
+      ],
+      "correct": "В тілі метода має бути ключове слово return;"
+    }
+  ]
+}
